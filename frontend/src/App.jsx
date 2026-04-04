@@ -4,6 +4,7 @@ import RegisterPage from './pages/RegisterPage';
 import KingdomCreationPage from './pages/KingdomCreationPage';
 import DashboardPage from './pages/DashboardPage';
 import ResearchPage from './pages/ResearchPage';
+import AdminPage from './pages/AdminPage';
 import { authService } from './services/authService';
 
 // Componente para proteger rotas
@@ -30,6 +31,16 @@ function App() {
           element={
             <ProtectedRoute>
               <KingdomCreationPage />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Rota Protegida: Admin */}
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminPage />
             </ProtectedRoute>
           }
         />

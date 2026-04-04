@@ -66,6 +66,50 @@ class User {
       .where('id', id)
       .del();
   }
+
+  /**
+   * Lista todos os usuários
+   */
+  static async findAll() {
+    return db('users')
+      .select('id', 'username', 'email', 'role', 'created_at', 'updated_at')
+      .orderBy('created_at', 'desc');
+  }
+
+  /**
+   * Lista usuários por role
+   */
+  static async findByRole(role) {
+    return db('users')
+      .where('role', role)
+      .select('id', 'username', 'email', 'role', 'created_at', 'updated_at')
+      .orderBy('created_at', 'desc');
+  }
+
+  /**
+   * Verifica se é admin
+   */
+  static async isAdmin(userId) {
+    const user = await db('users')
+      .where('id', userId)
+      .select('role')
+      .first();
+    return user?.role === 'admin';
+  }
+
+  /**
+   * Define role do usuário
+   */
+  static async setRole(id, role) {
+    await db('users')
+      .where('id', id)
+      .update({
+        role: role,
+        updated_at: new Date(),
+      });
+
+    return this.findById(id);
+  }
 }
 
 module.exports = User;

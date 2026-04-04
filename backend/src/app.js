@@ -5,6 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const authRoutes = require('./routes/auth');
 const feudRoutes = require('./routes/feud');
+const adminRoutes = require('./routes/admin');
 const ProductionScheduler = require('./jobs/ProductionScheduler');
 const { initializeSocket } = require('./realtime/socketServer');
 
@@ -63,6 +64,7 @@ app.get('/health', (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/feud', feudRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Status endpoint para scheduler
 app.get('/api/admin/scheduler/status', (req, res) => {
