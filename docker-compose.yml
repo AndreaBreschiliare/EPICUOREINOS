@@ -46,7 +46,7 @@ services:
       redis:
         condition: service_healthy
     volumes:
-      - ./backend/src:/app/backend/src
+      - ./backend/src:/app/src
     command: npm run dev
 
   frontend:
