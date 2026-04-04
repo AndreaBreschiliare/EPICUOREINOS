@@ -1,0 +1,30 @@
+Tabela Final de Progressão de Cargos por Nível de Feudo (Versão Corrigida),,,
+Nível Mín. do Feudo,Cargo Genérico Desbloqueado,Pré-requisito de Construção (e Nível),Breve Descrição da Função Estratégica
+1,Líder do Reino,(Fundador),Governança total do feudo.
+1,Capataz,(Nomeado pelo Líder),Bônus geral para produção de recursos básicos.
+1,Vigia,(Nomeado pelo Líder),Bônus de defesa para as estruturas iniciais.
+1,Cidadão,(Status Automático),Contribuição passiva para a vitalidade do feudo.
+1,"Fazendeiro, Lenhador, Minerador",(Papéis Informais),"Funções básicas dos cidadãos, sem bônus de cargo."
+---,---,---,---
+2,Ferreiro,Forja (Nv. 1),"Especialista em metalurgia, concede bônus para crafting de metal."
+2,Carpinteiro,Marcenaria (Nv. 1),"Especialista em madeira, concede bônus para arcos e construções."
+2,Taverneiro,Taverna (Nv. 1),Gera renda passiva e aumenta a Moral do feudo.
+2,Domador de Animais,Estábulo (Nv. 1),Cuida e treina as montarias do feudo.
+2,Pesquisador,Biblioteca (Nv. 1),Acelera a pesquisa de novas tecnologias.
+2,Sacerdote,Igreja / Templo (Nv. 1),Concede bênçãos e bônus espirituais.
+---,---,---,---
+3,Conselheiro Geral,Salão do Conselho (Nv. 1),"Braço direito do líder, concede bônus de governança geral."
+3,Comandante Militar,Quartel (Nv. 1),"Organiza as forças armadas, desbloqueia unidades avançadas."
+3,Mestre das Moedas,Mercado (Nv. 2),"Otimiza a economia, aumenta a geração de impostos e renda."
+3,Médico,Hospital (Nv. 1),"Especialista em saúde, acelera a cura e previne doenças."
+3,Alquimista,Laboratório de Alquimia (Nv. 1),Mestre de poções e reagentes básicos.
+3,"Soldado, Batedor, Caçador",Quartel (Nv. 1),Formalização dos papéis militares com salários e bônus.
+---,---,---,---
+4,Engenheiro,Oficina de Cerco (Nv. 1),Especialista em construções defensivas e armas de cerco.
+4,Herbalista,Jardim Herbal (Upgrade do Lab. Nv. 2),Especialista em coleta e uso de plantas raras para a Alquimia.
+4,Mercador,Casa de Comércio (Nv. 1),Gerencia as caravanas do feudo e tratados comerciais.
+4,Ladrão,Guilda de Ladrões (Nv. 1),Agente de campo para missões de infiltração e sabotagem.
+---,---,---,---
+5,Espião,Câmara das Sombras (Upgrade da Guilda de Ladrões Nv. 2),Papel de elite focado em inteligência e contraespionagem.
+5,Carrasco / Inquisidor,Dungeon (Upgrade da Prisão Nv. 2),"Executor da justiça do Duque, mantém a ordem interna com poder."
+5,Assassino,(Cargo Secreto - Requer Câmara das Sombras),Designado pelo Líder para missões de eliminação de alto risco.

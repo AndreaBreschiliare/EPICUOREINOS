@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPIC UO - Mockup Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Alegreya:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-pergaminho: #E8D4B8;
+            --color-ouro: #D4A574;
+            --color-ouro-escuro: #8B6F47;
+            --color-bronze: #A0826D;
+            --color-estandarte: #2D5016;
+            --color-lacre: #8B3A3A;
+            --color-cinza-pedra: #4A4A4A;
+            --color-texto: #2C1810;
+            --color-fundo-escuro: #3D2817;
+            --shadow-medieval: 0 8px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: 'Alegreya', serif;
+            background: linear-gradient(135deg, #2C1810 0%, #3D2817 100%);
+            color: var(--color-texto);
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* HEADER / TOP NAV */
+        .header {
+            background: linear-gradient(to bottom, #4A4A4A, #3D2817);
+            border-bottom: 3px solid var(--color-ouro-escuro);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-medieval);
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--color-ouro);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .seals {
+            display: flex;
+            gap: 16px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .seal {
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 16px;
+            background: linear-gradient(to bottom, var(--color-pergaminho), #D4C4B0);
+            color: var(--color-texto);
+            border: 2px solid var(--color-ouro-escuro);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .seal:hover {
+            background: linear-gradient(to bottom, var(--color-ouro), #D4A574);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(212, 165, 116, 0.5);
+        }
+
+        .seal.active {
+            background: linear-gradient(to bottom, var(--color-estandarte), #1E3810);
+            color: var(--color-pergaminho);
+            border-color: var(--color-pergaminho);
+        }
+
+        .player-info {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            font-size: 12px;
+            color: var(--color-ouro);
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            display: grid;
+            grid-template-columns: 250px 1fr 300px;
+            grid-template-rows: 1fr 120px;
+            height: calc(100vh - 65px);
+            gap: 8px;
+            padding: 8px;
+        }
+
+        /* LEFT COLUMN - MAP */
+        .column-map {
+            grid-row: 1;
+            grid-column: 1;
+            background: linear-gradient(135deg, #5A4A3A 0%, #4A3A2A 100%);
+            border: 2px solid var(--color-ouro-escuro);
+            border-radius: 4px;
+            padding: 16px;
+            box-shadow: var(--shadow-medieval);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+        }
+
+        .map-section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-ouro);
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--color-bronze);
+            padding-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .map-placeholder {
+            background: linear-gradient(135deg, #3D2817 0%, #2C1810 100%);
+            border: 1px dashed var(--color-bronze);
+            border-radius: 4px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-bronze);
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        .feud-info {
+            background: rgba(212, 165, 116, 0.1);
+            border-left: 3px solid var(--color-ouro);
+            padding: 12px;
+            border-radius: 2px;
+            font-size: 12px;
+        }
+
+        .feud-info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            color: var(--color-pergaminho);
+        }
+
+        .feud-info-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .feud-info-label {
+            color: var(--color-ouro);
+            font-weight: 600;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* CENTER COLUMN - MANAGEMENT */
+        .column-center {
+            grid-row: 1;
+            grid-column: 2;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .panel {
+            background: linear-gradient(135deg, #5A4A3A 0%, #4A3A2A 100%);
+            border: 2px solid var(--color-ouro-escuro);
+            border-radius: 4px;
+            padding: 16px;
+            box-shadow: var(--shadow-medieval);
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--color-ouro), transparent);
+            opacity: 0.5;
+        }
+
+        .panel-title {
+            font-family: 'Cinzel', serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--color-ouro);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--color-bronze);
+            padding-bottom: 8px;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .resource-badge {
+            background: linear-gradient(135deg, var(--color-pergaminho) 0%, #D4C4B0 100%);
+            border: 2px solid var(--color-ouro-escuro);
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resource-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(212, 165, 116, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .resource-icon {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        .resource-name {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--color-texto);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .resource-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-estandarte);
+        }
+
+        .constructions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .construction-item {
+            background: rgba(212, 165, 116, 0.1);
+            border-left: 3px solid var(--color-ouro);
+            padding: 8px;
+            border-radius: 2px;
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .construction-name {
+            color: var(--color-pergaminho);
+            font-weight: 600;
+        }
+
+        .construction-progress {
+            color: var(--color-ouro);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+        }
+
+        /* RIGHT COLUMN - EVENTS */
+        .column-right {
+            grid-row: 1;
+            grid-column: 3;
+            background: linear-gradient(135deg, #5A4A3A 0%, #4A3A2A 100%);
+            border: 2px solid var(--color-ouro-escuro);
+            border-radius: 4px;
+            padding: 16px;
+            box-shadow: var(--shadow-medieval);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            overflow-y: auto;
+        }
+
+        .events-title {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-ouro);
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--color-bronze);
+            padding-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .event-item {
+            background: rgba(212, 165, 116, 0.08);
+            border-left: 3px solid;
+            padding: 8px;
+            border-radius: 2px;
+            font-size: 11px;
+            line-height: 1.4;
+            animation: slideIn 0.3s ease;
+        }
+
+        .event-item.success {
+            border-left-color: var(--color-estandarte);
+            color: #E8D4B8;
+        }
+
+        .event-item.alert {
+            border-left-color: var(--color-lacre);
+            color: #FFCCCC;
+        }
+
+        .event-item.info {
+            border-left-color: var(--color-ouro);
+            color: #E8D4B8;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .event-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--color-bronze);
+            margin-top: 4px;
+        }
+
+        /* BOTTOM ACTION BAR */
+        .action-bar {
+            grid-row: 2;
+            grid-column: 1 / -1;
+            background: linear-gradient(to top, #2C1810, #3D2817);
+            border-top: 3px solid var(--color-ouro-escuro);
+            padding: 12px 16px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+            box-shadow: var(--shadow-medieval);
+        }
+
+        .action-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 12px 20px;
+            background: linear-gradient(to bottom, var(--color-pergaminho), #D4C4B0);
+            border: 2px solid var(--color-ouro-escuro);
+            border-radius: 6px;
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--color-texto);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            min-width: 80px;
+        }
+
+        .action-button:hover {
+            background: linear-gradient(to bottom, var(--color-ouro), #D4A574);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(212, 165, 116, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .action-button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(212, 165, 116, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .action-button.danger {
+            background: linear-gradient(to bottom, var(--color-lacre), #6B2A2A);
+            border-color: #8B3A3A;
+            color: var(--color-pergaminho);
+        }
+
+        .action-button.danger:hover {
+            background: linear-gradient(to bottom, #A0444A, #8B3A3A);
+            box-shadow: 0 6px 14px rgba(139, 58, 58, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .action-button.success {
+            background: linear-gradient(to bottom, var(--color-estandarte), #1E3810);
+            border-color: #2D5016;
+            color: var(--color-pergaminho);
+        }
+
+        .action-button.success:hover {
+            background: linear-gradient(to bottom, #3A6B1F, #2D5016);
+            box-shadow: 0 6px 14px rgba(45, 80, 22, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .button-icon {
+            font-size: 16px;
+        }
+
+        .button-label {
+            font-size: 10px;
+        }
+
+        /* SCROLLBAR STYLING */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--color-ouro), var(--color-bronze));
+            border-radius: 4px;
+            border: 1px solid var(--color-ouro-escuro);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #D4A574, #A0826D);
+        }
+
+        /* RESPONSIVENESS */
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 200px 1fr 250px;
+            }
+
+            .resources-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto auto;
+            }
+
+            .column-map {
+                grid-column: 1;
+                height: 200px;
+            }
+
+            .column-center {
+                grid-column: 1;
+                grid-template-rows: auto auto;
+            }
+
+            .column-right {
+                grid-column: 1;
+                height: 150px;
+            }
+
+            .action-bar {
+                grid-row: 4;
+                grid-column: 1;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+
+            .seals {
+                flex-wrap: wrap;
+            }
+
+            .resources-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="logo">⚔ EPIC UO</div>
+        <div class="seals">
+            <div class="seal active">Reino</div>
+            <div class="seal">Leis</div>
+            <div class="seal">Construções</div>
+            <div class="seal">Pesquisa</div>
+        </div>
+        <div class="player-info">
+            <span>🏰 Nível 2</span>
+            <span>👤 Player Name</span>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+        <!-- LEFT COLUMN: MAP -->
+        <div class="column-map">
+            <div class="map-section-title">Representação do Feudo</div>
+            <div class="map-placeholder">🗺️ Mapa do Feudo</div>
+            
+            <div class="feud-info">
+                <div class="feud-info-row">
+                    <span class="feud-info-label">População:</span>
+                    <span>2,450 / 3,000</span>
+                </div>
+                <div class="feud-info-row">
+                    <span class="feud-info-label">Moralidade:</span>
+                    <span>92% ⬆</span>
+                </div>
+                <div class="feud-info-row">
+                    <span class="feud-info-label">Estabilidade:</span>
+                    <span>78% ➡️</span>
+                </div>
+                <div class="feud-info-row">
+                    <span class="feud-info-label">Produção:</span>
+                    <span>+450/h</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CENTER COLUMN: MANAGEMENT -->
+        <div class="column-center">
+            <!-- Resources Panel -->
+            <div class="panel">
+                <div class="panel-title">⚡ Recursos</div>
+                <div class="resources-grid">
+                    <div class="resource-badge">
+                        <div class="resource-icon">🪵</div>
+                        <div class="resource-name">Madeira</div>
+                        <div class="resource-value">2,450</div>
+                    </div>
+                    <div class="resource-badge">
+                        <div class="resource-icon">🪨</div>
+                        <div class="resource-name">Pedra</div>
+                        <div class="resource-value">1,890</div>
+                    </div>
+                    <div class="resource-badge">
+                        <div class="resource-icon">⚙️</div>
+                        <div class="resource-name">Ferro</div>
+                        <div class="resource-value">1,450</div>
+                    </div>
+                    <div class="resource-badge">
+                        <div class="resource-icon">🌾</div>
+                        <div class="resource-name">Comida</div>
+                        <div class="resource-value">3,200</div>
+                    </div>
+                    <div class="resource-badge">
+                        <div class="resource-icon">🪙</div>
+                        <div class="resource-name">Cobre</div>
+                        <div class="resource-value">890</div>
+                    </div>
+                    <div class="resource-badge">
+                        <div class="resource-icon">📜</div>
+                        <div class="resource-name">Pergaminhos</div>
+                        <div class="resource-value">245</div>
+                    </div>
+                    <div class="resource-badge">
+                        <div class="resource-icon">💎</div>
+                        <div class="resource-name">Cristais</div>
+                        <div class="resource-value">120</div>
+                    </div>
+                    <div class="resource-badge">
+                        <div class="resource-icon">🔮</div>
+                        <div class="resource-name">Min. Raro</div>
+                        <div class="resource-value">45</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Panel -->
+            <div class="panel">
+                <div class="panel-title">🏗️ Atividades em Andamento</div>
+                <div class="constructions-list">
+                    <div class="construction-item">
+                        <div>
+                            <div class="construction-name">Quartel (Nível 2)</div>
+                            <div style="color: var(--color-bronze); font-size: 10px; margin-top: 2px;">████████░░ 85%</div>
+                        </div>
+                        <div class="construction-progress">2m 45s</div>
+                    </div>
+                    <div class="construction-item">
+                        <div>
+                            <div class="construction-name">Pesquisa: Escalonamento Feudal</div>
+                            <div style="color: var(--color-bronze); font-size: 10px; margin-top: 2px;">███████░░░ 72%</div>
+                        </div>
+                        <div class="construction-progress">1m 15s</div>
+                    </div>
+                    <div class="construction-item">
+                        <div>
+                            <div class="construction-name">Colheita Automática</div>
+                            <div style="color: var(--color-estandarte); font-size: 10px; margin-top: 2px;">Próxima: 45s</div>
+                        </div>
+                        <div class="construction-progress">⏱️ Ativo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: EVENTS FEED -->
+        <div class="column-right">
+            <div class="events-title">📜 Eventos Recentes</div>
+            
+            <div class="event-item success">
+                <strong>✓ Construção concluída</strong>
+                <div>Quartel nível 1 finalizado com sucesso!</div>
+                <div class="event-time">há 2 minutos</div>
+            </div>
+
+            <div class="event-item info">
+                <strong>ℹ️ Ressurso coletado</strong>
+                <div>+450 de Madeira via colheita automática</div>
+                <div class="event-time">há 5 minutos</div>
+            </div>
+
+            <div class="event-item success">
+                <strong>✓ Pesquisa completa</strong>
+                <div>Legislação Feudal pesquisa desbloqueada</div>
+                <div class="event-time">há 8 minutos</div>
+            </div>
+
+            <div class="event-item alert">
+                <strong>⚠️ População baixa</strong>
+                <div>Considere expandir acomodação</div>
+                <div class="event-time">há 12 minutos</div>
+            </div>
+
+            <div class="event-item info">
+                <strong>ℹ️ Upgrade completo</strong>
+                <div>Fazenda nível 2 → nível 3 finalizado</div>
+                <div class="event-time">há 15 minutos</div>
+            </div>
+
+            <div class="event-item success">
+                <strong>✓ Moralidade restaurada</strong>
+                <div>Festival realizado: +15% moralidade</div>
+                <div class="event-time">há 22 minutos</div>
+            </div>
+
+            <div class="event-item info">
+                <strong>ℹ️ Crédito gerado</strong>
+                <div>+20 Influência diplomática (diplomacia)</div>
+                <div class="event-time">há 28 minutos</div>
+            </div>
+
+            <div class="event-item success">
+                <strong>✓ Ascensão preparada</strong>
+                <div>Todos requisitos cumpridos para nível 3</div>
+                <div class="event-time">há 35 minutos</div>
+            </div>
+        </div>
+
+        <!-- BOTTOM ACTION BAR -->
+        <div class="action-bar">
+            <button class="action-button">
+                <span class="button-icon">🌾</span>
+                <span class="button-label">COLETAR</span>
+            </button>
+            <button class="action-button">
+                <span class="button-icon">🏗️</span>
+                <span class="button-label">CONSTRUIR</span>
+            </button>
+            <button class="action-button">
+                <span class="button-icon">⬆️</span>
+                <span class="button-label">UPGRADE</span>
+            </button>
+            <button class="action-button danger">
+                <span class="button-icon">💥</span>
+                <span class="button-label">DEMOLIR</span>
+            </button>
+            <button class="action-button">
+                <span class="button-icon">📚</span>
+                <span class="button-label">PESQUISAR</span>
+            </button>
+            <button class="action-button success">
+                <span class="button-icon">👑</span>
+                <span class="button-label">ASCENDER</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactivity
+        document.querySelectorAll('.seal').forEach(seal => {
+            seal.addEventListener('click', function() {
+                document.querySelectorAll('.seal').forEach(s => s.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.action-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const label = this.querySelector('.button-label').textContent;
+                console.log(`Ação clicada: ${label}`);
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 10);
+            });
+        });
+
+        // Animate resources on load
+        document.querySelectorAll('.resource-badge').forEach((badge, index) => {
+            badge.style.animation = `slideIn ${0.3 + index * 0.05}s ease`;
+        });
+    </script>
+</body>
+</html>

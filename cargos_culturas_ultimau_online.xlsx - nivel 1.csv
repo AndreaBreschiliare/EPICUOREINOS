@@ -1,0 +1,67 @@
+Padrão de Design: Nível 1 - A Era do Esforço Coletivo,,,
+"Filosofia Central: O progresso é uma conquista monumental. O espaço físico é o recurso mais escasso, forçando a especialização e a cooperação. A produção passiva diária é mínima; o crescimento depende do esforço manual da comunidade, do comércio e de um planejamento estratégico cuidadoso.",,,
+,,,
+1. Estrutura Física e Gestão do Feudo,,,
+Terreno Concedido: Um lote de 22x22 tiles.,,,
+"Espaço Útil: A construção da Paliçada ocupa a borda de 1 tile, deixando um espaço interno útil de 20x20 tiles.",,,
+"Pegada das Construções: Todas as estruturas principais do Nível 1 ocupam um espaço físico de 7x7 tiles. Isso limita o feudo a um máximo de 2 a 4 construções principais, dependendo do layout.",,,
+"Interface de Gestão: A gestão é feita através da ""Mesa de Planejamento"", uma interface (Gump) acessível ao Senhor das Terras dentro dos limites do seu feudo. Não é uma construção física e não ocupa espaço.",,,
+2. Recursos e Ciclo de Produção,,,
+"Recursos Estratégicos: Comida, Madeira, Pedra, Moedas de Cobre, Minério de Ferro.",,,
+Ciclo de Produção (Tick): A produção passiva de recursos ocorre uma vez a cada 24 horas.,,,
+3. População (A Força de Trabalho),,,
+"A População é o motor da economia do feudo. Ela não representa jogadores humanos, mas sim os trabalhadores NPCs do domínio.",,,
+,,,
+Geração: Cada Casa construída aumenta a Capacidade de População em +8.,,,
+Consumo: Cada ponto de População consome -5 Comida a cada 24 horas.,,,
+"Função: A População preenche automaticamente os ""Postos de Trabalho"" das construções de produção. A eficiência de um prédio é diretamente proporcional à quantidade de trabalhadores alocados.",,,
+"Gestão: O Senhor das Terras não aloca trabalhadores manualmente. Ele define a Prioridade de cada construção ([Alta], [Normal], [Baixa]) na Mesa de Planejamento, e o sistema distribui a População de acordo.",,,
+4. Cargos e Benefícios Disponíveis,,,
+Cargo,Benefício Mecânico,Limite,
+Senhor das Terras,#ERROR!,1,
+Capataz,#ERROR!,1,
+Vigia,#ERROR!,1,
+Cidadão (Status),Bônus cumulativo por jogador ativo: +1% Comida/dia e -0.2% Tempo de Pesquisa (quando aplicável).,Sem Limite,
+5. Construções Disponíveis,,,
+"Cada construção é um investimento massivo, exigindo colaboração.",,,
+,,,
+Construção,Custo (Recursos),Tempo,Função Principal
+Casa,"1000 Madeira, 200 Pedra",6 horas,!+8 de População Máxima. Serve como ponto de bind e armazenamento para membros.
+Lote de Fazenda,"500 Madeira, 100 Pedra",4 horas,!+100 Comida a cada 24 horas.
+Casa do Lenhador,"1000 Madeira, 200 Pedra",8 horas,!+100 Madeira a cada 24 horas.
+Poço de Mineração,"600 Madeira, 500 Pedra",10 horas,!100 Pedra e +10 Minério de Ferro a cada 24 horas.
+Paliçada de Madeira,5000 Madeira,24 horas,"Defesa Básica. Construída na borda do terreno, não ocupa espaço interno."
+"Nota Importante: No Nível 1, não há pesquisa nem upgrades de estruturas. A única forma de aumentar a produção é construir mais prédios (se houver espaço) ou aumentar a População para preencher mais Postos de Trabalho.",,,
+,,,
+6. O Ciclo de Jogo e o Objetivo Final,,,
+O Nível 1 é uma era de luta e colaboração.,,,
+,,,
+"A Escolha Inicial: O Senhor das Terras e seus cidadãos devem decidir qual será a especialização inicial do feudo (Agrário, Lenhador, Minerador), pois não há espaço para tudo.",,,
+O Esforço Coletivo: A construção de qualquer estrutura exige um esforço massivo de coleta manual por parte dos jogadores para complementar a produção passiva quase inexistente no início.,,,
+"A Necessidade de Comércio: A especialização força a interação. Um feudo que produz madeira precisa desesperadamente comprar comida de um feudo agrário para sobreviver, criando a base para uma economia real e rotas de caravanas.",,,
+"O Grande Projeto: A construção da Paliçada é o primeiro grande projeto de guilda, um objetivo comum que une os jogadores.",,,
+"O Objetivo Final: O único objetivo de longo prazo no Nível 1 é ascender ao Nível 2 (Baronato). Para isso, o feudo deve acumular recursos suficientes para pagar um ""Tributo"" monumental ao reino NPC. A ascensão é a recompensa por todo o trabalho árduo e desbloqueará as mecânicas mais avançadas do jogo, como a Pesquisa, os Upgrades de Estruturas e a possibilidade de expandir o terreno.",,,
+,,,
+,,,
+,,,
+Ramo 1: Domínio da Terra (Foco em Produção),,,
+Este ramo é para o Senhor que quer maximizar a eficiência de sua especialização.,,,
+,,,
+Pesquisa,Custo,Tempo,Efeito Passivo no Feudo
+"""Técnicas de Arado""","500 Cobre, 5 Pergaminhos",1 dia,!+10% na produção de Comida de todos os Lotes de Fazenda.
+"""Cunhas de Madeira""","500 Cobre, 5 Pergaminhos",1 dia,!+10% na produção de Madeira de todas as Casas do Lenhador.
+"""Escoramento Simples""","500 Cobre, 5 Pergaminhos",1 dia,!+10% na produção de Pedra de todos os Poços de Mineração.
+"Impacto Estratégico: Um ""Feudo Celeiro"" irá pesquisar ""Técnicas de Arado"" imediatamente para aumentar seu excedente e poder de barganha. Um ""Feudo de Extração"" focará em ""Cunhas de Madeira"" ou ""Escoramento Simples"".",,,
+Ramo 2: Gestão do Feudo (Foco em Eficiência),,,
+"Este ramo é para o Senhor que pensa a longo prazo, otimizando a economia interna.",,,
+,,,
+Pesquisa,Custo,Tempo,Efeito Passivo no Feudo
+"""Registros do Feudo""","800 Cobre, 10 Pergaminhos",2 dias,-10% no Upkeep (manutenção diária) de todas as construções.
+"""Divisão de Trabalho""","1000 Cobre, 8 Pergaminhos",2 dias,!+1 de População Máxima para cada Casa construída (total de +9 por casa).
+"Impacto Estratégico: ""Registros do Feudo"" é um investimento que se paga ao longo do tempo, liberando mais cobre para outras pesquisas ou para o tributo. ""Divisão de Trabalho"" permite sustentar uma força de trabalho maior com menos casas, economizando o precioso espaço físico.",,,
+Ramo 3: Defesa Comunitária (Foco em Segurança),,,
+Este ramo é para o Senhor que vive em uma área perigosa e prioriza a sobrevivência.,,,
+,,,
+Pesquisa,Custo,Tempo,Efeito Passivo no Feudo
+"""Estacas Afiadas""","600 Cobre, 300 Madeira",1 dia,Adiciona +500 de HP à Paliçada de Madeira.
+"""Milícia Básica""","1200 Cobre, 100 Ferro",3 dias,"Desbloqueia a capacidade de treinar a única unidade militar do Nível 1: ""Vigia da Milícia"", um guarda NPC fraco, mas útil para afugentar monstros básicos."

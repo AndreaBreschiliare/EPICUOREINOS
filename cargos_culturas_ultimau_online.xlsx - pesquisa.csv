@@ -1,0 +1,36 @@
+A Árvore Tecnológica Completa do Feudo (Versão Final e Corrigida),,,,,
+,,,,,
+,,,,,
+Nível Mín.,Ramo,Pesquisa,Custo (Recursos),Tempo Base,Efeito Principal e Desbloqueios
+1,Produção,Técnicas de Arado,"500 Cobre, 5 Pergaminhos",1 Dia,!10% na produção de Comida.
+1,Produção,Cunhas de Madeira,"500 Cobre, 5 Pergaminhos",1 Dia,!+10% na produção de Madeira.
+1,Produção,Escoramento Simples,"500 Cobre, 5 Pergaminhos",1 Dia,!+10% na produção de Pedra.
+1,Social,Registros do Feudo,"800 Cobre, 10 Pergaminhos",2 Dias,-10% no Upkeep de todas as construções.
+1,Militar,Estacas Afiadas,"600 Cobre, 300 Madeira",1 Dia,Adiciona +500 HP à Paliçada de Madeira.
+1,Militar,Milícia Básica,"1200 Cobre, 100 Ferro",3 Dias,Aumenta o bônus de HP do cargo Vigia para +35% (em vez de +20%).
+1,Governo,Escrita Formal,"2000 Cobre, 25 Pergaminhos",4 Dias,(Final do Nv. 1) Desbloqueia a construção da Biblioteca (Nv. 1).
+---,---,---,---,---,---
+2,Produção,Fundamentos da Metalurgia,"3.000 Cobre, 30 Perg., 500 Ferro",5 Dias,Desbloqueia a construção da Forja e o cargo de Ferreiro.
+2,Produção,Carpintaria Avançada,"3.000 Cobre, 30 Perg., 1000 Madeira",5 Dias,Desbloqueia a Marcenaria e o cargo de Carpinteiro.
+2,Social,Hospitalidade Comunitária,"2.500 Cobre, 25 Perg.",4 Dias,Desbloqueia a Taverna e o cargo de Taverneiro.
+2,Social,Domesticação de Bestas,"3.500 Cobre, 35 Perg.",5 Dias,Desbloqueia o Estábulo e o cargo de Domador de Animais.
+2,Social,Princípios da Fé,"3.000 Cobre, 30 Perg.",5 Dias,Desbloqueia a Igreja / Templo e o cargo de Sacerdote.
+2,Militar,Técnicas de Fortificação,"4.000 Cobre, 1.000 Pedra",6 Dias,Desbloqueia o upgrade da Paliçada para Muralha de Pedra.
+2,Governo,Administração Centralizada,"5.000 Cobre, 50 Perg.",7 Dias,(Final do Nv. 2) Desbloqueia a construção do Salão do Conselho.
+---,---,---,---,---,---
+3,Militar,Organização Militar,"8.000 Cobre, 75 Perg., 1.000 Ferro",10 Dias,Desbloqueia o Quartel e o cargo de Comandante Militar.
+3,Ciência,Medicina e Saneamento,"7.000 Cobre, 60 Perg.",9 Dias,Desbloqueia o Hospital e o cargo de Médico.
+3,Ciência,Fundamentos da Alquimia,"7.500 Cobre, 70 Perg., 50 Ervas Raras",9 Dias,Desbloqueia o Laboratório de Alquimia e o cargo de Alquimista.
+3,Economia,Contabilidade Avançada,"6.000 Cobre, 80 Perg.",8 Dias,Desbloqueia o Mercado e o cargo de Mestre das Moedas.
+3,Engenharia,Engenharia Defensiva,"12.000 Cobre, 5.000 Pedra",14 Dias,(Final do Nv. 3) Desbloqueia o upgrade para Muralhas Altas com Torres.
+---,---,---,---,---,---
+4,Engenharia,Engenharia de Guerra,"20.000 Cobre, 150 Perg., 3.000 Ferro",18 Dias,Desbloqueia a Oficina de Cerco e o cargo de Engenheiro.
+4,Magia,Teoria Arcana de Batalha,"22.000 Cobre, 50 Cristais",20 Dias,Desbloqueia a construção da Torre Mágica.
+4,Economia,Rotas de Caravana,"18.000 Cobre, 120 Perg.",16 Dias,Desbloqueia a Casa de Comércio e o cargo de Mercador.
+4,Espionagem,Infiltração e Sabotagem,"25.000 Cobre, 200 Perg.",21 Dias,Desbloqueia a Guilda de Ladrões e os cargos de Ladrão e Espião.
+4,Governo,Arquitetura de Bastião,"30.000 Cobre, 10.000 Pedra",28 Dias,(Final do Nv. 4) Desbloqueia o upgrade para Muralhas Reforçadas.
+---,---,---,---,---,---
+5,Governo,Arquitetura Soberana,"50.000 Cobre, 500 Perg., 2.000 Metal Raro",40 Dias,Desbloqueia a construção do Castelo / Palácio.
+5,Magia,Cartografia Celestial,"60.000 Cobre, 100 Cristais",45 Dias,Desbloqueia a construção do Observatório.
+5,Espionagem,Guerra nas Sombras,"75.000 Cobre, 300 Perg.",50 Dias,Desbloqueia a Câmara das Sombras e o cargo de Mestre Espião.
+5,Cultura,Doutrina de Legado [Cultural],"100.000 Cobre, 50 Artefatos",60 Dias,(Final do Jogo) Desbloqueia a Construção de Legado Cultural.

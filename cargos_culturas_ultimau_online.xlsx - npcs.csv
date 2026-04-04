@@ -1,0 +1,66 @@
+Progressão de Contratação de NPCs por Nível de Feudo (Versão Consolidada),,,,
+Nível 1: Domínio do Senhor,,,,
+Filosofia: Dependência total dos jogadores. A terra é selvagem e não atrai profissionais.,,,,
+NPCs Contratáveis: Nenhum.,,,,
+Nível 2: Baronia (Os Primeiros Serviços),,,,
+"Filosofia: A vila agora é segura o suficiente para atrair seus primeiros profissionais, que oferecem serviços básicos à comunidade.",,,,
+Pré-requisito Geral: Construção do Salão do Vilarejo.,,,,
+NPC Contratável,Pré-requisito de Construção,Função Principal,Salário Diário (Upkeep),
+Miliciano do Feudo,Quartel (Nv. 1),Uma unidade de defesa básica. Patrulha uma rota e ataca monstros. Fraco contra jogadores.,"-10 Cobre, -10 Comida",
+Mercador de Balcão,Mercado,"Abre uma loja NPC que compra lixo de monstro e vende itens básicos (tochas, bandagens).","-20 Cobre, -5 Comida",
+Arauto,Salão do Vilarejo,Grita as mensagens definidas pelo Barão na praça. Pura imersão.,"-5 Cobre, -5 Comida",
+Nível 3: Condado (Os Especialistas da Cidade),,,,
+Filosofia: A cidade agora tem instituições que demandam e suportam especialistas mais qualificados.,,,,
+Pré-requisito Geral: Ter um Salão do Conselho.,,,,
+NPC Contratável,Pré-requisito de Construção,Função Principal,Salário Diário (Upkeep),
+Guarda da Cidade (Upgrade),Quartel (Nv. 2),"Evolução do Miliciano. Mais forte, mais bem equipado e agora reforça os Éditos contra jogadores.","-25 Cobre, -15 Comida",
+Curandeiro,Hospital,"Oferece cura paga e remove venenos básicos. Reduz a chance de eventos de ""Praga"".","-15 Cobre, -10 Comida",
+Treinador de Armas,Quartel,"Oferece um buff temporário de dano para jogadores que pagarem por uma ""sessão de treino"".",-20 Cobre,
+Boticário,Laboratório de Alquimia,Vende reagentes básicos e receitas de poções simples.,-15 Cobre,
+Nível 4: Marca (Os Agentes de Guerra),,,,
+Filosofia: A fortaleza militar contrata veteranos e especialistas para manter sua máquina de guerra e sua segurança interna.,,,,
+Pré-requisito Geral: Ter um Castelo (Nv. 1).,,,,
+NPC Contratável,Pré-requisito de Construção,Função Principal,Salário Diário (Upkeep),
+Veterano de Guerra (Upgrade),Quartel (Nv. 3),"Evolução do Guarda da Cidade. Um NPC de elite que pode liderar um esquadrão, concedendo bônus táticos.","-50 Cobre, -25 Comida",
+Mestre Engenheiro,Oficina de Cerco,Acelera a construção de armas de cerco em 10% e vende kits de reparo.,-40 Cobre,
+Informante,Taverna (Nv. 3),"Pode ser pago semanalmente por uma ""dica"" de inteligência sobre feudos rivais.",-25 Cobre + Custo por Informação,
+Intendente de Guerra,Salão do Conselho (Nv. 3),"Reduz o consumo de comida do exército e permite a criação de ""Rações de Ferro"".","-30 Cobre, -10 Comida",
+Nível 5: Ducado (A Corte do Duque),,,,
+"Filosofia: O Duque não contrata mais meros funcionários, mas sim agentes de poder que podem projetar sua influência para além das muralhas.",,,,
+Pré-requisito Geral: Ter um Palácio Ducal.,,,,
+NPC Contratável,Pré-requisito de Construção,Função Principal,Salário Diário (Upkeep),
+Guarda Real (Upgrade),Quartel (Nv. 4),"Evolução do Veterano de Guerra. A unidade de defesa mais forte, designada para proteger o Palácio e o Duque.","-80 Cobre, -30 Comida",
+Mago de Batalha,Torre Mágica (Nv. 2),Pode ser posicionado em uma torre de muralha para lançar feitiços de área devastadores durante um cerco.,"-60 Cobre, -10 Cristais Arcanos",
+Emissário Real,Salão do Conselho (Nv. 4),Um NPC que pode ser enviado fisicamente para outros feudos para entregar mensagens oficiais ou propostas de tratado.,-50 Cobre,
+Coletor de Impostos,"(Desbloqueado com a Lei ""Taxa de Rota Comercial"")","Patrulha as estradas do ducado e coleta automaticamente as taxas de caravanas, aumentando a eficiência da lei.",-40 Cobre,
+Esta tabela agora mostra uma progressão clara:,,,,
+,,,,
+Os NPCs são desbloqueados por nível.,,,,
+"Os NPCs de defesa (Miliciano -> Guarda -> Veterano -> Guarda Real) são upgrades um do outro, substituindo a versão anterior.",,,,
+"Os outros NPCs são especialistas únicos que se somam aos já existentes, enriquecendo a vida e a funcionalidade do feudo a cada nível.",,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+Nível Mín. do Feudo,NPC Contratável,Pré-requisito de Construção,Limite Inicial (Como Aumentar),Salário Diário (Upkeep)
+2 (Barão),Miliciano do Feudo,Quartel (Nv. 1),4 (+2 por nível do Quartel).,"-10 Cobre, -10 Comida"
+,Mercador de Balcão,Mercado (Nv. 1),1 (+1 no Nv. 3 do Mercado).,"-20 Cobre, -5 Comida"
+,Arauto,Salão do Vilarejo,1 (Limite Fixo).,"-5 Cobre, -5 Comida"
+,Recrutador,Quartel (Nv. 1),1 (Limite Fixo).,-10 Cobre
+---,---,---,---,---
+3 (Conde),Guarda da Cidade,Quartel (Nv. 2),Substitui os Milicianos. O limite é o mesmo: 4 (+2 por nível do Quartel).,"-25 Cobre, -15 Comida"
+,Curandeiro,Hospital (Nv. 1),1 (+1 por nível do Hospital).,"-15 Cobre, -10 Comida"
+,Boticário,Lab. de Alquimia (Nv. 1),1 (Limite Fixo).,-15 Cobre
+,Escrivão do Conselho,Salão do Conselho (Nv. 2),1 (Limite Fixo).,-15 Cobre
+---,---,---,---,---
+4 (Marquês),Veterano de Guerra,Quartel (Nv. 3),"Substitui os Guardas. O limite é o mesmo, mas a pesquisa ""Logística Imperial"" (Nv.4) aumenta o limite em +50%.","-50 Cobre, -25 Comida"
+,Mestre Engenheiro,Oficina de Cerco,1 (Limite Fixo).,-40 Cobre
+,Informante,Taverna (Nv. 3),1 (Limite Fixo).,-25 Cobre + Custo/Info
+,Mercador de Caravana,Casa de Comércio (Nv. 1),1 (+1 por nível da Casa de Comércio).,-30 Cobre
+---,---,---,---,---
+5 (Duque),Guarda Real,Quartel (Nv. 4),"Substitui os Veteranos. O limite pode ser aumentado pela Lei ""Exército Permanente"".","-80 Cobre, -30 Comida"
+,Mago de Batalha,Torre Mágica (Nv. 2),1 (+1 por nível da Torre Mágica).,"-60 Cobre, -10 Cristais"
+,Emissário Real,Salão do Conselho (Nv. 4),1 (Limite Fixo).,-50 Cobre
+,Coletor de Impostos,"(Lei ""Taxa de Rota Comercial"")",2 (Patrulham rotas diferentes).,-40 Cobre

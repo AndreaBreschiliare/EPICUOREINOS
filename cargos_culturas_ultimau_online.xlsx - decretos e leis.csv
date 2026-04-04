@@ -1,0 +1,42 @@
+,Categoria da Lei,Nome da Lei,Efeito da Lei (Bônus e Penalidade)
+level 1,Lei de Produção,"""Decreto do Capataz""",!+15% na produção de Madeira e Pedra. <br> -10% na produção de Comida.
+level 1,Lei de Produção,"""A Fartura do Lavrador""",!15% na produção de Comida. <br> -10% na produção de Madeira e Pedra.
+level 1,Lei de Economia,"""O Primeiro Contrato""",O feudo gera +100 Moedas de Cobre por dia passivamente. <br> A manutenção (upkeep) de todas as construções aumenta em 20%.
+level 1,Lei de Economia,"""Autossuficiência""",A manutenção (upkeep) de todas as construções é reduzida em 25%. <br> O feudo não pode iniciar novas pesquisas enquanto esta lei estiver ativa.
+level 1,Lei Social,"""Tradição do Conhecimento""",A pesquisa na Mesa de Planejamento é 20% mais rápida. <br> A construção de novas estruturas é 15% mais lenta.
+level 1,Lei Social,"""Tradição da Lareira""",Aumenta a Capacidade de População de cada Casa em +2 (total de +10 por casa). <br> O consumo de comida por ponto de População aumenta em 10%.
+,,,
+,,,
+level 2,Lei Econômica,"""Decreto das Guildas""","!+10% de eficiência em todas as estações de crafting (Forja, Marcenaria). <br> A manutenção (upkeep) dessas estações aumenta em 30%."
+level 2,Lei Econômica,"""Monopólio Comercial""",O Mercado do feudo gera 50% mais em impostos. <br> A reputação com feudos vizinhos diminui lentamente.
+level 2,Lei Militar,"""Patrulha Montada""",Unidades no Estábulo são treinadas 20% mais rápido. <br> O consumo total de comida do feudo aumenta em 15%.
+level 2,Lei Militar,"""Muralhas Vigiadas""",Guardas NPC posicionados sobre as muralhas ganham bônus de defesa. <br> O salário (upkeep) de todos os guardas aumenta em 25%.
+level 2,Lei Social,"""Iluminismo""",!+10% na velocidade de todas as pesquisas na Biblioteca. <br> A manutenção (upkeep) da Biblioteca aumenta em 50%.
+,,,
+,,,
+level 3,Lei de Produção,"""Edito da Manufatura""","-15% no tempo de fabricação de todos os itens (armas, poções, etc.). <br> Penalidade: +10% no custo de recursos para todas as receitas."
+level 3,Lei Econômica,"""Taxa de Rota Comercial""",O feudo coleta uma taxa de 5% em Moedas de Cobre sobre o valor de caravanas de jogadores que passam pelo seu território. <br> Penalidade: Reduz a Reputação de Honra do feudo lentamente.
+level 3,Lei Militar,"""Doutrina de Cerco""","Unidades de cerco (catapultas, etc.) ganham +20% de dano e custam 15% menos para construir. <br> Penalidade: O salário (upkeep) de todas as outras unidades militares aumenta em 10%."
+level 3,Lei Social,"""Patrocínio Acadêmico""",A velocidade de todas as pesquisas aumenta em +10% e o feudo gera +200 Pontos de Pesquisa passivamente por dia. <br> Penalidade: A manutenção da Biblioteca aumenta em 50%.
+,,,
+,,,
+level 4,Lei (Militar),"""Recrutamento Forçado""","O tempo de treinamento de todas as unidades é reduzido em 30%. <br> Penalidade: A Moral da População cai em -20, reduzindo a produção geral."
+level 4,Lei (Econômica),"""Imposto de Guerra""","Toda a produção de recursos do feudo (exceto comida) é reduzida em 15%, mas convertida diretamente em Moedas de Cobre."
+,,,
+,,,
+level 5,Lei de Produção,"""Decreto do Tesouro Real""","Converte 10% de toda a produção passiva de Madeira, Pedra e Ferro diretamente em Moedas de Cobre a uma taxa favorável. <br> Penalidade: A produção desses recursos brutos é permanentemente reduzida em 20% (a burocracia e a conversão geram perdas)."
+level 5,Lei Econômica,"""Soberania Econômica""",O Duque pode declarar um Embargo Comercial a outro feudo. Nenhuma caravana pode sair do seu ducado com destino ao feudo embargado. <br> Penalidade: Declarar um embargo causa uma grande perda de Reputação de Honra e bloqueia qualquer bônus diplomático com os aliados do feudo embargado.
+level 5,Lei Militar,"""Exército Permanente""",O limite de unidades militares que podem ser mantidas (Capacidade de Tropas) aumenta em 50%. <br> Penalidade: O salário (upkeep) em Moedas de Cobre e Comida de todas as unidades militares aumenta em 25%.
+level 5,Lei Social,"""Época de Ouro""","Por 7 dias, o feudo recebe +20% em toda a produção de recursos, +15% na velocidade de pesquisa e +10 de Moral. Esta lei só pode ser ativada uma vez por mês. <br> Penalidade: Após o término, o feudo entra em ""Esgotamento"" por 3 dias, sofrendo -25% em toda a produção."
+,,,
+,,,
+,,,
+,,,
+,,,
+abela Resumo da Evolução do Poder,,,
+Nível do Feudo,Título do Líder,Slots de Decretos (Leis) Ativos,Slots de Éditos de Conduta Ativos
+1,Senhor,1,0
+2,Barão,2 (de categorias diferentes),1
+3,Conde,3 (de categorias diferentes),2
+4,Marquês,4,3
+5,Duque,5,4

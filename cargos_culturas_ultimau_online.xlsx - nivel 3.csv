@@ -1,0 +1,54 @@
+Padrão de Design: Nível 3 - A Era do Governo (Condado),,,
+"Filosofia Central: O feudo agora é uma cidade, o coração de um condado. O foco muda da simples produção para a criação de instituições, a projeção de poder militar e a solidificação de uma identidade cultural e política. A gestão se torna mais complexa, exigindo um conselho de especialistas.",,,
+,,,
+1. Recompensas da Ascensão,,,
+Novo Título: O Líder se torna Conde.,,,
+"Expansão do Terreno: O feudo ganha +1 Lote de Construção, permitindo a construção de uma nova estrutura principal (7x7).",,,
+2. Cargos Liberados no Nível 3 (O Conselho do Conde),,,
+O Conde precisa de um conselho formal para administrar a crescente complexidade da cidade. Estes cargos são desbloqueados ao construir as estruturas correspondentes.,,,
+,,,
+Cargo Genérico,Pré-requisito para Atribuição,Bônus Mecânico do Cargo,
+Conselheiro Geral,Construir o Salão do Conselho.,"Aumenta a Moral da População, concedendo +5% a toda a produção do feudo.",
+Comandante Militar,Construir o Quartel.,Desbloqueia unidades militares de Nível 2 e reduz o custo de treinamento em 10%.,
+Mestre das Moedas,Construir o Mercado (Nv. 2).,Aumenta a geração de Moedas de Cobre em 15% e reduz o custo dos Éditos em 20%.,
+Médico,Construir o Hospital.,"Aumenta a eficácia de cura no Hospital e reduz a duração de eventos de ""Praga"".",
+Alquimista,Construir o Laboratório de Alquimia.,Desbloqueia receitas de poções de Nível 2 e reduz o custo de pesquisa alquímica.,
+Engenheiro,Construir uma Oficina.,Reduz o custo em pedra e ferro para construções defensivas e upgrades em 10%.,
+3. Construções Liberadas no Nível 3 (A Cidade Institucional),,,
+Novas estruturas que representam o poder e a complexidade de uma cidade.,,,
+,,,
+Construção,Pré-requisito de Pesquisa,Custo (Exemplo),Função Principal
+Salão do Conselho,"""Administração Centralizada""","3000 Pedra, 1500 Madeira",Upgrade do Centro do Feudo. Sede do governo. Desbloqueia o cargo de Conselheiro Geral.
+Quartel,"""Organização Militar""","3000 Pedra, 1000 Ferro",Centro para treinar unidades militares formais. Desbloqueia o Comandante Militar.
+Hospital,"""Medicina e Saneamento""","3000 Madeira, 1500 Pedra",Permite a cura de ferimentos graves e a pesquisa de antídotos. Desbloqueia o Médico.
+Laboratório de Alquimia,"""Fundamentos da Alquimia""","2500 Pedra, 500 Cobre",Estação de crafting avançado para poções. Desbloqueia o Alquimista.
+Muralhas Altas (Upgrade),"""Engenharia Defensiva""","8000 Pedra, 2000 Ferro",Permite evoluir a Muralha de Pedra Baixa para Muralhas Altas com Torres.
+4. Pesquisas Liberadas no Nível 3 (A Biblioteca),,,
+A Biblioteca agora desbloqueia tecnologias que definem o poder regional do feudo.,,,
+,,,
+Ramo,Pesquisa,Custo (Exemplo),Efeito Desbloqueado
+Militar,"""Táticas de Infantaria""","2000 Cobre, 500 Ferro","Desbloqueia a unidade ""Soldado Armado"" no Quartel (um upgrade do miliciano)."
+Militar,"""Engenharia Defensiva""","3000 Cobre, 2000 Pedra",Permite o upgrade da Muralha de Pedra Baixa para Muralhas Altas.
+Economia,"""Contabilidade Avançada""","2500 Cobre, 50 Pergaminhos","Desbloqueia a Lei ""Taxação de Guildas"" e o cargo de Mestre das Moedas."
+Social,"""Saneamento Público""","1500 Cobre, 1000 Madeira","Reduz a chance de eventos de ""Praga"" e desbloqueia a construção do Hospital."
+Social,"""Código de Leis""","3000 Cobre, 100 Pergaminhos",Desbloqueia o Tribunal (construção de Nível 4) e novos Éditos.
+5. Traços Culturais (Nível 3 - Doutrina do Condado),,,
+"Ao se tornar Conde, o líder escolhe uma das duas doutrinas a seguir, uma decisão permanente que define o legado do feudo.",,,
+,,,
+Cultura,Opção 1 (Doutrina do Poder),Opção 2 (Doutrina da Prosperidade),
+Baduran (Anões),"""Juramento da Muralha"": O upkeep de todas as unidades militares é reduzido em 25%.","""Selo Real da Forja"": Itens de metal criados na Forja têm chance de serem produzidos com qualidade superior (Masterwork).",
+Drow (Elfos Negros),"""Vontade da Matriarca"": Desbloqueia um ritual que permite lançar uma maldição em um feudo inimigo (-10% de produção por 24h).","""Teia de Mentiras"": Ações do cargo de Espião (a ser liberado no Nv. 4) custam 20% menos.",
+Aiglanos (Romano),"""Logística da Legião"": O consumo de Comida de todas as unidades militares é reduzido em 30%.","""A Glória de Roma"": O feudo ganha +10 de Moral permanente, aumentando a estabilidade e a produção.",
+Björske (Rohan),"""O Direito do Saque"": Unidades militares saqueiam 25% a mais de recursos ao atacar com sucesso.","""Juramento ao Thane"": Todas as unidades militares ganham +10% de HP.",
+Polkinea (Hobbit),"""Milícia da Comarca"": Desbloqueia a unidade ""Arqueiro da Comarca"", um defensor barato e eficiente.","""Hospitalidade Lendária"": A Taverna atrai ""Visitantes Ilustres"" (eventos de bônus).",
+Gulthrak (Orc),"""Máquinas de Guerra"": A construção de armas de cerco (futuras) é 25% mais rápida.","""Trabalho Escravo"": Aumenta a População Máxima das Casas em +4, mas reduz a Moral do feudo em -10.",
+P. do Leste (Oriental),"""A Arte da Guerra"": As pesquisas militares são 20% mais rápidas.","""Burocracia Imperial"": O cargo de Mestre das Moedas se torna mais eficiente (+10% Cobre, -5% Upkeep).",
+Aluriel (Elfos),"""Magia de Batalha"": Desbloqueia um encantamento de resistência mágica para unidades.","""Pacto com a Natureza"": A produção de Madeira e Comida aumenta em +15%.",
+6. Novas Leis e Éditos (Nível 3),,,
+"Como Conde, o líder pode manter três Leis Ativas (uma de cada categoria) e dois Éditos.",,,
+,,,
+Tipo,Nome,Efeito (Bônus e Penalidade),
+Lei (Militar),"""Doutrina de Cerco""",#ERROR!,
+Lei (Social),"""Patrocínio Acadêmico""",#ERROR!,
+Édito (Conduta),"""Licença de Comércio""","Apenas mercadores com licença podem vender no Mercado. Gera renda, mas cria barreira para novatos.",
+Édito (Conduta),"""Estandarte Obrigatório""","Membros devem usar o brasão do feudo. Promove unidade, mas limita customização.",

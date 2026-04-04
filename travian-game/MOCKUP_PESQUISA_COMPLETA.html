@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPIC UO - Pesquisas Completas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Alegreya:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-pergaminho: #E8D4B8;
+            --color-ouro: #D4A574;
+            --color-ouro-escuro: #8B6F47;
+            --color-bronze: #A0826D;
+            --color-estandarte: #2D5016;
+            --color-lacre: #8B3A3A;
+            --color-cinza-pedra: #4A4A4A;
+            --color-texto: #2C1810;
+            --color-fundo-escuro: #3D2817;
+            --shadow-medieval: 0 8px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: 'Alegreya', serif;
+            background: linear-gradient(135deg, #2C1810 0%, #3D2817 100%);
+            color: var(--color-texto);
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(to bottom, #4A4A4A, #3D2817);
+            border-bottom: 3px solid var(--color-ouro-escuro);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-medieval);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--color-ouro);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .seals {
+            display: flex;
+            gap: 16px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .seal {
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 16px;
+            background: linear-gradient(to bottom, var(--color-pergaminho), #D4C4B0);
+            color: var(--color-texto);
+            border: 2px solid var(--color-ouro-escuro);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .seal:hover {
+            background: linear-gradient(to bottom, var(--color-ouro), #D4A574);
+            transform: translateY(-2px);
+        }
+
+        .seal.active {
+            background: linear-gradient(to bottom, var(--color-estandarte), #1E3810);
+            color: var(--color-pergaminho);
+            border-color: var(--color-pergaminho);
+        }
+
+        .player-info {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            font-size: 12px;
+            color: var(--color-ouro);
+        }
+
+        /* MAIN CONTENT */
+        .container {
+            max-width: 1600px;
+            margin: 24px auto;
+            padding: 0 16px 40px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--color-ouro);
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            border-bottom: 3px solid var(--color-bronze);
+            padding-bottom: 12px;
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-label {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--color-ouro);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-button {
+            padding: 8px 16px;
+            background: linear-gradient(to bottom, var(--color-pergaminho), #D4C4B0);
+            border: 2px solid var(--color-ouro-escuro);
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--color-texto);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-button:hover {
+            background: linear-gradient(to bottom, var(--color-ouro), #D4A574);
+            transform: translateY(-2px);
+        }
+
+        .filter-button.active {
+            background: linear-gradient(to bottom, var(--color-estandarte), #1E3810);
+            color: var(--color-pergaminho);
+            border-color: var(--color-pergaminho);
+        }
+
+        /* LEVEL SECTION */
+        .level-section {
+            margin-bottom: 40px;
+        }
+
+        .level-header {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-pergaminho);
+            background: linear-gradient(to right, transparent, var(--color-ouro-escuro), transparent);
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--color-ouro);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .research-card {
+            background: linear-gradient(135deg, #5A4A3A 0%, #4A3A2A 100%);
+            border: 2px solid var(--color-ouro-escuro);
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: var(--shadow-medieval);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .research-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(212, 165, 116, 0.4), var(--shadow-medieval);
+            border-color: var(--color-ouro);
+        }
+
+        .research-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--color-ouro), transparent);
+            opacity: 0.6;
+        }
+
+        .research-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .research-icon {
+            font-size: 28px;
+        }
+
+        .research-level {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            background: rgba(212, 165, 116, 0.3);
+            color: var(--color-ouro);
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-weight: 700;
+        }
+
+        .research-name {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-ouro);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .research-category {
+            font-size: 10px;
+            color: var(--color-bronze);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .research-description {
+            font-size: 11px;
+            color: var(--color-pergaminho);
+            line-height: 1.5;
+            margin-bottom: 12px;
+            border-left: 2px solid var(--color-bronze);
+            padding-left: 10px;
+            flex-grow: 1;
+        }
+
+        .research-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-size: 10px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px;
+            background: rgba(212, 165, 116, 0.08);
+            border-radius: 3px;
+        }
+
+        .detail-label {
+            color: var(--color-ouro);
+            font-weight: 600;
+            font-family: 'Cinzel', serif;
+            font-size: 9px;
+        }
+
+        .detail-value {
+            color: var(--color-pergaminho);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 10px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .status-available {
+            background: var(--color-estandarte);
+            color: var(--color-pergaminho);
+        }
+
+        .status-completed {
+            background: rgba(45, 80, 22, 0.5);
+            color: var(--color-estandarte);
+            border: 1px solid var(--color-estandarte);
+        }
+
+        .status-locked {
+            background: rgba(139, 58, 58, 0.5);
+            color: #FFB3B3;
+            border: 1px solid var(--color-lacre);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px;
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            font-weight: 700;
+            border: 2px solid var(--color-ouro-escuro);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .btn-start {
+            background: linear-gradient(to bottom, var(--color-estandarte), #1E3810);
+            color: var(--color-pergaminho);
+            border-color: var(--color-pergaminho);
+        }
+
+        .btn-start:hover:not(:disabled) {
+            background: linear-gradient(to bottom, #3a6b1f, #2D5016);
+            box-shadow: 0 4px 8px rgba(45, 80, 22, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-start:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-info {
+            background: linear-gradient(to bottom, var(--color-pergaminho), #D4C4B0);
+            color: var(--color-texto);
+        }
+
+        .btn-info:hover {
+            background: linear-gradient(to bottom, var(--color-ouro), #D4A574);
+            transform: translateY(-2px);
+        }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--color-ouro), var(--color-bronze));
+            border-radius: 4px;
+            border: 1px solid var(--color-ouro-escuro);
+        }
+
+        @media (max-width: 1024px) {
+            .research-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .seals {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-group {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="logo">⚔ EPIC UO</div>
+        <div class="seals">
+            <div class="seal">Reino</div>
+            <div class="seal">Leis</div>
+            <div class="seal">Construções</div>
+            <div class="seal active">Pesquisa</div>
+        </div>
+        <div class="player-info">
+            <span>🏰 Nível 2</span>
+            <span>👤 Player Name</span>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <div class="section-title">📚 Árvore Tecnológica Completa</div>
+
+        <!-- FILTERS -->
+        <div class="filter-bar">
+            <div class="filter-group">
+                <span class="filter-label">Nível:</span>
+                <button class="filter-button active" data-filter="level" data-value="all">Todos</button>
+                <button class="filter-button" data-filter="level" data-value="1">Nível 1</button>
+                <button class="filter-button" data-filter="level" data-value="2">Nível 2</button>
+                <button class="filter-button" data-filter="level" data-value="3">Nível 3</button>
+                <button class="filter-button" data-filter="level" data-value="4">Nível 4</button>
+                <button class="filter-button" data-filter="level" data-value="5">Nível 5</button>
+            </div>
+            <div class="filter-group">
+                <span class="filter-label">Ramo:</span>
+                <button class="filter-button" data-filter="branch" data-value="all">Todos</button>
+                <button class="filter-button" data-filter="branch" data-value="Produção">Produção</button>
+                <button class="filter-button" data-filter="branch" data-value="Militar">Militar</button>
+                <button class="filter-button" data-filter="branch" data-value="Social">Social</button>
+                <button class="filter-button" data-filter="branch" data-value="Governo">Governo</button>
+            </div>
+        </div>
+
+        <!-- RESEARCH BY LEVEL -->
+        <div id="research-container"></div>
+    </div>
+
+    <script>
+        const penelarchData = [
+            // NÍVEL 1
+            { nivel: 1, ramo: "Produção", nome: "Técnicas de Arado", icon: "🌾", custo: "500 Cobre, 5 Pergaminhos", tempo: "1 Dia", efeito: "+10% na produção de Comida." },
+            { nivel: 1, ramo: "Produção", nome: "Cunhas de Madeira", icon: "🪵", custo: "500 Cobre, 5 Pergaminhos", tempo: "1 Dia", efeito: "+10% na produção de Madeira." },
+            { nivel: 1, ramo: "Produção", nome: "Escoramento Simples", icon: "🪨", custo: "500 Cobre, 5 Pergaminhos", tempo: "1 Dia", efeito: "+10% na produção de Pedra." },
+            { nivel: 1, ramo: "Social", nome: "Registros do Feudo", icon: "📖", custo: "800 Cobre, 10 Pergaminhos", tempo: "2 Dias", efeito: "-10% no Upkeep de todas as construções." },
+            { nivel: 1, ramo: "Militar", nome: "Estacas Afiadas", icon: "♠️", custo: "600 Cobre, 300 Madeira", tempo: "1 Dia", efeito: "Adiciona +500 HP à Paliçada de Madeira." },
+            { nivel: 1, ramo: "Militar", nome: "Milícia Básica", icon: "⚔️", custo: "1200 Cobre, 100 Ferro", tempo: "3 Dias", efeito: "Aumenta o bônus de HP do cargo Vigia para +35%." },
+            { nivel: 1, ramo: "Governo", nome: "Escrita Formal", icon: "✍️", custo: "2000 Cobre, 25 Pergaminhos", tempo: "4 Dias", efeito: "(Final do Nv. 1) Desbloqueia Biblioteca (Nv. 1)." },
+
+            // NÍVEL 2
+            { nivel: 2, ramo: "Produção", nome: "Fundamentos da Metalurgia", icon: "🔨", custo: "3.000 Cobre, 30 Perg., 500 Ferro", tempo: "5 Dias", efeito: "Desbloqueia Forja e cargo de Ferreiro." },
+            { nivel: 2, ramo: "Produção", nome: "Carpintaria Avançada", icon: "🪚", custo: "3.000 Cobre, 30 Perg., 1000 Madeira", tempo: "5 Dias", efeito: "Desbloqueia Marcenaria e cargo de Carpinteiro." },
+            { nivel: 2, ramo: "Social", nome: "Hospitalidade Comunitária", icon: "🍺", custo: "2.500 Cobre, 25 Perg.", tempo: "4 Dias", efeito: "Desbloqueia Taverna e cargo de Taverneiro." },
+            { nivel: 2, ramo: "Social", nome: "Domesticação de Bestas", icon: "🐴", custo: "3.500 Cobre, 35 Perg.", tempo: "5 Dias", efeito: "Desbloqueia Estábulo e cargo de Domador." },
+            { nivel: 2, ramo: "Social", nome: "Princípios da Fé", icon: "⛪", custo: "3.000 Cobre, 30 Perg.", tempo: "5 Dias", efeito: "Desbloqueia Igreja/Templo e cargo de Sacerdote." },
+            { nivel: 2, ramo: "Militar", nome: "Técnicas de Fortificação", icon: "🏰", custo: "4.000 Cobre, 1.000 Pedra", tempo: "6 Dias", efeito: "Desbloqueia upgrade para Muralha de Pedra." },
+            { nivel: 2, ramo: "Governo", nome: "Administração Centralizada", icon: "👑", custo: "5.000 Cobre, 50 Perg.", tempo: "7 Dias", efeito: "(Final do Nv. 2) Desbloqueia Salão do Conselho." },
+
+            // NÍVEL 3
+            { nivel: 3, ramo: "Militar", nome: "Organização Militar", icon: "🎖️", custo: "8.000 Cobre, 75 Perg., 1.000 Ferro", tempo: "10 Dias", efeito: "Desbloqueia Quartel e cargo Comandante." },
+            { nivel: 3, ramo: "Ciência", nome: "Medicina e Saneamento", icon: "⚕️", custo: "7.000 Cobre, 60 Perg.", tempo: "9 Dias", efeito: "Desbloqueia Hospital e cargo de Médico." },
+            { nivel: 3, ramo: "Ciência", nome: "Fundamentos da Alquimia", icon: "🧪", custo: "7.500 Cobre, 70 Perg., 50 Ervas Raras", tempo: "9 Dias", efeito: "Desbloqueia Laboratório de Alquimia." },
+            { nivel: 3, ramo: "Economia", nome: "Contabilidade Avançada", icon: "💰", custo: "6.000 Cobre, 80 Perg.", tempo: "8 Dias", efeito: "Desbloqueia Mercado e cargo Mestre das Moedas." },
+            { nivel: 3, ramo: "Engenharia", nome: "Engenharia Defensiva", icon: "🛡️", custo: "12.000 Cobre, 5.000 Pedra", tempo: "14 Dias", efeito: "(Final Nv. 3) Desbloqueia Muralhas Altas com Torres." },
+
+            // NÍVEL 4
+            { nivel: 4, ramo: "Engenharia", nome: "Engenharia de Guerra", icon: "⚙️", custo: "20.000 Cobre, 150 Perg., 3.000 Ferro", tempo: "18 Dias", efeito: "Desbloqueia Oficina de Cerco e Engenheiro." },
+            { nivel: 4, ramo: "Magia", nome: "Teoria Arcana de Batalha", icon: "✨", custo: "22.000 Cobre, 50 Cristais", tempo: "20 Dias", efeito: "Desbloqueia construção da Torre Mágica." },
+            { nivel: 4, ramo: "Economia", nome: "Rotas de Caravana", icon: "🚚", custo: "18.000 Cobre, 120 Perg.", tempo: "16 Dias", efeito: "Desbloqueia Casa de Comércio e cargo Mercador." },
+            { nivel: 4, ramo: "Espionagem", nome: "Infiltração e Sabotagem", icon: "🗡️", custo: "25.000 Cobre, 200 Perg.", tempo: "21 Dias", efeito: "Desbloqueia Guilda de Ladrões." },
+            { nivel: 4, ramo: "Governo", nome: "Arquitetura de Bastião", icon: "🏯", custo: "30.000 Cobre, 10.000 Pedra", tempo: "28 Dias", efeito: "(Final Nv. 4) Desbloqueia Muralhas Reforçadas." },
+
+            // NÍVEL 5
+            { nivel: 5, ramo: "Governo", nome: "Arquitetura Soberana", icon: "👸", custo: "50.000 Cobre, 500 Perg., 2.000 Metal Raro", tempo: "40 Dias", efeito: "Desbloqueia construção do Castelo/Palácio." },
+            { nivel: 5, ramo: "Magia", nome: "Cartografia Celestial", icon: "🌌", custo: "60.000 Cobre, 100 Cristais", tempo: "45 Dias", efeito: "Desbloqueia construção do Observatório." },
+            { nivel: 5, ramo: "Espionagem", nome: "Guerra nas Sombras", icon: "🌙", custo: "75.000 Cobre, 300 Perg.", tempo: "50 Dias", efeito: "Desbloqueia Câmara das Sombras." },
+            { nivel: 5, ramo: "Cultura", nome: "Doutrina de Legado [Cultural]", icon: "🎭", custo: "100.000 Cobre, 50 Artefatos", tempo: "60 Dias", efeito: "(Final do Jogo) Desbloqueia Construção de Legado Cultural." }
+        ];
+
+        const playerLevel = 2; // Nível do jogador para determinar status
+
+        function getStatus(nivel) {
+            if (nivel < playerLevel) return "completed";
+            if (nivel === playerLevel) return "available";
+            return "locked";
+        }
+
+        function renderResearches() {
+            const container = document.getElementById('research-container');
+            container.innerHTML = '';
+
+            for (let level = 1; level <= 5; level++) {
+                const researchesAtLevel = penelarchData.filter(r => r.nivel === level);
+                if (researchesAtLevel.length === 0) continue;
+
+                const levelSection = document.createElement('div');
+                levelSection.className = 'level-section';
+                levelSection.innerHTML = `<div class="level-header">🏰 Nível ${level} do Feudo</div>`;
+
+                const grid = document.createElement('div');
+                grid.className = 'research-grid';
+
+                researchesAtLevel.forEach(research => {
+                    const status = getStatus(research.nivel);
+                    const card = document.createElement('div');
+                    card.className = `research-card level-${research.nivel} branch-${research.ramo}`;
+                    card.innerHTML = `
+                        <div class="research-header">
+                            <div class="research-icon">${research.icon}</div>
+                            <span class="research-level">Nv. ${research.nivel}</span>
+                        </div>
+                        <div class="research-name">${research.nome}</div>
+                        <div class="research-category">📁 ${research.ramo}</div>
+                        <div class="research-description">${research.efeito}</div>
+                        <div class="research-details">
+                            <div class="detail-row">
+                                <span class="detail-label">⏱️ Tempo:</span>
+                                <span class="detail-value">${research.tempo}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">💰 Custo:</span>
+                                <span class="detail-value" style="font-size: 9px;">${research.custo}</span>
+                            </div>
+                        </div>
+                        <span class="status-badge status-${status}">
+                            ${status === 'completed' ? '✓ Completa' : status === 'available' ? '✓ Disponível' : '🔒 Bloqueada'}
+                        </span>
+                        <div class="action-buttons">
+                            <button class="btn btn-start" ${status === 'locked' || status === 'completed' ? 'disabled' : ''}>
+                                ${status === 'completed' ? 'Completa' : status === 'locked' ? 'Bloqueada' : '▶ Começar'}
+                            </button>
+                            <button class="btn btn-info">ℹ️ Info</button>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+
+                levelSection.appendChild(grid);
+                container.appendChild(levelSection);
+            }
+        }
+
+        // Filter functionality
+        document.querySelectorAll('.filter-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const filterType = this.dataset.filter;
+                document.querySelectorAll(`[data-filter="${filterType}"]`).forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const levelFilter = document.querySelector('[data-filter="level"].active')?.dataset.value || 'all';
+                const branchFilter = document.querySelector('[data-filter="branch"].active')?.dataset.value || 'all';
+
+                document.querySelectorAll('.research-card').forEach(card => {
+                    let show = true;
+                    if (levelFilter !== 'all') {
+                        show = show && card.classList.contains(`level-${levelFilter}`);
+                    }
+                    if (branchFilter !== 'all') {
+                        show = show && card.classList.contains(`branch-${branchFilter}`);
+                    }
+                    card.parentElement.style.display = show ? 'grid' : 'none';
+                    
+                    // Hide level section if all cards are hidden
+                    const levelSection = card.closest('.level-section');
+                    if (levelSection) {
+                        const anyVisible = Array.from(levelSection.querySelectorAll('.research-card')).some(c => c.parentElement.style.display !== 'none');
+                        levelSection.style.display = anyVisible ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+
+        // Info buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('btn-info')) {
+                const card = e.target.closest('.research-card');
+                const name = card.querySelector('.research-name').textContent;
+                const ramo = card.querySelector('.research-category').textContent.replace('📁 ', '');
+                const desc = card.querySelector('.research-description').textContent;
+                const custo = card.querySelector('[data-label="💰"]')?.textContent || '';
+                alert(`${name}\n\nRamo: ${ramo}\n\nDescrição: ${desc}`);
+            }
+        });
+
+        // Initialize
+        renderResearches();
+    </script>
+</body>
+</html>

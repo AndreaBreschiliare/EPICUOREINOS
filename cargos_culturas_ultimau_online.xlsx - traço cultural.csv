@@ -1,0 +1,51 @@
+,Sistema 1: Traços Culturais Inatos (Versão Corrigida),,
+,,,
+level,Cultura,Nome do Traço,Efeito do Traço (Bônus e Penalidades)
+1,Baduran (Anões),Filhos da Montanha,!+20% na produção de Pedra e Minério de Ferro. <br> -25% na produção de Comida.
+1,Drow (Elfos Negros),Maestria do Subterrâneo,Construções de Poço de Mineração são 15% mais baratas em recursos. <br> -15% na produção de Madeira.
+1,Aiglanos (Romano),Disciplina Construtiva,Todas as construções ganham +15% de HP. <br> Todas as construções custam +10% a mais em Madeira e Pedra.
+1,Björske (Rohan/Germânico),Resiliência das Planícies,O consumo de comida da População é reduzido em 20%. <br> O custo das pesquisas na Mesa de Planejamento é 15% maior.
+1,Polkinea (Hobbit),Coração da Comarca,!+25% na produção de Comida. <br> A Paliçada de Madeira tem -20% de HP.
+1,Gulthrak (Orc),Esforço Brutal,A contribuição manual de recursos (coleta) pelos jogadores é 15% mais eficiente. <br> -25% na produção passiva de Moedas de Cobre.
+1,P. do Leste (Oriental),Harmonia Imperial,A Mesa de Planejamento funciona 15% mais rápido. <br> A Casa (Alojamento) custa +20% a mais de recursos.
+1,Aluriel (Elfos),Paciência Eterna,Todas as pesquisas são 15% mais rápidas. <br> O tempo de construção de todas as estruturas é 20% maior.
+,,,
+,Cultura,Opção de Traço 1 (Aprofundar Força),Opção de Traço 2 (Mitigar Fraqueza)
+2,Baduran (Anões),"""Mestre da Forja"": -15% no custo de produção de armas e armaduras de metal.","""Cultivo em Terraços"": A penalidade de produção de comida é reduzida de -25% para -10%."
+2,Drow (Elfos Negros),"""Alquimia Sombria"": Desbloqueia receitas de venenos exclusivos.","""Diplomacia Ardilosa"": A penalidade de reputação é removida; ganha bônus em negociações comerciais."
+2,Aiglanos (Romano),"""Estradas Imperiais"": A velocidade das caravanas que saem do seu feudo é aumentada em 20%.","""Logística Eficiente"": A penalidade de custo de construção é reduzida de +10% para +0%."
+2,Björske (Rohan),"""Cavalaria de Rohan"": Desbloqueia uma unidade montada única no Estábulo.","""Tradição dos Skalds"": Remove a penalidade de pesquisa; A Biblioteca funciona 5% mais rápido."
+2,Polkinea (Hobbit),"""Mestre Cervejeiro"": A Taverna gera o dobro de Moedas de Cobre.","""Coragem Inesperada"": Remove a penalidade de HP das unidades militares."
+2,Gulthrak (Orc),"""Sede de Sangue"": Ganha recursos bônus ao vencer batalhas PvP.","""Comerciantes de Troféus"": Remove a penalidade de geração de Moedas de Cobre."
+2,P. do Leste (Oriental),"""Caminho do Bushido"": Unidades militares ganham +10% de dano.","""Expansão Populacional"": Remove o custo adicional das Casas."
+2,Aluriel (Elfos),"""Sabedoria Ancestral"": Acelera a pesquisa em +10% adicional.","""Técnicas de Construção Ágeis"": Remove a penalidade de tempo de construção."
+,,,
+,Cultura,Opção 1 (Doutrina do Poder),Opção 2 (Doutrina da Prosperidade)
+3,Baduran (Anões),"""Juramento da Muralha de Pedra"": O salário (upkeep) de todas as unidades de defesa (Guardas, etc.) é reduzido em 25%. Suas muralhas são guarnecidas por menos, com a mesma eficiência.","""Selo Real da Forja"": Itens de metal criados na Forja do feudo têm uma pequena chance de serem produzidos com uma qualidade superior (Masterwork), adicionando um bônus de status menor."
+3,Drow (Elfos Negros),"""Vontade da Matriarca"": Desbloqueia um ritual na Torre Mágica que permite lançar uma ""Maldição de Infortúnio"" em um feudo inimigo, reduzindo a produção de recursos dele em 10% por 24 horas (ritual caro e com longo cooldown).","""Teia de Mentiras"": As ações do cargo de Espião custam 20% menos em Moedas de Cobre e têm uma chance maior de sucesso."
+3,Aiglanos (Romano),"""Logística da Legião"": O consumo de Comida de todas as unidades militares é reduzido em 30%, permitindo a manutenção de exércitos maiores com menos recursos.","""A Glória de Roma"": O feudo ganha um bônus permanente de +10 de Moral para sua População, aumentando a estabilidade e a produção geral (e reduzindo a chance de eventos negativos)."
+3,Björske (Rohan/Germânico),"""O Direito do Saque"": Unidades militares saqueiam 25% a mais de recursos ao atacar com sucesso o feudo de outro jogador.","""Juramento ao Thane"": Todas as unidades militares do feudo ganham +10% de HP, tornando-as mais resistentes em batalha."
+3,Polkinea (Hobbit),"""A Milícia da Comarca"": Desbloqueia uma unidade única, o ""Arqueiro da Comarca"", uma unidade defensiva barata e extremamente eficiente quando posicionada dentro das fronteiras do feudo.","""Hospitalidade Lendária"": A Taverna gera um bônus passivo de reputação com feudos vizinhos e tem uma chance de atrair ""Visitantes Ilustres"" (eventos que podem dar pequenos bônus ou missões)."
+3,Gulthrak (Orc),"""Máquinas de Guerra da Horda"": A construção de armas de cerco na Oficina de Cerco é 25% mais rápida e barata.","""Trabalho Escravo"": Aumenta a Capacidade de População de todas as Casas em +4, mas reduz a Moral máxima do feudo em -10 (uma força de trabalho maior, mas menos satisfeita)."
+3,P. do Leste (Oriental),"""A Arte da Guerra"": As pesquisas da árvore Militar são 20% mais rápidas. O primeiro ataque contra um feudo inimigo em uma guerra tem um bônus de ""Surpresa"".","""Burocracia Imperial"": O cargo de Mestre das Moedas se torna mais eficiente, aumentando a geração de Moedas de Cobre em +10% adicionais e reduzindo o upkeep de todos os prédios em 5%."
+3,Aluriel (Elfos),"""Magia de Batalha Élfica"": Desbloqueia um encantamento na Torre Mágica que pode ser aplicado a unidades militares, concedendo-lhes resistência mágica temporária.","""Pacto com a Natureza"": A produção da Casa do Lenhador e do Lote de Fazenda aumenta em +15%, e eles não geram penalidades de reputação com facções da natureza."
+,,,
+,Cultura,Opção 1 (Doutrina Ofensiva),Opção 2 (Doutrina Defensiva)
+4,Baduran (Anões),"""Quebradores de Cercos"": Unidades de cerco causam +25% de dano contra muralhas.","""Guardiões Inabaláveis"": Guardas NPC posicionados nas muralhas ganham +20% de defesa e HP."
+4,Drow (Elfos Negros),"""Emboscada Noturna"": Unidades militares ganham um bônus de ataque massivo ao lutar durante a noite.","""Proteções de Abjuração"": A Torre Mágica pode lançar um feitiço que torna o feudo indetectável para espiões por 24 horas."
+4,Aiglanos (Romano),"""A Legião Conquistadora"": O custo de manutenção de exércitos fora do seu território é reduzido em 50%.","""Testudo"": Desbloqueia uma habilidade de formação para a infantaria que os torna quase imunes a ataques de arqueiros."
+4,Björske (Rohan),"""Ataque Relâmpago"": Unidades de cavalaria movem-se 20% mais rápido no mapa do mundo.","""Defesa do Forte da Colina"": O feudo ganha um bônus de defesa adicional se estiver localizado em terreno elevado."
+4,Polkinea (Hobbit),"""Atiradores Escondidos"": Arqueiros ganham um bônus de precisão e dano ao atirar de posições defensivas.","""A Comarca Inviolável"": A produção de comida triplica durante um cerco, tornando o feudo quase imune à fome."
+4,Gulthrak (Orc),"""WAAAGH!"": Desbloqueia uma habilidade do Comandante Militar que concede um bônus de dano massivo e temporário a todas as unidades.","""Fortaleza de Ferro-Velho"": As muralhas se reparam lentamente ao longo do tempo usando sucata."
+4,P. do Leste (Oriental),"""Lâmina do Imperador"": Unidades de elite (Samurais) têm uma chance de causar um golpe letal (dano dobrado).","""Armadilhas de Sun Tzu"": O Engenheiro pode construir armadilhas defensivas únicas (fossos, estacas) fora das muralhas."
+4,Aluriel (Elfos),"""Flecha da Sombra"": Desbloqueia uma unidade de arqueiro de elite que pode se tornar invisível.","""Santuário Escondido"": O feudo não pode ser alvo de rituais de maldição inimigos."
+,,,
+,Cultura,Opção 1 (Doutrina do Domínio),Opção 2 (Doutrina da Transcendência)
+5,Baduran (Anões),"""O Grande Reino Anão"": Permite ter +1 feudo vassalo acima do limite normal. Você se torna um verdadeiro suserano, coletando tributos de mais terras.","""Coração da Montanha"": O feudo se torna imune a eventos de ""Colapso de Mina"" e a manutenção (upkeep) de todas as construções de pedra é reduzida em 30%."
+5,Drow (Elfos Negros),"""Rainha Aranha Eterna"": Todos os venenos criados no ducado têm uma chance de aplicar um debuff de dreno de mana no alvo, tornando-os devastadores contra magos.","""Cidade das Sombras"": Aumenta a dificuldade para espiões inimigos obterem informações sobre o ducado em 50%."
+5,Aiglanos (Romano),"""Pax Romana"": A taxa de Honra (se implementada) gerada por tratados de paz e rotas comerciais protegidas é dobrada. O ducado se torna um centro de estabilidade e diplomacia.","""Legado de César"": O Líder do Feudo (Duque) ganha um bônus pessoal e intransferível de carisma e liderança em seus status."
+5,Björske (Rohan/Germânico),"""A Última Cavalgada"": Uma vez por semana, o Comandante Militar pode convocar uma ""Cavalaria Fantasma"" de NPCs de elite que dura 1 hora para um ataque decisivo.","""Lenda dos Salões"": O ducado se torna uma lenda viva, atraindo NPCs de elite (mestres artesãos, heróis) para serem contratados com mais frequência."
+5,Polkinea (Hobbit),"""A Defesa da Comarca"": Durante um cerco ao seu ducado, todos os cidadãos (jogadores) ganham um bônus de defesa e dano enquanto estiverem dentro de suas fronteiras.","""Abundância Eterna"": A produção de comida do ducado nunca pode cair abaixo de um valor mínimo, mesmo durante eventos de seca ou praga."
+5,Gulthrak (Orc),"""A Horda Interminável"": Reduz o tempo de treinamento de todas as unidades militares em 20% permanentemente.","""Chefe de Guerra Imortal"": Se o Duque morrer em batalha, ele não sofre as penalidades de morte normais uma vez por semana (ex: perda de skill ou stats)."
+5,P. do Leste (Oriental),"""Mandato do Céu"": O Duque pode anular um Édito de um feudo vassalo uma vez por semana, impondo sua vontade.","""A Cidade Proibida"": Apenas membros do ducado e aliados declarados podem entrar no pátio do Castelo. Outros são barrados por guardas, criando uma cidadela impenetrável."
+5,Aluriel (Elfos),"""Guardiões Arcanos"": A Torre Mágica pode manter um escudo arcano permanente que absorve uma pequena quantidade de dano de cerco, regenerando-se lentamente.","""Visão do Futuro"": O Observatório tem uma chance de revelar a localização de um artefato raro no mapa uma vez por mês."

@@ -1,0 +1,50 @@
+Éditos,,,
+,,,
+Nivel,Nome do Édito,Efeito e Mecânica de Reforço,Consequências de RP
+1,Nenhum Edito,,
+2,"""Édito da Paz Cívica""","Proibido sacar armas em áreas designadas (praça, mercado). Um guarda dará um aviso; a desobediência resulta em status de ""Perturbador da Ordem"" e ataque dos guardas.",
+2,"""Édito da Face Descoberta""",Proibido usar capuz ou elmo que cubra o rosto no Salão do Vilarejo. A desobediência resulta em uma pequena multa automática.,
+2,"""Édito da Ordem Arcana""","Proibido conjurar magias ofensivas na área urbana. A violação após um aviso resulta em status de ""Criminoso"".",
+3,"""Édito de Licença de Comércio""","Apenas jogadores com uma ""Licença de Mercador"" (comprada do tesouro do feudo) podem usar os stalls do Mercado. Guardas removerão vendedores não licenciados.","Gera renda e cria uma ""classe mercantil"" oficial, mas cria uma barreira para pequenos comerciantes e jogadores novos."
+3,"""Édito do Estandarte Obrigatório""","Todos os membros do feudo devem usar um item que exiba o brasão do feudo dentro das muralhas. Guardas podem aplicar pequenas multas por ""insubordinação"".","Promove um forte senso de unidade e identidade visual. Facilita a identificação de forasteiros e espiões, mas limita a liberdade de customização."
+3,"""Édito do Toque de Recolher""","Após o anoitecer, jogadores encontrados vadiando em áreas públicas podem ser questionados e escoltados pelos guardas.","Cria uma sensação de cidade altamente controlada e segura à noite, mas pode ser um incômodo para jogadores que preferem a vida noturna ou o RP de taverna."
+4,"""Lei Marcial""",Proibido correr em áreas urbanas. Guardas podem prender infratores por um curto período. Cria uma atmosfera de ordem e disciplina militar absolutas.,
+4,"""Édito de Identificação Obrigatória""","Todos os visitantes de fora do feudo devem se registrar com o Capitão da Guarda ao entrar. Falhar em fazê-lo os marca como ""Suspeitos"", permitindo que sejam parados e revistados pelos guardas.","Aumenta drasticamente a segurança contra espionagem, mas torna o feudo menos acolhedor para viajantes e comerciantes estrangeiros."
+5,"""Édito de Fronteiras Fechadas""","O Duque pode proibir a entrada de membros de um feudo ou aliança específica em todo o seu território. <br> Reforço: Guardas nas fronteiras atacarão os jogadores proibidos que tentarem entrar, sem perda de reputação para o ducado.",A ferramenta diplomática final para isolar um inimigo ou proteger segredos. É um ato de guerra fria que pode escalar para um conflito aberto e cria um drama político imenso.
+5,"""Édito do Dízimo Obrigatório""","Todas as estações de crafting (Forja, Laboratório, etc.) exigem um ""dízimo"" de 10% dos recursos usados, que é enviado diretamente para o tesouro do feudo. <br> Reforço: A mecânica de crafting é alterada para exigir 110% dos materiais, com 10% sendo depositados no cofre.","Gera uma renda massiva de recursos brutos para o Duque, permitindo-lhe financiar grandes projetos ou o esforço de guerra. É uma lei extremamente impopular que pode levar a revoltas de artesãos e êxodo de talentos."
+,,,
+Progressão da Capacidade de Governança (Slots de Éditos),Nome do Édito,Efeito e Mecânica de Reforço,Consequências de RP
+Nível do Feudo,Título do Líder,Slots de Éditos Ativos,Filosofia de Governo
+Nível 1,Senhor,0,Terra Sem Lei: Um domínio de fronteira onde a ordem ainda não foi estabelecida. A ausência de Éditos é uma característica do Nível 1.
+Nível 2,Barão,1,"Ordem Básica: O Barão pode impor uma única regra fundamental para dar uma identidade social à sua vila (ex: impor a paz, proibir máscaras, etc.)."
+Nível 3,Conde,2,"Governo Municipal: O Conde pode combinar dois Éditos para criar uma sociedade mais complexa, controlando tanto a ordem pública quanto a economia, por exemplo."
+Nível 4,Marquês,3,Estado de Controle: O Marquês governa uma fortaleza militar e pode impor uma disciplina rígida com múltiplos Éditos para garantir a segurança e a ordem em tempos de guerra.
+Nível 5,Duque,4,"Soberania Absoluta: O Duque tem poder quase total para moldar a sociedade e suas relações com o mundo exterior, ativando uma combinação complexa de Éditos."
+Como Funciona na Prática (O Dilema do Conde),,,
+Imagine que você é um Conde de Nível 3. Você tem dois slots para Éditos e já desbloqueou todos os Éditos dos Níveis 2 e 3.,,,
+,,,
+"Sua cidade está sofrendo com espiões e ladrões, mas você também quer promover o comércio. Você enfrenta uma decisão:",,,
+,,,
+Opção 1: Foco Total na Segurança,,,
+,,,
+"Édito 1 Ativo: ""Édito da Face Descoberta"" (para dificultar o trabalho de espiões).",,,
+"Édito 2 Ativo: ""Édito do Toque de Recolher"" (para controlar a cidade à noite).",,,
+"Resultado: Sua cidade é extremamente segura, mas talvez um pouco opressiva e menos acolhedora para o comércio noturno.",,,
+Opção 2: Foco no Comércio e na Ordem,,,
+,,,
+"Édito 1 Ativo: ""Édito de Licença de Comércio"" (para organizar e lucrar com o mercado).",,,
+"Édito 2 Ativo: ""Édito da Paz Cívica"" (para garantir que a área do mercado seja segura).",,,
+"Resultado: Seu mercado floresce e gera muita renda, mas você pode estar mais vulnerável a ladrões e espiões operando fora do mercado ou à noite.",,,
+Opção 3: Foco na Identidade e Controle,,,
+,,,
+"Édito 1 Ativo: ""Édito do Estandarte Obrigatório"" (para promover a unidade).",,,
+"Édito 2 Ativo: ""Édito da Ordem Arcana"" (para controlar o uso de magia).",,,
+"Resultado: Seu feudo tem uma identidade visual e cultural forte, mas talvez sacrifique a segurança prática ou o potencial econômico.",,,
+Conclusão:,,,
+,,,
+A limitação no número de Éditos ativos é uma mecânica fundamental. Ela força o líder a:,,,
+,,,
+Fazer escolhas significativas sobre qual tipo de sociedade ele quer governar.,,,
+Adaptar suas leis às circunstâncias atuais (tempos de paz vs. tempos de guerra).,,,
+"Criar um ""sabor"" único para o seu feudo que os jogadores podem sentir e com o qual podem interagir.",,,
+"Você desbloqueia todos os Éditos dos níveis anteriores, mas só pode ativar o número permitido pelo seu título de nobreza.",,,

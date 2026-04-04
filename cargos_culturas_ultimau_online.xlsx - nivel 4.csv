@@ -1,0 +1,52 @@
+Padrão de Design: Nível 4 - A Era do Poder Militar (Marca do Marquês),,,
+"Filosofia Central: O feudo agora é uma fortaleza, o centro nevrálgico do poder militar de uma região. A sobrevivência não é mais a questão; a projeção de poder é. O foco se volta para a engenharia de guerra, a logística de exércitos e as operações de inteligência.",,,
+,,,
+1. Recompensas da Ascensão,,,
+Novo Título: O Líder se torna Marquês.,,,
+"Expansão do Terreno: O feudo ganha +2 Lotes de Construção, o maior salto até agora, permitindo a construção de estruturas militares massivas e especializadas.",,,
+Aumento do Limite de Tropas: A capacidade de recrutar e manter unidades militares (NPCs) aumenta em 50%.,,,
+2. Cargos Liberados no Nível 4 (O Estado-Maior),,,
+O Marquês precisa de um conselho de guerra e de agentes especializados para operar em um cenário de conflito constante.,,,
+,,,
+Cargo Genérico,Pré-requisito para Atribuição,Bônus Mecânico do Cargo,
+Engenheiro,Construir a Oficina de Cerco.,Reduz o custo em pedra e ferro para todas as construções defensivas em 15%.,
+Herbalista,Construir um Jardim Alquímico (Upgrade do Laboratório).,Desbloqueia reagentes raros e aumenta a eficácia de todas as poções de cura em 10%.,
+Espião,Construir uma Guilda de Ladrões (ou similar).,Permite realizar missões de espionagem. Reduz a chance de ser detectado em 20%.,
+Ladrão,(Papel formalizado),"Pode ser ""contratado"" para missões específicas de sabotagem, como ""Destruir Armazém Inimigo"".",
+3. Construções Liberadas no Nível 4 (A Fortaleza),,,
+"As estruturas do Nível 4 são focadas em poderio militar, defesa impenetrável e conhecimento arcano para fins bélicos.",,,
+,,,
+Construção,Pré-requisito de Pesquisa,Custo (Exemplo),Função Principal
+Oficina de Cerco,"""Engenharia de Guerra""","5000 Pedra, 2500 Ferro",Permite a construção de armas de cerco como Catapultas e Aríetes. Desbloqueia o cargo de Engenheiro.
+Torre Mágica,"""Fundamentos Arcanos""","4000 Pedra, 2000 Cobre, 100 Cristais Arcanos","Desbloqueia a árvore de pesquisa mágica, encantamentos de batalha e rituais de defesa."
+Arena,"""Jogos de Guerra""","3000 Pedra, 1000 Madeira","Local para torneios PvP. O vencedor ganha o título de ""Campeão da Arena"", que concede um bônus de Moral ao feudo."
+Prisão,"""Código de Leis Avançado""","4000 Pedra, 500 Ferro",Permite prender jogadores criminosos por um período de tempo.
+Muralhas Reforçadas (Upgrade),"""Arquitetura de Bastião""","15.000 Pedra, 5.000 Ferro","Evolução das Muralhas Altas, com pontos para posicionar armas de cerco e defesas ativas."
+4. Pesquisas Liberadas no Nível 4 (Foco em Domínio),,,
+A pesquisa agora é sobre alcançar a superioridade militar e estratégica.,,,
+,,,
+Ramo,Pesquisa,Custo (Exemplo),Efeito Desbloqueado
+Militar,"""Engenharia de Guerra""","5000 Cobre, 1000 Ferro",Desbloqueia a construção da Oficina de Cerco.
+Militar,"""Táticas de Formação""","4000 Cobre, 200 Pergaminhos",Concede uma habilidade especial para o Comandante Militar que aumenta a defesa de unidades próximas.
+Espionagem,"""Infiltração e Sabotagem""","6000 Cobre, 50 Cristais",Desbloqueia a construção da Guilda de Ladrões e o cargo de Espião.
+Magia,"""Teoria Arcana de Batalha""","7000 Cobre, 100 Cristais",Desbloqueia a Torre Mágica e pesquisas de encantamento de armas.
+5. Traços Culturais (Nível 4 - Doutrina do Legado Militar),,,
+A escolha do Marquês define o legado militar e estratégico de seu povo. Ele escolhe uma das duas opções.,,,
+,,,
+Cultura,Opção 1 (Doutrina Ofensiva),Opção 2 (Doutrina Defensiva),
+Baduran (Anões),"""Quebradores de Cercos"": Unidades de cerco causam +25% de dano contra muralhas.","""Guardiões Inabaláveis"": Guardas NPC posicionados nas muralhas ganham +20% de defesa e HP.",
+Drow (Elfos Negros),"""Emboscada Noturna"": Unidades militares ganham um bônus de ataque massivo ao lutar durante a noite.","""Proteções de Abjuração"": A Torre Mágica pode lançar um feitiço que torna o feudo indetectável para espiões por 24 horas.",
+Aiglanos (Romano),"""A Legião Conquistadora"": O custo de manutenção de exércitos fora do seu território é reduzido em 50%.","""Testudo"": Desbloqueia uma habilidade de formação para a infantaria que os torna quase imunes a ataques de arqueiros.",
+Björske (Rohan),"""Ataque Relâmpago"": Unidades de cavalaria movem-se 20% mais rápido no mapa do mundo.","""Defesa do Forte da Colina"": O feudo ganha um bônus de defesa adicional se estiver localizado em terreno elevado.",
+Polkinea (Hobbit),"""Atiradores de Elite"": Arqueiros ganham um bônus de precisão e dano ao atirar de posições defensivas.","""A Comarca Inviolável"": A produção de comida triplica durante um cerco, tornando o feudo imune à fome.",
+Gulthrak (Orc),"""WAAAGH!"": Desbloqueia uma habilidade do Comandante Militar que concede um bônus de dano massivo e temporário a todas as unidades.","""Fortaleza de Ferro-Velho"": As muralhas se reparam lentamente ao longo do tempo.",
+P. do Leste (Oriental),"""Lâmina Imparável"": Unidades de elite (Samurais) têm uma chance de causar um golpe letal (dano dobrado).","""Armadilhas de Sun Tzu"": O Engenheiro pode construir armadilhas defensivas únicas (fossos, estacas).",
+Aluriel (Elfos),"""Chuva de Flechas"": Arqueiros ganham uma habilidade de ataque em área.","""Santuário Intocável"": O feudo não pode ser alvo de rituais de maldição inimigos.",
+6. Novas Leis e Éditos (Nível 4 - Estado de Guerra),,,
+"As leis do Marquês são pragmáticas e duras, refletindo a realidade de uma fortaleza de fronteira. Ele pode manter quatro Decretos Ativos e três Éditos.",,,
+,,,
+Tipo,Nome,Efeito (Bônus e Penalidade),
+Decreto (Militar),"""Recrutamento Forçado""","O tempo de treinamento de todas as unidades é reduzido em 30%. <br> Penalidade: A Moral da População cai em -20, reduzindo a produção geral.",
+Decreto (Econômico),"""Imposto de Guerra""","A produção de todos os recursos (exceto comida) é reduzida em 15%, mas convertida diretamente em Moedas de Cobre para o tesouro.",
+Édito (Conduta),"""Lei Marcial""",Proibido correr em áreas urbanas. Guardas podem prender infratores na Prisão por um curto período.,
+Édito (Conduta),"""Identificação Obrigatória""","Todos os visitantes de fora do feudo devem se registrar com o Capitão da Guarda ao entrar. Falhar em fazê-lo os marca como ""Suspeitos"".",
