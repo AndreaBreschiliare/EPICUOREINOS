@@ -399,6 +399,52 @@ async function resetFieudResources(req, res) {
   }
 }
 
+/**
+ * DELETE /api/feud/:id
+ * DEBUG: Deleta um feudo (apenas para testes)
+ */
+async function deleteFeud(req, res) {
+  try {
+    const feudId = req.params.id;
+    const userId = req.user.id;
+
+    // Buscar feudo
+    const feud = await Feud.findById(feudId);
+    if (!feud) {
+      return res.status(404).json({
+        success: false,
+        error: ERROR_CODES.FEUD_NOT_FOUND,
+        message: 'Feud not found',
+      });
+    }
+
+    // Verificar se o feudo pertence ao usuário
+    if (feud.user_id !== userId) {
+      return res.status(403).json({
+        success: false,
+        error: ERROR_CODES.FORBIDDEN,
+        message: 'Unauthorized',
+      });
+    }
+
+    // Deletar o feudo
+    await Feud.delete(feudId);
+
+    res.json({
+      success: true,
+      message: 'Feud deleted successfully',
+      feudId: feudId,
+    });
+  } catch (error) {
+    console.error('Error deleting feud:', error);
+    res.status(500).json({
+      success: false,
+      error: ERROR_CODES.INTERNAL_ERROR,
+      message: 'Error deleting feud',
+    });
+  }
+}
+
 module.exports = {
   getMyFeud,
   getFeudById,
@@ -409,4 +455,5 @@ module.exports = {
   getLeaderboard,
   createFeud,
   resetFieudResources,
+  deleteFeud,
 };

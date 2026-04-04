@@ -38,6 +38,9 @@ router.post('/:id/collect', feudController.collectResources);
 // POST /api/feud/:id/reset-resources - DEBUG: Reset recursos ao inicial (para testes)
 router.post('/:id/reset-resources', feudController.resetFieudResources);
 
+// DELETE /api/feud/:id - DEBUG: Deletar feudo (para testes)
+router.delete('/:id', feudController.deleteFeud);
+
 // ==================== BUILDINGS ROUTES ====================
 
 // Incluir rotas de building como sub-rotas
