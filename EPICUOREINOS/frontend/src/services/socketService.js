@@ -1,7 +1,7 @@
 import { io } from 'socket.io-client';
 import { authService } from './authService';
 
-const SOCKET_URL = 'http://localhost:5000';
+const SOCKET_URL = import.meta.env.DEV ? 'http://localhost:5000' : 'https://api.odisseiadamente.com.br';
 
 class SocketService {
   constructor() {
