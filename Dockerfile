@@ -1,20 +1,14 @@
-# Build stage
+# Build stage - Build frontend and backend
 FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Copy everything first
+# Copy entire project
 COPY . .
 
-# Install dependencies for backend
-WORKDIR /app/EPICUOREINOS/backend
-RUN npm ci --only=production
-
-# Install dependencies for frontend
-WORKDIR /app/EPICUOREINOS/frontend
-RUN npm ci
-
 # Build frontend
+WORKDIR /app/EPICUOREINOS/frontend
+RUN npm install
 RUN npm run build
 
 # Production stage
@@ -22,9 +16,16 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Copy built application from builder
-COPY --from=builder /app/EPICUOREINOS/backend ./backend
+# Copy built frontend from builder
 COPY --from=builder /app/EPICUOREINOS/frontend/dist ./frontend/dist
+
+# Install backend dependencies
+COPY EPICUOREINOS/backend/package*.json ./backend/
+WORKDIR /app/backend
+RUN npm install --production
+
+# Copy backend source
+COPY EPICUOREINOS/backend/ .
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs
@@ -35,5 +36,4 @@ ENV NODE_ENV=production
 EXPOSE 5000
 
 # Start server
-WORKDIR /app/backend
 CMD ["node", "src/app.js"]
