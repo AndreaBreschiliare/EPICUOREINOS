@@ -11,7 +11,6 @@ RUN npm install
 # Copy backend source code
 COPY EPICUOREINOS/backend/src ./src
 COPY EPICUOREINOS/backend/knexfile.js ./
-COPY EPICUOREINOS/backend/migrations ./migrations
 
 ENV NODE_ENV=production
 EXPOSE 5000
