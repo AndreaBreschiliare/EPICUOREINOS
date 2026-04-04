@@ -49,8 +49,8 @@ export default function RegisterPage() {
       const { user, token } = await authService.register(username, email, password);
       authService.saveAuth(user, token);
 
-      // Show success and redirect
-      navigate('/dashboard');
+      // Redirecionar para criação de reino
+      navigate('/kingdom-creation');
     } catch (err) {
       setError(err.message || 'Erro ao registrar');
     } finally {

@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import KingdomCreationPage from './pages/KingdomCreationPage';
 import DashboardPage from './pages/DashboardPage';
 import ResearchPage from './pages/ResearchPage';
 import { authService } from './services/authService';
@@ -22,6 +23,16 @@ function App() {
 
         {/* Rota de Registro */}
         <Route path="/register" element={<RegisterPage />} />
+
+        {/* Rota Protegida: Criação de Reino */}
+        <Route
+          path="/kingdom-creation"
+          element={
+            <ProtectedRoute>
+              <KingdomCreationPage />
+            </ProtectedRoute>
+          }
+        />
 
         {/* Rota Protegida: Dashboard */}
         <Route
