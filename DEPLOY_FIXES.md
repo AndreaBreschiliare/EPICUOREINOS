@@ -12,18 +12,27 @@
 
 - COPY EPICUOREINOS/backend/knexfile.js ./
 + COPY backend/knexfile.js ./
+
++ COPY backend/migrations ./migrations
 ```
 
 ### 2. **docker-compose.yml**
 ```diff
   volumes:
--   - ./backend/src:/app/backend/src
-+   - ./backend/src:/app/src
+    - ./backend/src:/app/src
++   - ./backend/migrations:/app/migrations
+    command: npm run dev
 ```
 
 ### 3. **frontend/Dockerfile.dev** (Criado)
 - Novo arquivo para desenvolvimento do frontend com Vite
 - Expõe porta 5173 (padrão do Vite)
+
+### 4. **Cloudflare Build Settings**
+```
+Root directory: frontend
+(não EPICUOREINOS/frontend)
+```
 
 ---
 
