@@ -9,13 +9,10 @@ import {
   Alert,
   CircularProgress,
   Paper,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
   Grid,
   Card,
   CardContent,
+  CardMedia,
 } from '@mui/material';
 import { authService } from '../services/authService';
 
@@ -237,54 +234,109 @@ export default function KingdomCreationPage() {
                 }}
               />
 
-              {/* Seleção de Cultura */}
-              <FormControl
-                fullWidth
-                sx={{
-                  marginBottom: 3,
-                }}
-              >
-                <InputLabel
+              {/* Seleção de Cultura - Grid de Botões */}
+              <Box sx={{ marginBottom: 3 }}>
+                <Typography
+                  variant="subtitle1"
                   sx={{
-                    color: '#8B6F47',
-                    '&.Mui-focused': {
-                      color: '#D4A574',
-                    },
+                    color: '#D4A574',
+                    marginBottom: 2,
+                    fontWeight: 'bold',
+                    textAlign: 'center',
                   }}
                 >
-                  Cultura
-                </InputLabel>
-                <Select
-                  value={selectedCulture}
-                  onChange={(e) => setSelectedCulture(e.target.value)}
-                  label="Cultura"
-                  disabled={loading}
-                  sx={{
-                    color: '#fff',
-                    '& .MuiOutlinedInput-notchedOutline': {
-                      borderColor: '#8B6F47',
-                    },
-                    '&:hover .MuiOutlinedInput-notchedOutline': {
-                      borderColor: '#D4A574',
-                    },
-                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                      borderColor: '#D4A574',
-                    },
-                    '& .MuiSvgIcon-root': {
-                      color: '#D4A574',
-                    },
-                  }}
-                >
-                  <MenuItem value="" disabled>
-                    Selecione uma cultura...
-                  </MenuItem>
+                  Escolha sua Cultura
+                </Typography>
+
+                <Grid container spacing={2}>
                   {CULTURES.map((culture) => (
-                    <MenuItem key={culture.id} value={culture.id}>
-                      {culture.name} - {culture.description}
-                    </MenuItem>
+                    <Grid item xs={6} sm={6} md={3} key={culture.id}>
+                      <Card
+                        onClick={() => setSelectedCulture(culture.id)}
+                        disabled={loading}
+                        sx={{
+                          cursor: loading ? 'not-allowed' : 'pointer',
+                          opacity: loading ? 0.6 : 1,
+                          background:
+                            selectedCulture === culture.id
+                              ? 'linear-gradient(135deg, rgba(212, 165, 116, 0.3), rgba(139, 111, 71, 0.3))'
+                              : 'rgba(50, 50, 50, 0.6)',
+                          border:
+                            selectedCulture === culture.id
+                              ? '3px solid #D4A574'
+                              : '2px solid #666',
+                          borderRadius: 2,
+                          transition: 'all 0.3s ease',
+                          transform: selectedCulture === culture.id ? 'scale(1.05)' : 'scale(1)',
+                          '&:hover': {
+                            border: '2px solid #D4A574',
+                            transform: 'scale(1.02)',
+                            boxShadow: '0 8px 16px rgba(212, 165, 116, 0.2)',
+                          },
+                          display: 'flex',
+                          flexDirection: 'column',
+                          height: '100%',
+                        }}
+                      >
+                        {/* Imagem Placeholder */}
+                        <CardMedia
+                          component="div"
+                          sx={{
+                            height: 100,
+                            background: 'linear-gradient(135deg, #3a3a3a, #2a2a2a)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: '#888',
+                            fontSize: 48,
+                            fontWeight: 'bold',
+                            borderBottom:
+                              selectedCulture === culture.id
+                                ? '2px solid #D4A574'
+                                : '1px solid #555',
+                          }}
+                        >
+                          {/* Emoji placeholder até que tenha a pixel art */}
+                          <span role="img" aria-label={culture.name}>
+                            {culture.id === 'baduran' && '⛏️'}
+                            {culture.id === 'drow' && '🗡️'}
+                            {culture.id === 'aiglanos' && '🏛️'}
+                            {culture.id === 'björske' && '🪓'}
+                            {culture.id === 'polkinea' && '🌾'}
+                            {culture.id === 'gulthrak' && '💪'}
+                            {culture.id === 'p_leste' && '☯️'}
+                            {culture.id === 'aluriel' && '✨'}
+                          </span>
+                        </CardMedia>
+
+                        {/* Conteúdo */}
+                        <CardContent sx={{ padding: '12px', flex: 1 }}>
+                          <Typography
+                            variant="subtitle2"
+                            sx={{
+                              color: '#D4A574',
+                              fontWeight: 'bold',
+                              marginBottom: 0.5,
+                            }}
+                          >
+                            {culture.name}
+                          </Typography>
+                          <Typography
+                            variant="caption"
+                            sx={{
+                              color: '#999',
+                              display: 'block',
+                              fontSize: '0.7rem',
+                            }}
+                          >
+                            {culture.description}
+                          </Typography>
+                        </CardContent>
+                      </Card>
+                    </Grid>
                   ))}
-                </Select>
-              </FormControl>
+                </Grid>
+              </Box>
 
               {/* Botão de Envio */}
               <Button
