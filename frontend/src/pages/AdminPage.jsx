@@ -26,6 +26,8 @@ import {
 import GameHeader from '../components/GameHeader';
 import { authService } from '../services/authService';
 
+const API_URL = import.meta.env.DEV ? 'http://localhost:5000/api' : 'https://api.odisseiadamente.com.br/api';
+
 export default function AdminPage() {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
@@ -55,12 +57,12 @@ export default function AdminPage() {
       setError('');
 
       const [usersRes, statsRes] = await Promise.all([
-        fetch('/api/admin/users', {
+        fetch(`${API_URL}/admin/users`, {
           headers: {
             Authorization: `Bearer ${authService.getToken()}`,
           },
         }),
-        fetch('/api/admin/stats', {
+        fetch(`${API_URL}/admin/stats`, {
           headers: {
             Authorization: `Bearer ${authService.getToken()}`,
           },
@@ -96,7 +98,7 @@ export default function AdminPage() {
     try {
       setActionLoading(true);
 
-      const response = await fetch(`/api/admin/users/${selectedUser.id}`, {
+      const response = await fetch(`${API_URL}/admin/users/${selectedUser.id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${authService.getToken()}`,
