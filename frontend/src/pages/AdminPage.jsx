@@ -34,6 +34,7 @@ export default function AdminPage() {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const [selectedUser, setSelectedUser] = useState(null);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [actionLoading, setActionLoading] = useState(false);
@@ -104,6 +105,7 @@ export default function AdminPage() {
 
     try {
       setActionLoading(true);
+      console.log('🗑️ Deletando usuário:', selectedUser.email);
 
       const response = await fetch(`${API_URL}/admin/users/${selectedUser.id}`, {
         method: 'DELETE',
@@ -111,6 +113,8 @@ export default function AdminPage() {
           Authorization: `Bearer ${authService.getToken()}`,
         },
       });
+
+      console.log('📦 Response status:', response.status);
 
       if (!response.ok) {
         let errorMessage = 'Erro ao deletar usuário';
@@ -123,12 +127,20 @@ export default function AdminPage() {
         throw new Error(errorMessage);
       }
 
+      const data = await response.json();
+      console.log('✅ User deleted successfully:', data);
+
       // Remover usuário da lista
       setUsers(users.filter((u) => u.id !== selectedUser.id));
       setDeleteDialogOpen(false);
       setSelectedUser(null);
       setError('');
+      setSuccessMessage(`✅ Usuário ${selectedUser.username} deletado com sucesso!`);
+      
+      // Limpar mensagem após 4 segundos
+      setTimeout(() => setSuccessMessage(''), 4000);
     } catch (err) {
+      console.error('❌ Error deleting user:', err);
       setError(err.message || 'Erro ao deletar usuário');
     } finally {
       setActionLoading(false);
@@ -168,6 +180,12 @@ export default function AdminPage() {
         {error && (
           <Alert severity="error" sx={{ marginBottom: 2 }}>
             {error}
+          </Alert>
+        )}
+
+        {successMessage && (
+          <Alert severity="success" sx={{ marginBottom: 2 }}>
+            {successMessage}
           </Alert>
         )}
 

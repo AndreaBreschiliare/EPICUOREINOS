@@ -107,16 +107,21 @@ async function deleteUser(req, res) {
     // Deletar todos os feudos do usuário
     const feuds = await Feud.findByUserId(userId);
     if (feuds) {
+      console.log(`[AdminController] Deleting feud ${feuds.id} for user ${userId}`);
       await Feud.delete(feuds.id);
+      console.log(`[AdminController] Feud ${feuds.id} deleted successfully`);
     }
 
     // Deletar o usuário
+    console.log(`[AdminController] Deleting user ${userId} (${user.email})`);
     await User.delete(userId);
+    console.log(`[AdminController] User ${userId} deleted successfully`);
 
     res.json({
       success: true,
       message: 'User deleted successfully',
       userId: userId,
+      userEmail: user.email,
     });
   } catch (error) {
     console.error('Error deleting user:', error);
