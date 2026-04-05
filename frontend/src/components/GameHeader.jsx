@@ -5,6 +5,8 @@ import { authService } from '../services/authService';
 export default function GameHeader({ playerLevel = 2, playerName = 'Player' }) {
   const navigate = useNavigate();
   const location = useLocation();
+  const user = authService.getUser();
+  const isAdmin = user?.role === 'admin';
 
   const tabs = [
     { label: 'Reino', path: '/dashboard', icon: '⚔️' },
@@ -134,6 +136,41 @@ export default function GameHeader({ playerLevel = 2, playerName = 'Player' }) {
                 fontWeight: 700,
               }}
             />
+            {isAdmin && (
+              <Chip
+          {isAdmin && (
+            <Button
+              onClick={() => navigate('/admin')}
+              variant="contained"
+              size="small"
+              sx={{
+                bgcolor: '#8B5A3A',
+                color: '#E8D4B8',
+                fontFamily: "'Cinzel', serif",
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                fontSize: 10,
+                border: '2px solid #D4A574',
+                '&:hover': {
+                  bgcolor: '#A0734A',
+                },
+              }}
+            >
+              🛡️ Admin
+            </Button>
+          )}
+
+                label="🛡️ ADMIN"
+                size="small"
+                sx={{
+                  bgcolor: 'rgba(212, 100, 100, 0.5)',
+                  color: '#FF9999',
+                  fontFamily: "'Cinzel', serif",
+                  fontWeight: 900,
+                  border: '2px solid #D46464',
+                }}
+              />
+            )}
           </Box>
 
           <Button
