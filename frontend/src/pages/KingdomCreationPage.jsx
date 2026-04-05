@@ -284,8 +284,13 @@ export default function KingdomCreationPage() {
                           image={`/cultures/${culture.id}.jpg`}
                           alt={culture.name}
                           sx={{
-                            height: 150,
-                            objectFit: 'cover',
+                            height: 200,
+                            width: '100%',
+                            objectFit: 'contain',
+                            objectPosition: 'center',
+                            backgroundColor: '#2a2a2a',
+                            padding: '8px',
+                            boxSizing: 'border-box',
                             borderBottom:
                               selectedCulture === culture.id
                                 ? '2px solid #D4A574'
