@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -89,7 +89,7 @@ export default function KingdomCreationPage() {
   const [loading, setLoading] = useState(false);
 
   // Verificar se já existe feudo ao carregar a página
-  React.useEffect(() => {
+  useEffect(() => {
     const checkExistingFeud = async () => {
       try {
         const response = await fetch(`${API_URL}/feud/me`, {
