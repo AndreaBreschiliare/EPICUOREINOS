@@ -192,7 +192,10 @@ export default function GameHeader({ playerLevel = 2, playerName = 'Player' }) {
               sx={{
                 bgcolor: 'rgba(212, 165, 116, 0.3)',
                 color: '#D4A574',
-/>
+                fontFamily: "'Cinzel', serif",
+                fontWeight: 700,
+              }}
+            />
             
             {/* Admin Badge */}
             {isAdmin && (
