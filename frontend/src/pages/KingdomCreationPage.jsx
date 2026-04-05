@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -9,6 +9,10 @@ import {
   CircularProgress,
   Paper,
   Grid,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
 } from '@mui/material';
 import { authService } from '../services/authService';
 
@@ -87,30 +91,8 @@ export default function KingdomCreationPage() {
   const [selectedCulture, setSelectedCulture] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-
-  // Verificar se já existe feudo ao carregar a página
-  useEffect(() => {
-    const checkExistingFeud = async () => {
-      try {
-        const response = await fetch(`${API_URL}/feud/me`, {
-          headers: {
-            'Authorization': `Bearer ${authService.getToken()}`,
-          },
-        });
-
-        if (response.ok) {
-          // Se tem feudo, redireciona pro dashboard
-          console.log('Feudo existente encontrado, redirecionando...');
-          navigate('/dashboard');
-        }
-      } catch (err) {
-        // Sem feudo, player pode criar um novo
-        console.log('Sem feudo, aguardando criação...');
-      }
-    };
-
-    checkExistingFeud();
-  }, [navigate]);
+  const [existingFeudDialog, setExistingFeudDialog] = useState(false);
+  const [deletingFeud, setDeletingFeud] = useState(false);
 
   const selectedCultureInfo = CULTURES.find((c) => c.id === selectedCulture);
 
@@ -123,6 +105,36 @@ export default function KingdomCreationPage() {
     pergaminhos: '📜',
     cristais: '💎',
     minério_raro: '✨',
+  };
+
+  const handleDeleteExistingFeud = async () => {
+    try {
+      setDeletingFeud(true);
+      console.log('🗑️ Deletando feudo existente...');
+
+      const response = await fetch(`${API_URL}/feud/user/delete`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${authService.getToken()}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Erro ao deletar feudo existente');
+      }
+
+      console.log('✅ Feudo deletado com sucesso!');
+      setExistingFeudDialog(false);
+      setDeletingFeud(false);
+      setError('');
+      
+      // Limpar os campos para um novo reino
+      setKingdomName('');
+      setSelectedCulture('');
+    } catch (err) {
+      setError(err.message || 'Erro ao deletar feudo');
+      setDeletingFeud(false);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -172,10 +184,11 @@ export default function KingdomCreationPage() {
       console.log('Create feud response data:', responseData);
 
       if (!response.ok) {
-        // Se foi erro 409 (já existe feudo), redireciona pro dashboard
+        // Se foi erro 409 (já existe feudo), mostra dialog
         if (response.status === 409) {
-          console.log('Feudo já existe, redirecionando pro dashboard...');
-          setTimeout(() => navigate('/dashboard'), 1000);
+          console.log('Feudo já existe, mostrando opções...');
+          setExistingFeudDialog(true);
+          setLoading(false);
           return;
         }
         throw new Error(responseData.message || 'Erro ao criar reino. Tente novamente.');
@@ -514,6 +527,66 @@ export default function KingdomCreationPage() {
           '🏰 Fundar Reino'
         )}
       </Button>
+
+      {/* Dialog: Feudo Existente */}
+      <Dialog open={existingFeudDialog} onClose={() => setExistingFeudDialog(false)}>
+        <DialogTitle sx={{ color: '#D4A574', fontWeight: 'bold' }}>
+          ⚠️ Você já tem um Reino
+        </DialogTitle>
+        <DialogContent sx={{ background: 'rgba(50, 50, 50, 0.9)' }}>
+          <Typography sx={{ color: '#ccc', marginY: 2 }}>
+            Você já possui um reino ativo. Para criar um novo, precisa deletar o existente.
+          </Typography>
+          <Typography sx={{ color: '#999', fontSize: '0.9rem' }}>
+            O que você prefere fazer?
+          </Typography>
+        </DialogContent>
+        <DialogActions sx={{ background: 'rgba(50, 50, 50, 0.9)', padding: 2, gap: 1 }}>
+          <Button
+            onClick={() => setExistingFeudDialog(false)}
+            sx={{
+              color: '#D4A574',
+              border: '1px solid #D4A574',
+              borderRadius: 1,
+              textTransform: 'uppercase',
+              fontSize: '0.8rem',
+            }}
+          >
+            Cancelar
+          </Button>
+          <Button
+            onClick={() => navigate('/dashboard')}
+            variant="contained"
+            sx={{
+              background: 'linear-gradient(135deg, #D4A574 0%, #8B6F47 100%)',
+              color: '#000',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+              fontSize: '0.8rem',
+              borderRadius: 1,
+            }}
+          >
+            Ver Meu Reino
+          </Button>
+          <Button
+            onClick={handleDeleteExistingFeud}
+            disabled={deletingFeud}
+            sx={{
+              background: 'linear-gradient(135deg, #FF6B6B 0%, #CC5555 100%)',
+              color: '#fff',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+              fontSize: '0.8rem',
+              borderRadius: 1,
+              '&:disabled': {
+                opacity: 0.6,
+              },
+            }}
+          >
+            {deletingFeud ? '🗑️ Deletando...' : '🗑️ Deletar & Criar Novo'}
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }
