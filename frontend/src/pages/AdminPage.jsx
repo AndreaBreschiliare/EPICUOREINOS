@@ -70,8 +70,15 @@ export default function AdminPage() {
       ]);
 
       if (!usersRes.ok || !statsRes.ok) {
-        const data = await usersRes.json();
-        throw new Error(data.message || 'Erro ao carregar dados admin');
+        let errorMessage = 'Erro ao carregar dados admin';
+        try {
+          const errorData = await usersRes.json();
+          errorMessage = errorData.message || errorMessage;
+        } catch (e) {
+          // Se não conseguir parsear JSON, usa mensagem padrão
+          console.error('Could not parse error response:', e);
+        }
+        throw new Error(errorMessage);
       }
 
       const usersData = await usersRes.json();
@@ -106,8 +113,14 @@ export default function AdminPage() {
       });
 
       if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.message || 'Erro ao deletar usuário');
+        let errorMessage = 'Erro ao deletar usuário';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.message || errorMessage;
+        } catch (e) {
+          console.error('Could not parse error response:', e);
+        }
+        throw new Error(errorMessage);
       }
 
       // Remover usuário da lista

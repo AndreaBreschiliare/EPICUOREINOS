@@ -84,10 +84,14 @@ export default function KingdomCreationPage() {
       });
 
       if (!response.ok) {
-        const data = await response.json();
-        throw new Error(
-          data.message || 'Erro ao criar reino. Tente novamente.',
-        );
+        let errorMessage = 'Erro ao criar reino. Tente novamente.';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.message || errorMessage;
+        } catch (e) {
+          console.error('Could not parse error response:', e);
+        }
+        throw new Error(errorMessage);
       }
 
       // Sucesso! Redirecionar para dashboard
