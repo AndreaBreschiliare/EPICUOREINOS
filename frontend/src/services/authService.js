@@ -32,6 +32,7 @@ export const authService = {
           id: data.data.id,
           username: data.data.username,
           email: data.data.email,
+          role: data.data.role || 'player',
         },
         token: data.data.token,
       };
@@ -67,6 +68,7 @@ export const authService = {
           id: data.data.id,
           username: data.data.username,
           email: data.data.email,
+          role: data.data.role || 'player',
         },
         token: data.data.token,
       };
