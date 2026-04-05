@@ -156,7 +156,7 @@ export default function KingdomCreationPage() {
         sx={{
           padding: { xs: 1.5, sm: 2, md: 2.5 },
           background: 'rgba(50, 50, 50, 0.9)',
-          border: selectedCultureInfo ? `2px solid ${selectedCultureInfo.color}` : '2px solid #D4A574',
+          border: '2px solid #D4A574',
           borderRadius: 2,
           backdropFilter: 'blur(10px)',
         }}
@@ -170,7 +170,7 @@ export default function KingdomCreationPage() {
         <Typography
           variant="subtitle2"
           sx={{
-            color: selectedCultureInfo ? selectedCultureInfo.color : '#D4A574',
+            color: '#D4A574',
             marginBottom: 1,
             fontWeight: 'bold',
             fontSize: { xs: '0.75rem', sm: '0.85rem' },
@@ -192,13 +192,13 @@ export default function KingdomCreationPage() {
               color: '#fff',
               backgroundColor: 'rgba(0, 0, 0, 0.3)',
               '& fieldset': {
-                borderColor: selectedCultureInfo ? selectedCultureInfo.color : '#8B6F47',
+                borderColor: '#8B6F47',
               },
               '&:hover fieldset': {
-                borderColor: selectedCultureInfo ? selectedCultureInfo.color : '#D4A574',
+                borderColor: '#D4A574',
               },
               '&.Mui-focused fieldset': {
-                borderColor: selectedCultureInfo ? selectedCultureInfo.color : '#D4A574',
+                borderColor: '#D4A574',
               },
             },
             '& .MuiInputBase-input::placeholder': {
@@ -298,7 +298,7 @@ export default function KingdomCreationPage() {
               width: '100%',
               padding: { xs: 1.5, sm: 2 },
               background: 'rgba(50, 50, 50, 0.9)',
-              border: selectedCultureInfo ? `2px solid ${selectedCultureInfo.color}` : '2px solid #D4A574',
+              border: '2px solid #D4A574',
               borderRadius: 2,
               backdropFilter: 'blur(10px)',
               display: 'flex',
@@ -333,8 +333,8 @@ export default function KingdomCreationPage() {
               sx={{
                 width: '100%',
                 padding: { xs: 1.5, sm: 2, md: 2.5 },
-                background: `${selectedCultureInfo.color}15`,
-                border: `2px solid ${selectedCultureInfo.color}`,
+                background: 'rgba(50, 50, 50, 0.9)',
+                border: '2px solid #D4A574',
                 borderRadius: 2,
                 backdropFilter: 'blur(10px)',
                 overflowY: 'auto',
@@ -345,7 +345,7 @@ export default function KingdomCreationPage() {
             >
               <Typography
                 sx={{
-                  color: selectedCultureInfo.color,
+                  color: '#D4A574',
                   fontWeight: 'bold',
                   fontSize: { xs: '1rem', sm: '1.1rem' },
                   textTransform: 'uppercase',
@@ -396,9 +396,7 @@ export default function KingdomCreationPage() {
         sx={{
           padding: { xs: '12px', sm: '14px' },
           marginX: { xs: '1rem', sm: '0.5rem' },
-          background: selectedCultureInfo
-            ? `linear-gradient(135deg, ${selectedCultureInfo.color} 0%, ${selectedCultureInfo.color}cc 100%)`
-            : 'linear-gradient(135deg, #D4A574 0%, #8B6F47 100%)',
+          background: 'linear-gradient(135deg, #D4A574 0%, #8B6F47 100%)',
           color: '#000',
           fontWeight: 'bold',
           fontSize: { xs: '14px', sm: '15px' },
@@ -408,10 +406,8 @@ export default function KingdomCreationPage() {
           '&:hover':
             !loading && selectedCulture
               ? {
-                  background: selectedCultureInfo
-                    ? `linear-gradient(135deg, ${selectedCultureInfo.color}ee 0%, ${selectedCultureInfo.color}dd 100%)`
-                    : 'linear-gradient(135deg, #E8C78A 0%, #9B7F57 100%)',
-                  boxShadow: `0 8px 16px ${selectedCultureInfo ? selectedCultureInfo.color + '40' : 'rgba(212, 165, 116, 0.3)'}`,
+                  background: 'linear-gradient(135deg, #E8C78A 0%, #9B7F57 100%)',
+                  boxShadow: '0 8px 16px rgba(212, 165, 116, 0.3)',
                   transform: 'translateY(-2px)',
                 }
               : {},
