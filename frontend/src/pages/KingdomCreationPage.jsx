@@ -278,36 +278,20 @@ export default function KingdomCreationPage() {
                           height: '100%',
                         }}
                       >
-                        {/* Imagem Placeholder */}
+                        {/* Imagem da Cultura */}
                         <CardMedia
-                          component="div"
+                          component="img"
+                          image={`/cultures/${culture.id}.jpg`}
+                          alt={culture.name}
                           sx={{
-                            height: 100,
-                            background: 'linear-gradient(135deg, #3a3a3a, #2a2a2a)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            color: '#888',
-                            fontSize: 48,
-                            fontWeight: 'bold',
+                            height: 150,
+                            objectFit: 'cover',
                             borderBottom:
                               selectedCulture === culture.id
                                 ? '2px solid #D4A574'
                                 : '1px solid #555',
                           }}
-                        >
-                          {/* Emoji placeholder até que tenha a pixel art */}
-                          <span role="img" aria-label={culture.name}>
-                            {culture.id === 'baduran' && '⛏️'}
-                            {culture.id === 'drow' && '🗡️'}
-                            {culture.id === 'aiglanos' && '🏛️'}
-                            {culture.id === 'björske' && '🪓'}
-                            {culture.id === 'polkinea' && '🌾'}
-                            {culture.id === 'gulthrak' && '💪'}
-                            {culture.id === 'p_leste' && '☯️'}
-                            {culture.id === 'aluriel' && '✨'}
-                          </span>
-                        </CardMedia>
+                        />
 
                         {/* Conteúdo */}
                         <CardContent sx={{ padding: '12px', flex: 1 }}>
