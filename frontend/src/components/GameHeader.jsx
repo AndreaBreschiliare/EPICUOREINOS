@@ -15,25 +15,48 @@ export default function GameHeader({ playerLevel = 2, playerName = 'Player' }) {
   useEffect(() => {
     const checkAdminRole = async () => {
       try {
+        const token = authService.getToken();
+        const isAuth = authService.isAuthenticated();
+        console.log('🔍 GameHeader Debug:', { isAuth, tokenExists: !!token, user });
+        
+        if (!token) {
+          console.warn('❌ Sem token no localStorage');
+          setIsAdmin(user?.role === 'admin');
+          return;
+        }
+
+        console.log(`📡 Chamando GET ${API_URL}/debug/get-role`);
         const response = await fetch(`${API_URL}/debug/get-role`, {
+          method: 'GET',
           headers: {
-            Authorization: `Bearer ${authService.getToken()}`,
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
           },
         });
 
-        if (response.ok) {
-          const data = await response.json();
-          setIsAdmin(data.data?.role === 'admin');
+        console.log('📦 Response status:', response.status, response.ok);
+        const data = await response.json();
+        console.log('📄 Response data:', data);
+
+        if (response.ok && data.data?.role) {
+          console.log('✅ Role encontrado:', data.data.role);
+          setIsAdmin(data.data.role === 'admin');
+        } else {
+          console.warn('⚠️ Sem role na resposta, usando fallback localStorage');
+          setIsAdmin(user?.role === 'admin');
         }
       } catch (error) {
-        console.error('Erro ao verificar role:', error);
+        console.error('❌ Erro ao verificar role:', error);
         // Fallback: verificar localStorage
+        console.log('🔄 Fallback para localStorage, user.role =', user?.role);
         setIsAdmin(user?.role === 'admin');
       }
     };
 
     if (authService.isAuthenticated()) {
       checkAdminRole();
+    } else {
+      console.log('⚠️ Não autenticado');
     }
   }, [user]);
 
