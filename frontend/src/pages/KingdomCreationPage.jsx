@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Container,
   Box,
   TextField,
   Button,
@@ -10,23 +9,60 @@ import {
   CircularProgress,
   Paper,
   Grid,
-  Card,
-  CardContent,
-  CardMedia,
 } from '@mui/material';
 import { authService } from '../services/authService';
 
 const API_URL = import.meta.env.DEV ? 'http://localhost:5000/api' : 'https://api.odisseiadamente.com.br/api';
 
 const CULTURES = [
-  { id: 'baduran', name: 'Baduran', description: 'Anões mestres da forja e da tecnologia, temperamentais mas profundamente leais, vivem nas profundezas das montanhas cultivando tradições milenares.' },
-  { id: 'drow', name: 'Drow', description: 'Elfos negros que governam través do medo e da intriga política nas profundezas, uma sociedade de castas sob o culto à deusa Idrith.' },
-  { id: 'aiglanos', name: 'Aiglanos', description: 'Povo astuto que prospera através da disciplina e da união, construindo um império onde a força das legiões e o mérito determinam o destino.' },
-  { id: 'björske', name: 'Björske', description: 'Guerreiros nórdicos tradicionais devotos ao culto do Sol e da Lua, famosos por sua incomparável cavalaria e devoção à força e fertilidade.' },
-  { id: 'polkinea', name: 'Polkinea', description: 'Pequilhos simples e felizes que cultivam a terra e saboreiam a paz, dotados de coragem e capacidade única de conquistar amizades.' },
-  { id: 'gulthrak', name: 'Gulthrak', description: 'Orcs nômades do deserto, selvagens e brutais em combate mas sábios em sua luta pela sobrevivência, devotos ao ciclo de sangue, areia e água.' },
-  { id: 'p_leste', name: 'P. Leste', description: 'Milenares povos sob dinastia unificada que honram disciplina, honra e lealdade ao Imperador, com tradições de monges guerreiros e samurais lendários.' },
-  { id: 'aluriel', name: 'Aluriel', description: 'Antigos elfos contemplativos profundamente ligados à natureza e à magia, criadores de beleza e sabedoria imortais, abençoados pela deusa Alora.' },
+  {
+    id: 'baduran',
+    name: 'Baduran',
+    description: 'Anões mestres da forja e da tecnologia, temperamentais mas profundamente leais, vivem nas profundezas das montanhas cultivando tradições milenares.',
+    color: '#A67C52',
+  },
+  {
+    id: 'drow',
+    name: 'Drow',
+    description: 'Elfos negros que governam através do medo e da intriga política nas profundezas, uma sociedade de castas sob o culto à deusa Idrith.',
+    color: '#6B5B5B',
+  },
+  {
+    id: 'aiglanos',
+    name: 'Aiglanos',
+    description: 'Povo astuto que prospera através da disciplina e da união, construindo um império onde a força das legiões e o mérito determinam o destino.',
+    color: '#D4AF37',
+  },
+  {
+    id: 'björske',
+    name: 'Björske',
+    description: 'Guerreiros nórdicos tradicionais devotos ao culto do Sol e da Lua, famosos por sua incomparável cavalaria e devoção à força e fertilidade.',
+    color: '#8CB5D0',
+  },
+  {
+    id: 'polkinea',
+    name: 'Polkinea',
+    description: 'Pequilhos simples e felizes que cultivam a terra e saboreiam a paz, dotados de coragem e capacidade única de conquistar amizades.',
+    color: '#B8D87F',
+  },
+  {
+    id: 'gulthrak',
+    name: 'Gulthrak',
+    description: 'Orcs nômades do deserto, selvagens e brutais em combate mas sábios em sua luta pela sobrevivência, devotos ao ciclo de sangue, areia e água.',
+    color: '#A0522D',
+  },
+  {
+    id: 'p_leste',
+    name: 'P. Leste',
+    description: 'Milenares povos sob dinastia unificada que honram disciplina, honra e lealdade ao Imperador, com tradições de monges guerreiros e samurais lendários.',
+    color: '#E08B7D',
+  },
+  {
+    id: 'aluriel',
+    name: 'Aluriel',
+    description: 'Antigos elfos contemplativos profundamente ligados à natureza e à magia, criadores de beleza e sabedoria imortais, abençoados pela deusa Alora.',
+    color: '#A989BE',
+  },
 ];
 
 export default function KingdomCreationPage() {
@@ -36,13 +72,14 @@ export default function KingdomCreationPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const selectedCultureInfo = CULTURES.find((c) => c.id === selectedCulture);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setLoading(true);
 
     try {
-      // Validações
       if (!kingdomName.trim()) {
         setError('Nome do reino é obrigatório');
         setLoading(false);
@@ -67,7 +104,6 @@ export default function KingdomCreationPage() {
         return;
       }
 
-      // Chamar API para criar feudo
       const response = await fetch(`${API_URL}/feud`, {
         method: 'POST',
         headers: {
@@ -91,7 +127,6 @@ export default function KingdomCreationPage() {
         throw new Error(errorMessage);
       }
 
-      // Sucesso! Redirecionar para dashboard
       navigate('/dashboard');
     } catch (err) {
       console.error('Erro ao criar reino:', err);
@@ -101,78 +136,151 @@ export default function KingdomCreationPage() {
     }
   };
 
-  const selectedCultureInfo = CULTURES.find((c) => c.id === selectedCulture);
-
   return (
     <Box
       sx={{
-        minHeight: '100vh',
+        width: '100%',
+        height: '100vh',
         background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)',
+        padding: { xs: 1, sm: 2, md: 3 },
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 2,
+        flexDirection: 'column',
+        gap: 2,
       }}
     >
-      <Grid container spacing={3} maxWidth="1400px" sx={{ height: '90vh' }}>
-        {/* SIDEBAR ESQUERDA - Lista de Culturas */}
-        <Grid item xs={12} sm={3} md={2.5}>
+      {/* ============ LINHA 1: NOME DO REINO ============ */}
+      <Paper
+        component="form"
+        id="kingdom-form"
+        onSubmit={handleSubmit}
+        sx={{
+          padding: { xs: 1.5, sm: 2, md: 2.5 },
+          background: 'rgba(50, 50, 50, 0.9)',
+          border: selectedCultureInfo ? `2px solid ${selectedCultureInfo.color}` : '2px solid #D4A574',
+          borderRadius: 2,
+          backdropFilter: 'blur(10px)',
+        }}
+      >
+        {error && (
+          <Alert severity="error" sx={{ marginBottom: 1.5 }}>
+            {error}
+          </Alert>
+        )}
+
+        <Typography
+          variant="subtitle2"
+          sx={{
+            color: selectedCultureInfo ? selectedCultureInfo.color : '#D4A574',
+            marginBottom: 1,
+            fontWeight: 'bold',
+            fontSize: { xs: '0.75rem', sm: '0.85rem' },
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em',
+          }}
+        >
+          Nome do Reino
+        </Typography>
+
+        <TextField
+          fullWidth
+          value={kingdomName}
+          onChange={(e) => setKingdomName(e.target.value)}
+          disabled={loading}
+          placeholder="Ex: Reino da Esperança"
+          sx={{
+            '& .MuiOutlinedInput-root': {
+              color: '#fff',
+              backgroundColor: 'rgba(0, 0, 0, 0.3)',
+              '& fieldset': {
+                borderColor: selectedCultureInfo ? selectedCultureInfo.color : '#8B6F47',
+              },
+              '&:hover fieldset': {
+                borderColor: selectedCultureInfo ? selectedCultureInfo.color : '#D4A574',
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: selectedCultureInfo ? selectedCultureInfo.color : '#D4A574',
+              },
+            },
+            '& .MuiInputBase-input::placeholder': {
+              color: '#888',
+              opacity: 0.7,
+            },
+          }}
+          inputProps={{ maxLength: 50 }}
+        />
+      </Paper>
+
+      {/* ============ LINHA 2: CULTURAS + IMAGEM + DESCRIÇÃO ============ */}
+      <Grid container spacing={2} sx={{ flex: 1, minHeight: 0 }}>
+        {/* Coluna 1: Sidebar de Culturas */}
+        <Grid item xs={12} sm={12} md={3} sx={{ display: 'flex' }}>
           <Paper
             sx={{
-              padding: 2,
+              width: '100%',
+              padding: { xs: 1.5, sm: 2 },
               background: 'rgba(50, 50, 50, 0.9)',
               border: '2px solid #D4A574',
               borderRadius: 2,
-              height: '100%',
-              overflowY: 'auto',
               backdropFilter: 'blur(10px)',
+              overflowY: 'auto',
+              display: 'flex',
+              flexDirection: { xs: 'row', md: 'column' },
+              gap: 1,
             }}
           >
             <Typography
               variant="h6"
               sx={{
                 color: '#D4A574',
-                marginBottom: 2,
                 fontWeight: 'bold',
-                textAlign: 'center',
-                fontSize: '0.9rem',
+                fontSize: '0.85rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                minWidth: { xs: 'auto', md: '100%' },
+                flexShrink: 0,
               }}
             >
-              CULTURAS
+              Culturas
             </Typography>
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: { xs: 'row', md: 'column' },
+                gap: 1,
+                width: '100%',
+                overflowX: { xs: 'auto', md: 'visible' },
+                overflowY: { xs: 'visible', md: 'auto' },
+                paddingBottom: { xs: 1, md: 0 },
+              }}
+            >
               {CULTURES.map((culture) => (
                 <Paper
                   key={culture.id}
                   onClick={() => setSelectedCulture(culture.id)}
                   sx={{
-                    padding: '10px 12px',
+                    padding: { xs: '8px 12px', sm: '10px 14px' },
                     cursor: loading ? 'not-allowed' : 'pointer',
-                    backgroundColor:
-                      selectedCulture === culture.id
-                        ? 'rgba(212, 165, 116, 0.2)'
-                        : 'rgba(30, 30, 30, 0.8)',
-                    border:
-                      selectedCulture === culture.id
-                        ? '2px solid #D4A574'
-                        : '1px solid #555',
+                    backgroundColor: selectedCulture === culture.id ? `${culture.color}20` : 'rgba(30, 30, 30, 0.8)',
+                    border: selectedCulture === culture.id ? `2px solid ${culture.color}` : '1px solid #555',
                     borderRadius: 1,
                     transition: 'all 0.2s ease',
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0,
                     '&:hover': {
-                      borderColor: '#D4A574',
-                      backgroundColor: 'rgba(212, 165, 116, 0.15)',
+                      borderColor: culture.color,
+                      backgroundColor: `${culture.color}15`,
                     },
                   }}
                 >
                   <Typography
                     sx={{
-                      color:
-                        selectedCulture === culture.id ? '#D4A574' : '#999',
+                      color: selectedCulture === culture.id ? culture.color : '#999',
                       fontWeight: selectedCulture === culture.id ? 'bold' : 'normal',
-                      fontSize: '0.85rem',
+                      fontSize: { xs: '0.75rem', sm: '0.8rem' },
                       textTransform: 'uppercase',
                       textAlign: 'center',
+                      letterSpacing: '0.02em',
                     }}
                   >
                     {culture.name}
@@ -183,19 +291,19 @@ export default function KingdomCreationPage() {
           </Paper>
         </Grid>
 
-        {/* CENTRO - Imagem Grande */}
-        <Grid item xs={12} sm={6} md={5}>
+        {/* Coluna 2: Imagem Grande */}
+        <Grid item xs={12} sm={12} md={4} sx={{ display: 'flex' }}>
           <Paper
             sx={{
-              padding: 2,
+              width: '100%',
+              padding: { xs: 1.5, sm: 2 },
               background: 'rgba(50, 50, 50, 0.9)',
-              border: '2px solid #D4A574',
+              border: selectedCultureInfo ? `2px solid ${selectedCultureInfo.color}` : '2px solid #D4A574',
               borderRadius: 2,
-              height: '100%',
+              backdropFilter: 'blur(10px)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              backdropFilter: 'blur(10px)',
             }}
           >
             {selectedCultureInfo ? (
@@ -211,160 +319,117 @@ export default function KingdomCreationPage() {
                 }}
               />
             ) : (
-              <Typography sx={{ color: '#888', textAlign: 'center' }}>
+              <Typography sx={{ color: '#888', textAlign: 'center', fontSize: '0.9rem' }}>
                 Selecione uma cultura
               </Typography>
             )}
           </Paper>
         </Grid>
 
-        {/* DIREITA - Nome + Descrição + Formulário */}
-        <Grid item xs={12} sm={3} md={4.5}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, height: '100%' }}>
-            {/* NOME DO REINO - Topo */}
+        {/* Coluna 3: Descrição da Cultura */}
+        <Grid item xs={12} sm={12} md={5} sx={{ display: 'flex' }}>
+          {selectedCultureInfo ? (
             <Paper
-              id="kingdom-form"
-              component="form"
-              onSubmit={handleSubmit}
               sx={{
-                padding: 2.5,
-                background: 'rgba(50, 50, 50, 0.9)',
-                border: '2px solid #D4A574',
+                width: '100%',
+                padding: { xs: 1.5, sm: 2, md: 2.5 },
+                background: `${selectedCultureInfo.color}15`,
+                border: `2px solid ${selectedCultureInfo.color}`,
                 borderRadius: 2,
                 backdropFilter: 'blur(10px)',
+                overflowY: 'auto',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 1.5,
               }}
             >
-              {error && (
-                <Alert severity="error" sx={{ marginBottom: 2 }}>
-                  {error}
-                </Alert>
-              )}
-
               <Typography
-                variant="subtitle2"
                 sx={{
-                  color: '#D4A574',
-                  marginBottom: 1.5,
+                  color: selectedCultureInfo.color,
                   fontWeight: 'bold',
-                  fontSize: '0.85rem',
+                  fontSize: { xs: '1rem', sm: '1.1rem' },
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em',
                 }}
               >
-                Nome do Reino
+                {selectedCultureInfo.name}
               </Typography>
 
-              <TextField
-                fullWidth
-                value={kingdomName}
-                onChange={(e) => setKingdomName(e.target.value)}
-                disabled={loading}
-                placeholder="Ex: Reino da Esperança"
+              <Typography
                 sx={{
-                  marginBottom: 0,
-                  '& .MuiOutlinedInput-root': {
-                    color: '#fff',
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    '& fieldset': {
-                      borderColor: '#8B6F47',
-                    },
-                    '&:hover fieldset': {
-                      borderColor: '#D4A574',
-                    },
-                    '&.Mui-focused fieldset': {
-                      borderColor: '#D4A574',
-                    },
-                  },
-                  '& .MuiInputBase-input::placeholder': {
-                    color: '#888',
-                    opacity: 0.7,
-                  },
-                }}
-                inputProps={{
-                  maxLength: 50,
-                }}
-              />
-            </Paper>
-
-            {/* DESCRIÇÃO DA CULTURA - Caixa Separada */}
-            {selectedCultureInfo && (
-              <Paper
-                sx={{
-                  padding: 2.5,
-                  background: 'rgba(50, 50, 50, 0.9)',
-                  border: '2px solid #D4A574',
-                  borderRadius: 2,
-                  flex: 1,
-                  overflowY: 'auto',
-                  backdropFilter: 'blur(10px)',
+                  color: '#ccc',
+                  fontSize: { xs: '0.85rem', sm: '0.9rem' },
+                  lineHeight: 1.7,
                 }}
               >
-                <Typography
-                  sx={{
-                    color: '#D4A574',
-                    fontWeight: 'bold',
-                    marginBottom: 1.5,
-                    fontSize: '1rem',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                  }}
-                >
-                  {selectedCultureInfo.name}
-                </Typography>
-
-                <Typography
-                  sx={{
-                    color: '#ccc',
-                    fontSize: '0.9rem',
-                    lineHeight: 1.7,
-                  }}
-                >
-                  {selectedCultureInfo.description}
-                </Typography>
-              </Paper>
-            )}
-
-            {/* BOTÃO FUNDAR REINO - Rodapé */}
-            <Button
-              fullWidth
-              type="submit"
-              form="kingdom-form"
-              variant="contained"
-              disabled={loading || !selectedCulture}
+                {selectedCultureInfo.description}
+              </Typography>
+            </Paper>
+          ) : (
+            <Paper
               sx={{
-                padding: '14px',
-                background: 'linear-gradient(135deg, #D4A574 0%, #8B6F47 100%)',
-                color: '#000',
-                fontWeight: 'bold',
-                fontSize: '15px',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                '&:hover':
-                  !loading && selectedCulture
-                    ? {
-                        background:
-                          'linear-gradient(135deg, #E8C78A 0%, #9B7F57 100%)',
-                        boxShadow: '0 6px 12px rgba(212, 165, 116, 0.3)',
-                      }
-                    : {},
-                '&:disabled': {
-                  background: '#555',
-                  color: '#999',
-                },
+                width: '100%',
+                padding: { xs: 1.5, sm: 2, md: 2.5 },
+                background: 'rgba(50, 50, 50, 0.9)',
+                border: '2px solid #D4A574',
+                borderRadius: 2,
+                backdropFilter: 'blur(10px)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
-              {loading ? (
-                <>
-                  <CircularProgress size={18} sx={{ marginRight: 1 }} />
-                  Fundando...
-                </>
-              ) : (
-                '🏰 Fundar Reino'
-              )}
-            </Button>
-          </Box>
+              <Typography sx={{ color: '#888', textAlign: 'center', fontSize: '0.9rem' }}>
+                Selecione uma cultura para ver sua descrição
+              </Typography>
+            </Paper>
+          )}
         </Grid>
       </Grid>
+
+      {/* ============ LINHA 3: BOTÃO FUNDAR REINO ============ */}
+      <Button
+        type="submit"
+        form="kingdom-form"
+        variant="contained"
+        disabled={loading || !selectedCulture}
+        sx={{
+          padding: { xs: '12px', sm: '14px' },
+          marginX: { xs: '1rem', sm: '0.5rem' },
+          background: selectedCultureInfo
+            ? `linear-gradient(135deg, ${selectedCultureInfo.color} 0%, ${selectedCultureInfo.color}cc 100%)`
+            : 'linear-gradient(135deg, #D4A574 0%, #8B6F47 100%)',
+          color: '#000',
+          fontWeight: 'bold',
+          fontSize: { xs: '14px', sm: '15px' },
+          textTransform: 'uppercase',
+          letterSpacing: '0.05em',
+          transition: 'all 0.3s ease',
+          '&:hover':
+            !loading && selectedCulture
+              ? {
+                  background: selectedCultureInfo
+                    ? `linear-gradient(135deg, ${selectedCultureInfo.color}ee 0%, ${selectedCultureInfo.color}dd 100%)`
+                    : 'linear-gradient(135deg, #E8C78A 0%, #9B7F57 100%)',
+                  boxShadow: `0 8px 16px ${selectedCultureInfo ? selectedCultureInfo.color + '40' : 'rgba(212, 165, 116, 0.3)'}`,
+                  transform: 'translateY(-2px)',
+                }
+              : {},
+          '&:disabled': {
+            background: '#555',
+            color: '#999',
+          },
+        }}
+      >
+        {loading ? (
+          <>
+            <CircularProgress size={18} sx={{ marginRight: 1, color: 'inherit' }} />
+            Fundando...
+          </>
+        ) : (
+          '🏰 Fundar Reino'
+        )}
+      </Button>
     </Box>
   );
 }
