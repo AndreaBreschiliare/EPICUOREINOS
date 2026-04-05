@@ -19,7 +19,14 @@ async function request(path, options = {}) {
     },
   });
 
-  const data = await response.json();
+  let data;
+  try {
+    data = await response.json();
+  } catch (e) {
+    const error = new Error(`Resposta inválida do servidor (status ${response.status})`);
+    error.statusCode = response.status;
+    throw error;
+  }
 
   if (!response.ok) {
     // Preservar mais informações de erro

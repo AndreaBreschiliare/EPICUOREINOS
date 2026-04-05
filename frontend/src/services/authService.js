@@ -21,7 +21,12 @@ export const authService = {
         }),
       });
 
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json();
+      } catch (e) {
+        throw new Error(`Resposta inválida do servidor: ${response.status}`);
+      }
 
       if (!response.ok) {
         throw new Error(data.message || 'Erro ao registrar');
@@ -57,7 +62,12 @@ export const authService = {
         }),
       });
 
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json();
+      } catch (e) {
+        throw new Error(`Resposta inválida do servidor: ${response.status}`);
+      }
 
       if (!response.ok) {
         throw new Error(data.message || 'Erro ao fazer login');
