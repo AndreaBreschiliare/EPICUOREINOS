@@ -250,7 +250,7 @@ export default function KingdomCreationPage() {
 
                 <Grid container spacing={2}>
                   {CULTURES.map((culture) => (
-                    <Grid item xs={6} sm={6} md={3} key={culture.id}>
+                    <Grid item xs={6} sm={4} md={3} key={culture.id}>
                       <Card
                         onClick={() => setSelectedCulture(culture.id)}
                         disabled={loading}
@@ -315,9 +315,14 @@ export default function KingdomCreationPage() {
                             sx={{
                               color: '#999',
                               display: 'block',
-                              fontSize: '0.7rem',
+                              fontSize: '0.75rem',
+                              lineHeight: 1.3,
+                              whiteSpace: 'normal',
+                              wordBreak: 'break-word',
                             }}
                           >
+                            {culture.description}
+                          </Typography>
                             {culture.description}
                           </Typography>
                         </CardContent>
