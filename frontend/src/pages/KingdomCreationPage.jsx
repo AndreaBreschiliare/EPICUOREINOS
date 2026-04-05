@@ -114,92 +114,174 @@ export default function KingdomCreationPage() {
         padding: 2,
       }}
     >
-      <Container maxWidth="md">
-        <Grid container spacing={3}>
-          {/* Coluna Esquerda: Titulo e Descrição */}
-          <Grid item xs={12} md={6} display="flex" flexDirection="column" justifyContent="center">
+      <Grid container spacing={3} maxWidth="1400px" sx={{ height: '90vh' }}>
+        {/* SIDEBAR ESQUERDA - Lista de Culturas */}
+        <Grid item xs={12} sm={3} md={2.5}>
+          <Paper
+            sx={{
+              padding: 2,
+              background: 'rgba(50, 50, 50, 0.9)',
+              border: '2px solid #D4A574',
+              borderRadius: 2,
+              height: '100%',
+              overflowY: 'auto',
+              backdropFilter: 'blur(10px)',
+            }}
+          >
             <Typography
-              variant="h3"
+              variant="h6"
               sx={{
                 color: '#D4A574',
-                fontWeight: 'bold',
                 marginBottom: 2,
-                textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                fontWeight: 'bold',
+                textAlign: 'center',
+                fontSize: '0.9rem',
               }}
             >
-              🏰 Funde seu Reino
+              CULTURAS
             </Typography>
 
-            <Typography
-              variant="body1"
-              sx={{
-                color: '#ccc',
-                marginBottom: 3,
-                lineHeight: 1.8,
-              }}
-            >
-              Escolha o nome do seu reino e uma cultura que represente seu povo. Cada cultura possui
-              características únicas que influenciam na produção de recursos, tecnologias disponíveis
-              e estruturas de governo.
-            </Typography>
-
-            {selectedCultureInfo && (
-              <Paper
-                sx={{
-                  background: 'rgba(212, 165, 116, 0.1)',
-                  border: '2px solid #D4A574',
-                  padding: 2,
-                  borderRadius: 2,
-                }}
-              >
-                <Typography
-                  variant="subtitle1"
-                  sx={{ color: '#D4A574', fontWeight: 'bold', marginBottom: 1 }}
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+              {CULTURES.map((culture) => (
+                <Paper
+                  key={culture.id}
+                  onClick={() => setSelectedCulture(culture.id)}
+                  sx={{
+                    padding: '10px 12px',
+                    cursor: loading ? 'not-allowed' : 'pointer',
+                    backgroundColor:
+                      selectedCulture === culture.id
+                        ? 'rgba(212, 165, 116, 0.2)'
+                        : 'rgba(30, 30, 30, 0.8)',
+                    border:
+                      selectedCulture === culture.id
+                        ? '2px solid #D4A574'
+                        : '1px solid #555',
+                    borderRadius: 1,
+                    transition: 'all 0.2s ease',
+                    '&:hover': {
+                      borderColor: '#D4A574',
+                      backgroundColor: 'rgba(212, 165, 116, 0.15)',
+                    },
+                  }}
                 >
-                  ⚔️ {selectedCultureInfo.name}
+                  <Typography
+                    sx={{
+                      color:
+                        selectedCulture === culture.id ? '#D4A574' : '#999',
+                      fontWeight: selectedCulture === culture.id ? 'bold' : 'normal',
+                      fontSize: '0.85rem',
+                      textTransform: 'uppercase',
+                      textAlign: 'center',
+                    }}
+                  >
+                    {culture.name}
+                  </Typography>
+                </Paper>
+              ))}
+            </Box>
+          </Paper>
+        </Grid>
+
+        {/* CENTRO - Imagem Grande */}
+        <Grid item xs={12} sm={6} md={5}>
+          <Paper
+            sx={{
+              padding: 2,
+              background: 'rgba(50, 50, 50, 0.9)',
+              border: '2px solid #D4A574',
+              borderRadius: 2,
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backdropFilter: 'blur(10px)',
+            }}
+          >
+            {selectedCultureInfo ? (
+              <Box
+                component="img"
+                src={`/cultures/${selectedCultureInfo.id}.jpg`}
+                alt={selectedCultureInfo.name}
+                sx={{
+                  maxWidth: '100%',
+                  maxHeight: '100%',
+                  objectFit: 'contain',
+                  borderRadius: 1,
+                }}
+              />
+            ) : (
+              <Typography sx={{ color: '#888', textAlign: 'center' }}>
+                Selecione uma cultura
+              </Typography>
+            )}
+          </Paper>
+        </Grid>
+
+        {/* DIREITA - Informações + Formulário */}
+        <Grid item xs={12} sm={3} md={4.5}>
+          <Paper
+            sx={{
+              padding: 3,
+              background: 'rgba(50, 50, 50, 0.9)',
+              border: '2px solid #D4A574',
+              borderRadius: 2,
+              height: '100%',
+              overflowY: 'auto',
+              backdropFilter: 'blur(10px)',
+            }}
+          >
+            {selectedCultureInfo && (
+              <>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    color: '#D4A574',
+                    fontWeight: 'bold',
+                    marginBottom: 1,
+                    textTransform: 'uppercase',
+                    fontSize: '1.3rem',
+                  }}
+                >
+                  {selectedCultureInfo.name}
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#aaa' }}>
+
+                <Typography
+                  sx={{
+                    color: '#aaa',
+                    marginBottom: 3,
+                    fontSize: '0.95rem',
+                    lineHeight: 1.6,
+                  }}
+                >
                   {selectedCultureInfo.description}
                 </Typography>
-              </Paper>
+
+                <Box sx={{ borderTop: '1px solid #555', paddingTop: 2, marginBottom: 2 }} />
+              </>
             )}
-          </Grid>
 
-          {/* Coluna Direita: Formulário */}
-          <Grid item xs={12} md={6}>
-            <Paper
-              component="form"
-              onSubmit={handleSubmit}
-              sx={{
-                padding: 4,
-                background: 'rgba(50, 50, 50, 0.8)',
-                border: '2px solid #D4A574',
-                borderRadius: 2,
-                backdropFilter: 'blur(10px)',
-              }}
-            >
-              <Typography
-                variant="h5"
-                sx={{
-                  color: '#D4A574',
-                  marginBottom: 3,
-                  fontWeight: 'bold',
-                  textAlign: 'center',
-                }}
-              >
-                Configurações do Reino
-              </Typography>
-
+            <Box component="form" onSubmit={handleSubmit}>
               {error && (
                 <Alert severity="error" sx={{ marginBottom: 2 }}>
                   {error}
                 </Alert>
               )}
 
-              {/* Nome do Reino */}
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  color: '#D4A574',
+                  marginBottom: 1,
+                  fontWeight: 'bold',
+                  fontSize: '0.9rem',
+                }}
+              >
+                NOME DO REINO
+              </Typography>
+
               <TextField
                 fullWidth
-                label="Nome do Reino"
                 value={kingdomName}
                 onChange={(e) => setKingdomName(e.target.value)}
                 disabled={loading}
@@ -234,117 +316,25 @@ export default function KingdomCreationPage() {
                 }}
               />
 
-              {/* Seleção de Cultura - Grid de Botões */}
-              <Box sx={{ marginBottom: 3 }}>
-                <Typography
-                  variant="subtitle1"
-                  sx={{
-                    color: '#D4A574',
-                    marginBottom: 2,
-                    fontWeight: 'bold',
-                    textAlign: 'center',
-                  }}
-                >
-                  Escolha sua Cultura
-                </Typography>
-
-                <Grid container spacing={2}>
-                  {CULTURES.map((culture) => (
-                    <Grid item xs={6} sm={4} md={3} key={culture.id}>
-                      <Card
-                        onClick={() => setSelectedCulture(culture.id)}
-                        disabled={loading}
-                        sx={{
-                          cursor: loading ? 'not-allowed' : 'pointer',
-                          opacity: loading ? 0.6 : 1,
-                          background:
-                            selectedCulture === culture.id
-                              ? 'linear-gradient(135deg, rgba(212, 165, 116, 0.3), rgba(139, 111, 71, 0.3))'
-                              : 'rgba(50, 50, 50, 0.6)',
-                          border:
-                            selectedCulture === culture.id
-                              ? '3px solid #D4A574'
-                              : '2px solid #666',
-                          borderRadius: 2,
-                          transition: 'all 0.3s ease',
-                          transform: selectedCulture === culture.id ? 'scale(1.05)' : 'scale(1)',
-                          '&:hover': {
-                            border: '2px solid #D4A574',
-                            transform: 'scale(1.02)',
-                            boxShadow: '0 8px 16px rgba(212, 165, 116, 0.2)',
-                          },
-                          display: 'flex',
-                          flexDirection: 'column',
-                          height: '100%',
-                        }}
-                      >
-                        {/* Imagem da Cultura */}
-                        <CardMedia
-                          component="img"
-                          image={`/cultures/${culture.id}.jpg`}
-                          alt={culture.name}
-                          sx={{
-                            height: 200,
-                            width: '100%',
-                            objectFit: 'contain',
-                            objectPosition: 'center',
-                            backgroundColor: '#2a2a2a',
-                            padding: '8px',
-                            boxSizing: 'border-box',
-                            borderBottom:
-                              selectedCulture === culture.id
-                                ? '2px solid #D4A574'
-                                : '1px solid #555',
-                          }}
-                        />
-
-                        {/* Conteúdo */}
-                        <CardContent sx={{ padding: '12px', flex: 1 }}>
-                          <Typography
-                            variant="subtitle2"
-                            sx={{
-                              color: '#D4A574',
-                              fontWeight: 'bold',
-                              marginBottom: 0.5,
-                            }}
-                          >
-                            {culture.name}
-                          </Typography>
-                          <Typography
-                            variant="caption"
-                            sx={{
-                              color: '#999',
-                              display: 'block',
-                              fontSize: '0.75rem',
-                              lineHeight: 1.3,
-                              whiteSpace: 'normal',
-                              wordBreak: 'break-word',
-                            }}
-                          >
-                            {culture.description}
-                          </Typography>
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                  ))}
-                </Grid>
-              </Box>
-
-              {/* Botão de Envio */}
               <Button
                 fullWidth
                 type="submit"
                 variant="contained"
-                disabled={loading}
+                disabled={loading || !selectedCulture}
                 sx={{
                   padding: '12px',
                   background: 'linear-gradient(135deg, #D4A574 0%, #8B6F47 100%)',
                   color: '#000',
                   fontWeight: 'bold',
                   fontSize: '16px',
-                  '&:hover': {
-                    background: 'linear-gradient(135deg, #E8C78A 0%, #9B7F57 100%)',
-                  },
+                  marginTop: 2,
+                  '&:hover':
+                    !loading && selectedCulture
+                      ? {
+                          background:
+                            'linear-gradient(135deg, #E8C78A 0%, #9B7F57 100%)',
+                        }
+                      : {},
                   '&:disabled': {
                     background: '#555',
                     color: '#999',
@@ -354,29 +344,16 @@ export default function KingdomCreationPage() {
                 {loading ? (
                   <>
                     <CircularProgress size={20} sx={{ marginRight: 1 }} />
-                    Fundando reino...
+                    Fundando...
                   </>
                 ) : (
-                  '⚔️ Fundar Reino'
+                  '🏰 FUNDAR REINO'
                 )}
               </Button>
-
-              {/* Texto de Ajuda */}
-              <Typography
-                variant="caption"
-                sx={{
-                  display: 'block',
-                  textAlign: 'center',
-                  color: '#888',
-                  marginTop: 2,
-                }}
-              >
-                Você pode alterar estas configurações mais tarde
-              </Typography>
-            </Paper>
-          </Grid>
+            </Box>
+          </Paper>
         </Grid>
-      </Container>
+      </Grid>
     </Box>
   );
 }
