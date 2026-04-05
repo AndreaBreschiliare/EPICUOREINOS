@@ -238,15 +238,6 @@ async function getStats(req, res) {
  */
 async function debugMakeAdmin(req, res) {
   try {
-    // Verificar se está em production (bloquear)
-    if (process.env.NODE_ENV === 'production') {
-      return res.status(403).json({
-        success: false,
-        error: ERROR_CODES.FORBIDDEN,
-        message: 'This endpoint is only available in development',
-      });
-    }
-
     const { userId } = req.body;
 
     if (!userId) {
