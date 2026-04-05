@@ -323,8 +323,6 @@ export default function KingdomCreationPage() {
                           >
                             {culture.description}
                           </Typography>
-                            {culture.description}
-                          </Typography>
                         </CardContent>
                       </Card>
                     </Grid>
