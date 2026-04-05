@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react';
 import { authService } from '../services/authService';
 
 const API_URL = import.meta.env.DEV ? 'http://localhost:5000/api' : 'https://api.odisseiadamente.com.br/api';
+const BUILD_TIME = '20260404-150000'; // Force redeploy marker
+
+console.log('🎮 GameHeader component loaded!', { BUILD_TIME, API_URL });
 
 export default function GameHeader({ playerLevel = 2, playerName = 'Player' }) {
   const navigate = useNavigate();
