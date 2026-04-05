@@ -279,6 +279,50 @@ async function debugMakeAdmin(req, res) {
   }
 }
 
+/**
+ * GET /api/debug/get-role
+ * DEBUG: Retorna o role do usuário autenticado
+ */
+async function debugGetRole(req, res) {
+  try {
+    const userId = req.user?.id;
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        error: ERROR_CODES.UNAUTHORIZED,
+        message: 'Not authenticated',
+      });
+    }
+
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        error: ERROR_CODES.USER_NOT_FOUND,
+        message: 'User not found',
+      });
+    }
+
+    res.json({
+      success: true,
+      data: {
+        userId: user.id,
+        username: user.username,
+        email: user.email,
+        role: user.role || 'player',
+      },
+    });
+  } catch (error) {
+    console.error('Error in debug get role:', error);
+    res.status(500).json({
+      success: false,
+      error: ERROR_CODES.INTERNAL_ERROR,
+      message: 'Error retrieving role',
+    });
+  }
+}
+
 module.exports = {
   getAllUsers,
   getPlayers,
@@ -286,4 +330,5 @@ module.exports = {
   setUserRole,
   getStats,
   debugMakeAdmin,
+  debugGetRole,
 };

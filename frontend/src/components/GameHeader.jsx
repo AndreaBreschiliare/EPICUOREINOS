@@ -1,12 +1,39 @@
 import { AppBar, Toolbar, Box, Button, Stack, Chip } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { authService } from '../services/authService';
 
 export default function GameHeader({ playerLevel = 2, playerName = 'Player' }) {
   const navigate = useNavigate();
   const location = useLocation();
   const user = authService.getUser();
-  const isAdmin = user?.role === 'admin';
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  // Verificar role no backend
+  useEffect(() => {
+    const checkAdminRole = async () => {
+      try {
+        const response = await fetch('/api/debug/get-role', {
+          headers: {
+            Authorization: `Bearer ${authService.getToken()}`,
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setIsAdmin(data.data?.role === 'admin');
+        }
+      } catch (error) {
+        console.error('Erro ao verificar role:', error);
+        // Fallback: verificar localStorage
+        setIsAdmin(user?.role === 'admin');
+      }
+    };
+
+    if (authService.isAuthenticated()) {
+      checkAdminRole();
+    }
+  }, [user]);
 
   const tabs = [
     { label: 'Reino', path: '/dashboard', icon: '⚔️' },

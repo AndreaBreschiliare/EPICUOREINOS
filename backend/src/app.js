@@ -70,6 +70,7 @@ app.use('/api/admin', adminRoutes);
 // DEBUG: Endpoint para fazer admin (sem auth em dev)
 const adminDebugController = require('./controllers/adminController');
 app.post('/api/debug/make-admin', adminDebugController.debugMakeAdmin);
+app.get('/api/debug/get-role', require('./middleware/auth').authenticate, adminDebugController.debugGetRole);
 
 // Status endpoint para scheduler
 app.get('/api/admin/scheduler/status', (req, res) => {
