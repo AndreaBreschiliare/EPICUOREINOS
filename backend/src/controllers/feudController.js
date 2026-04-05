@@ -427,6 +427,42 @@ async function resetFieudResources(req, res) {
 }
 
 /**
+ * DELETE /api/feud/user/delete
+ * DEBUG: Deleta o feudo do usuário logado (permite recriar)
+ */
+async function deleteMyFeud(req, res) {
+  try {
+    const userId = req.user.id;
+
+    // Buscar feudo do usuário
+    const feud = await Feud.findByUserId(userId);
+    if (!feud) {
+      return res.status(404).json({
+        success: false,
+        error: ERROR_CODES.FEUD_NOT_FOUND,
+        message: 'Feud not found',
+      });
+    }
+
+    // Deletar o feudo
+    await Feud.delete(feud.id);
+
+    res.json({
+      success: true,
+      message: 'Your feud has been deleted successfully',
+      feudId: feud.id,
+    });
+  } catch (error) {
+    console.error('Error deleting user feud:', error);
+    res.status(500).json({
+      success: false,
+      error: ERROR_CODES.INTERNAL_ERROR,
+      message: 'Error deleting feud',
+    });
+  }
+}
+
+/**
  * DELETE /api/feud/:id
  * DEBUG: Deleta um feudo (apenas para testes)
  */
@@ -482,5 +518,6 @@ module.exports = {
   getLeaderboard,
   createFeud,
   resetFieudResources,
+  deleteMyFeud,
   deleteFeud,
 };

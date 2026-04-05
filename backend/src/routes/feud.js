@@ -20,6 +20,9 @@ router.get('/me', feudController.getMyFeud);
 // POST /api/feud - Criar novo feudo
 router.post('/', feudController.createFeud);
 
+// DELETE /api/feud/user/delete - DEBUG: Deletar meu feudo (permite recriar)
+router.delete('/user/delete', feudController.deleteMyFeud);
+
 // GET /api/feud/:id - Ver feudo (público ou completo se for seu)
 router.get('/:id', feudController.getFeudById);
 
