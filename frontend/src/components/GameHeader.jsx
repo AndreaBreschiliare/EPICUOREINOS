@@ -3,6 +3,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { authService } from '../services/authService';
 
+const API_URL = import.meta.env.DEV ? 'http://localhost:5000/api' : 'https://api.odisseiadamente.com.br/api';
+
 export default function GameHeader({ playerLevel = 2, playerName = 'Player' }) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -13,7 +15,7 @@ export default function GameHeader({ playerLevel = 2, playerName = 'Player' }) {
   useEffect(() => {
     const checkAdminRole = async () => {
       try {
-        const response = await fetch('/api/debug/get-role', {
+        const response = await fetch(`${API_URL}/debug/get-role`, {
           headers: {
             Authorization: `Bearer ${authService.getToken()}`,
           },
