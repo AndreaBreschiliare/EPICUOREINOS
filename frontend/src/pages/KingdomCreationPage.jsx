@@ -143,17 +143,15 @@ export default function KingdomCreationPage() {
         }),
       });
 
+      console.log('Create feud response status:', response.status);
+      const responseData = await response.json();
+      console.log('Create feud response data:', responseData);
+
       if (!response.ok) {
-        let errorMessage = 'Erro ao criar reino. Tente novamente.';
-        try {
-          const errorData = await response.json();
-          errorMessage = errorData.message || errorMessage;
-        } catch (e) {
-          console.error('Could not parse error response:', e);
-        }
-        throw new Error(errorMessage);
+        throw new Error(responseData.message || 'Erro ao criar reino. Tente novamente.');
       }
 
+      console.log('Kingdom created successfully, navigating to dashboard...');
       navigate('/dashboard');
     } catch (err) {
       console.error('Erro ao criar reino:', err);
