@@ -192,12 +192,25 @@ export default function GameHeader({ playerLevel = 2, playerName = 'Player' }) {
               sx={{
                 bgcolor: 'rgba(212, 165, 116, 0.3)',
                 color: '#D4A574',
-                fontFamily: "'Cinzel', serif",
-                fontWeight: 700,
-              }}
-            />
+/>
+            
+            {/* Admin Badge */}
             {isAdmin && (
               <Chip
+                label="🛡️ ADMIN"
+                size="small"
+                sx={{
+                  bgcolor: 'rgba(212, 100, 100, 0.5)',
+                  color: '#FF9999',
+                  fontFamily: "'Cinzel', serif",
+                  fontWeight: 900,
+                  border: '2px solid #D46464',
+                }}
+              />
+            )}
+          </Box>
+
+          {/* Admin Button */}
           {isAdmin && (
             <Button
               onClick={() => navigate('/admin')}
@@ -216,23 +229,11 @@ export default function GameHeader({ playerLevel = 2, playerName = 'Player' }) {
                 },
               }}
             >
-              🛡️ Admin
+              ⚙️ Admin Panel
             </Button>
           )}
 
-                label="🛡️ ADMIN"
-                size="small"
-                sx={{
-                  bgcolor: 'rgba(212, 100, 100, 0.5)',
-                  color: '#FF9999',
-                  fontFamily: "'Cinzel', serif",
-                  fontWeight: 900,
-                  border: '2px solid #D46464',
-                }}
-              />
-            )}
-          </Box>
-
+          {/* Logout Button */}
           <Button
             onClick={handleLogout}
             variant="contained"
