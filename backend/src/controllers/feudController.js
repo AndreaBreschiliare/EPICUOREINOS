@@ -1,6 +1,31 @@
 const Feud = require('../models/Feud');
 const ResourceService = require('../services/ResourceService');
-const { ERROR_CODES } = require('../config/constants');
+const { ERROR_CODES, INITIAL_RESOURCES } = require('../config/constants');
+const { CULTURE_MODIFIERS } = require('../config/cultures');
+
+/**
+ * Aplica modificadores de cultura aos recursos iniciais
+ */
+function applyInitialResourceModifiers(culture) {
+  const modifier = CULTURE_MODIFIERS[culture];
+  if (!modifier) {
+    return { ...INITIAL_RESOURCES };
+  }
+
+  const resources = { ...INITIAL_RESOURCES };
+
+  // Aplicar bônus
+  Object.entries(modifier.bonus).forEach(([resource, bonus]) => {
+    resources[resource] = Math.floor(resources[resource] * (1 + bonus / 100));
+  });
+
+  // Aplicar malus
+  Object.entries(modifier.malus).forEach(([resource, malus]) => {
+    resources[resource] = Math.floor(resources[resource] * (1 + malus / 100));
+  });
+
+  return resources;
+}
 
 /**
  * GET /api/feud/me
@@ -337,11 +362,13 @@ async function createFeud(req, res) {
     }
 
     // Criar novo feudo
+    const initialResources = applyInitialResourceModifiers(culture);
     const feud = await Feud.create({
       user_id: userId,
       name,
       culture,
       level: 1,
+      ...initialResources,
     });
 
     const productionInfo = await ResourceService.getProductionInfo(feud.id);

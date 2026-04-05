@@ -1,0 +1,75 @@
+{
+  "aiglanos": [
+    "Força da Legião: Metade da penalidade usando Scutum",
+    "Legionário: Parry custo 1 (50% redução)",
+    "Formação Testudo: Proteção aumentada em formação de escudo",
+    "Coordenação de Tropas: Bônus em coordenação militar",
+    "Absorção Cultural: Adicionar características de povos dominados"
+  ],
+  "baduran": [
+    "Defensor Anão: Imunidade a críticos e paralisias (-30% dano)",
+    "Filho do Progresso: Alchemy custo 1 (50% redução)",
+    "Construtor de Golems: Classe exclusiva",
+    "Forja Excepcional: Armas e equipamentos de alta qualidade",
+    "Resistência Mágica: Resistência aumentada à magia",
+    "Runas Arcanas: Acesso a runas para foco de magia",
+    "Pólvora e Explosivos: Tecnologia única"
+  ],
+  "bjorske": [
+    "Cavalaria de Escaramuça: Sem penalidades em combate montado com arcos",
+    "Cavalaria Nórdica: Handle Animal custo 1 (50% redução)",
+    "Carga Devastadora: Imparável em campo aberto",
+    "Combate Montado: Machados, lanças e arcos a cavalo",
+    "Tática de Cansaço: Escaramuça com projéteis antes da carga",
+    "Caça Montada: Disparar com precisão de cavalaria"
+  ],
+  "haroloth": [
+    "Oito Olhos: Bônus em Awareness (percepção)",
+    "Prole Abissal: Awareness custo 1 (50% redução)",
+    "Dançarino das Sombras: Classe exclusiva",
+    "Deslocador das Sombras: Classe exclusiva",
+    "Emboscada Devastadora: Ataques de surpresa poderosos",
+    "Assassinato de Líderes: Tática de guerrilha contra comandantes inimigos",
+    "Combate Ofensivo Rápido: Finalizar rápido com emboscada",
+    "Mobilidade em Escuridão: Movimenta-se livremente em trevas"
+  ],
+  "aluriel": [
+    "Conexão com Alora: +10 mana base",
+    "Arqueiro Arcano: Classe exclusiva",
+    "Guardião: Ranged custo 1 (50% redução)",
+    "Magia Arcana Aprimorada: Aprendizagem rápida de magia",
+    "Canalização de Mana: Facilidade inata em canalizar mana",
+    "Ligação com Natureza: Fëa - conexão espiritual com o mundo",
+    "Preservação de Conhecimento: Poesia e arte como registro histórico"
+  ],
+  "gulthrak": [
+    "Cria do Deserto: +10 para resistir climas quentes",
+    "Flagelo das Areias: Two Handed custo 1 (50% redução)",
+    "Aklat'tur: Classe exclusiva",
+    "Xamã: Classe exclusiva",
+    "Combate Brutal: Selvageria em batalha",
+    "Armas de Duas Mãos: Dano aumentado com armas pesadas",
+    "Caça Eficiente: Especialização em caça de aberrações",
+    "Resistência ao Cansaço: Resistência aumentada em combate longo"
+  ],
+  "colhesiana": [
+    "Desapercebido: +50% em passos enquanto escondido",
+    "Armadilheiro: Mechanics custo 1 (50% redução)",
+    "Produção de Ervas: Especiarias e ingredientes únicos",
+    "Alimentos Especiais: Biscoitos inovadores e compostos",
+    "Pensamento Rápido: Engenhosidade em situações difíceis",
+    "Conquistar Amizades: Capacidade inata de aliar-se",
+    "Comércio de Ingredientes: Acesso a componentes raros da culinária"
+  ],
+  "povos_do_leste": [
+    "Cavalaria de Escaramuça: Combate montado com arcos",
+    "Discípulo das Lâminas: Dual Wield custo 1 (50% redução)",
+    "Monge: Classe exclusiva",
+    "Samurai: Classe exclusiva",
+    "Combate com Katana: Técnicas milenares",
+    "Arte do Kai: Magia do Dragão (luta desarmada com fogo)",
+    "Punhos Ardentes: Método especial de canalizar poder do dragão",
+    "Honra e Lealdade: Código rígido moral e ético",
+    "Estratégia de Batalha: Conhecimento ancestral de tática militar"
+  ]
+}

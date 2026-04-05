@@ -1,0 +1,464 @@
+{
+  "culturas": {
+    "aiglanos": {
+      "nome": "Aiglanos",
+      "subtitulo": "Força através da União",
+      "tema": "Romano",
+      "origem": "Região central, conquistando os territórios adjacentes",
+      "religiao": "Veneratio",
+      "racas_disponiveis": [
+        "Anão",
+        "Meio-Drow",
+        "Meio-Elfo",
+        "Humano",
+        "Meio-Orc",
+        "Pequilho"
+      ],
+      "bonus": [
+        {
+          "nome": "Força da Legião",
+          "descricao": "Como um legionário, seu escudo é uma extensão do seu braço. Protegendo não apenas você, mas o Imperium. Você recebe apenas metade da penalidade usando Scutum"
+        },
+        {
+          "nome": "Passado: Legionário",
+          "tipo": "Custo de Perícia",
+          "descricao": "Custo 1 para Parry",
+          "reducao": "50%"
+        }
+      ],
+      "caracteristicas": [
+        "Disciplinados e inclusivos",
+        "Absorvem partes das culturas dominadas",
+        "Grande importância à história e cultura",
+        "Legionários bem treinados em formações",
+        "Estrutura de castas com plebe, cidadãos e nobreza"
+      ],
+      "recursos": [
+        "Comércio e diplomacia",
+        "Legião imperial com estrutura militar avançada"
+      ],
+      "tecnologias_unicas": [
+        "Formação Testudo (escudos em formação)",
+        "Táticas de acampamento móvel (Castra)",
+        "Estrutura de legião com 40kg de suprimentos por soldado"
+      ],
+      "bonus_guerra": [
+        "Proteção aumentada em formação de escudo",
+        "Bônus em coordenação de tropas",
+        "Técnicas de batalha testadas"
+      ]
+    },
+    "baduran": {
+      "nome": "Badûran",
+      "subtitulo": "Forja e Tecnologia",
+      "tema": "Anões",
+      "origem": "Khron Kaz'ad - Fortaleza subterrânea com minas profundas",
+      "religiao": "Culto aos Pais e Mães antepassados",
+      "racas_disponiveis": [
+        "Anão"
+      ],
+      "bonus": [
+        {
+          "nome": "Defensor Anão",
+          "descricao": "Você fica imune a críticos e paralisias, mas causa -30% de dano"
+        },
+        {
+          "nome": "Classe Exclusiva",
+          "tipo": "Classe",
+          "descricao": "Construtor de Golems"
+        },
+        {
+          "nome": "Passado: Filho do Progresso",
+          "tipo": "Custo de Perícia",
+          "descricao": "Reduz o custo de Alchemy para 1",
+          "reducao": "50%"
+        }
+      ],
+      "caracteristicas": [
+        "Tradicionalistas e leais",
+        "Valorizam o trabalho e a abundância",
+        "Todos possuem algum ofício",
+        "Temperamentais mas hospitaleiros",
+        "Grande apreço pela forja e trabalho manual"
+      ],
+      "recursos": [
+        "Minas profundas de minério",
+        "Forja excepcionais",
+        "Mithril e metais raros",
+        "Aço e ligas metálicas"
+      ],
+      "tecnologias_unicas": [
+        "Runas poderosas para foco de magia",
+        "Maquinários avançados de transporte",
+        "Pólvora e explosivos",
+        "Aparatos complexos para forja"
+      ],
+      "bonus_producao": [
+        "Bônus em produção de metal e minério",
+        "Fabricação de armas e equipamentos excepcionais",
+        "Acesso a runas arcanas"
+      ],
+      "bonus_defesa": [
+        "Imunidade a críticos",
+        "Imunidade a paralisias",
+        "Resistência aumentada à magia"
+      ]
+    },
+    "bjorske": {
+      "nome": "Björske",
+      "subtitulo": "Fúria e Tradição",
+      "tema": "Nórdicos",
+      "origem": "Norte de Eora em tribos, conquistam território aiglano",
+      "religiao": "Haulleuad - Culto ao Sol (Duw) e à Lua (Lleuad)",
+      "racas_disponiveis": [
+        "Humano"
+      ],
+      "bonus": [
+        {
+          "nome": "Cavalaria de Escaramuça",
+          "descricao": "Você aprendeu a montar desde pequeno, sabendo como manter o equilibrio no cavalo e a usá-lo em combate. Você não recebe penalidades no combate montado, podendo até usar arcos"
+        },
+        {
+          "nome": "Passado: Cavalaria Nórdica",
+          "tipo": "Custo de Perícia",
+          "descricao": "Reduz o custo de Handle Animal para 1",
+          "reducao": "50%"
+        }
+      ],
+      "caracteristicas": [
+        "Natos no uso de montarias",
+        "Extremamente valentes e obstinados",
+        "Adoram cantarolar em andanças",
+        "Não muito afeitos a livros e escrita",
+        "Passam tradições oralmente"
+      ],
+      "recursos": [
+        "Cavalaria nobres e ágeis",
+        "Caça abundante",
+        "Javalis para alimentação"
+      ],
+      "tecnologias_unicas": [
+        "Técnicas de combate montado com arco",
+        "Escaramuça tática de cansaço",
+        "Cargas de cavalaria imparáveis"
+      ],
+      "bonus_guerra": [
+        "Sem penalidades em combate montado",
+        "Capacidade de disparar arcos montado",
+        "Tática de escaramuça com projéteis",
+        "Carga de cavalaria devastadora",
+        "Combate com machados e lanças montado"
+      ]
+    },
+    "haroloth": {
+      "nome": "Har'oloth",
+      "subtitulo": "Medo e Traição",
+      "tema": "Elfos Negros / Drow",
+      "origem": "Subterrâneos - Umbreterna",
+      "religiao": "Eluith'orth - Culto à Idrith",
+      "racas_disponiveis": [
+        "Drow"
+      ],
+      "bonus": [
+        {
+          "nome": "Oito Olhos",
+          "descricao": "A vida em Umbreterna não é para os tolos ou incautos. Você se mantém atento, cada corredor espreita a própria morte. Recebe um bônus em Awareness"
+        },
+        {
+          "nome": "Classes Exclusivas",
+          "tipo": "Classes",
+          "descricao": "Dançarino das Sombras, Deslocador das Sombras"
+        },
+        {
+          "nome": "Passado: Prole Abissal",
+          "tipo": "Custo de Perícia",
+          "descricao": "Reduz o custo de Awareness para 1",
+          "reducao": "50%"
+        }
+      ],
+      "caracteristicas": [
+        "Natos na arte da emboscada",
+        "Mestres em artimanhas políticas",
+        "Preferem agir primeiro",
+        "Sistema de castas e hierarchy",
+        "Valor medido por poder e influência"
+      ],
+      "recursos": [
+        "Illyra - minério raro e quase indestrutível",
+        "Liga de comerciantes sofisticada",
+        "Estrutura política de casas"
+      ],
+      "tecnologias_unicas": [
+        "Illyra para armas e armaduras",
+        "Magia e conhecimento arcano avançado",
+        "Arte e música excepcional"
+      ],
+      "bonus_guerra": [
+        "Emboscadas devastadoras",
+        "Assassinato de líderes inimigos",
+        "Combate ofensivo rápido",
+        "Tácticas de guerrilha"
+      ],
+      "bonus_defesa": [
+        "Bônus em Awareness (Percepção)",
+        "Habilidades de furtividade aprimoradas",
+        "Mobilidade em ambientes escuros"
+      ]
+    },
+    "aluriel": {
+      "nome": "Aluriel",
+      "subtitulo": "Abençoados por Alora",
+      "tema": "Elfos",
+      "origem": "Antigos de Eora - Aldorathrim Ennorathel",
+      "religiao": "Lórë - Culto à Alora (Anor Thinduile), a Luz Eterna",
+      "racas_disponiveis": [
+        "Elfo"
+      ],
+      "bonus": [
+        {
+          "nome": "Conexão com Alora",
+          "descricao": "Você recebe +10 mana"
+        },
+        {
+          "nome": "Classe Exclusiva",
+          "tipo": "Classe",
+          "descricao": "Arqueiro Arcano"
+        },
+        {
+          "nome": "Guardião",
+          "tipo": "Custo de Perícia",
+          "descricao": "Reduz o custo de Ranged para 1",
+          "reducao": "50%"
+        }
+      ],
+      "caracteristicas": [
+        "Contemplativo e profundamente ligado à natureza",
+        "Dedicados à magia arcana",
+        "Dedicados à tradição e ao conhecimento",
+        "Preservam história através de poesia e música",
+        "Valorizam a harmonia e o equilíbrio"
+      ],
+      "recursos": [
+        "Magia arcana abundante",
+        "Conhecimento antigo",
+        "Arte e música excepcionais",
+        "Preservação da natureza"
+      ],
+      "tecnologias_unicas": [
+        "Magia arcana de alta complexidade",
+        "Poesia antiga e conhecimento mágico",
+        "Artes da forja que respeitam a natureza"
+      ],
+      "bonus_magia": [
+        "Bônus em aprendizagem de magia arcana",
+        "Fácil canalização de mana",
+        "Excelentes magos",
+        "+10 mana base"
+      ],
+      "bonus_producao": [
+        "Obras de arte superiores",
+        "Armas e armaduras que honram a natureza"
+      ],
+      "bonus_cultura": [
+        "Reservados com estranhos",
+        "Resistem a mudanças (cultura lenta)",
+        "Forte ligação espiritual com a natureza (Fëa)"
+      ]
+    },
+    "gulthrak": {
+      "nome": "Gulthrak",
+      "subtitulo": "Sangue e Areia",
+      "tema": "Orcs",
+      "origem": "Deserto de Adar Kor Doom (Grande Oásis - Xali'Ath)",
+      "religiao": "Grunntam - Único Caminho",
+      "racas_disponiveis": [
+        "Orc"
+      ],
+      "bonus": [
+        {
+          "nome": "Cria do Deserto",
+          "descricao": "Como um caçador de Aklat ou apenas um nômade na Horda, você desenvolveu um resistência ímpar ao calor do deserto. Bônus para resistir climas quentes (+10)"
+        },
+        {
+          "nome": "Classes Exclusivas",
+          "tipo": "Classes",
+          "descricao": "Aklat'tur e Xamã"
+        },
+        {
+          "nome": "Passado: Flagelo das Areias",
+          "tipo": "Custo de Perícia",
+          "descricao": "Reduz o custo de Two Handed para 1",
+          "reducao": "50%"
+        }
+      ],
+      "caracteristicas": [
+        "Brutais e selvagens em combate",
+        "Dificuldades com ironia e sentido figurado",
+        "Fortes e guerreiros natos",
+        "Leais aos seus de tribo",
+        "Objetivos e diretos"
+      ],
+      "recursos": [
+        "Caça de Aklats",
+        "Deserto (areia)",
+        "Água nos oásis (períodos de chuva)"
+      ],
+      "tecnologias_unicas": [
+        "Armaduras de osso e couro",
+        "Armas de sucata reciclada",
+        "Dogmas de sobrevivência do deserto"
+      ],
+      "bonus_guerra": [
+        "Combate brutal e selvagem",
+        "Armas de duas mãos aprimoradas",
+        "Caça eficiente",
+        "Resistência ao cansaço"
+      ],
+      "bonus_defesa": [
+        "Resistência ao calor (+10)",
+        "Resistência às condições desérticas",
+        "Sobrevivência em ambientes hostis"
+      ]
+    },
+    "colhesiana": {
+      "nome": "Colhesiana",
+      "subtitulo": "Os Pequeninos",
+      "tema": "Pequilhos / Hobbits",
+      "origem": "Condado de Colhesol",
+      "religiao": "Relacionada à terra e à agricultura",
+      "racas_disponiveis": [
+        "Pequilho"
+      ],
+      "bonus": [
+        {
+          "nome": "Desapercebido",
+          "descricao": "É difícil notar algo tão pequeno e sagaz, você recebe um bônus para dar mais passos escondido. Você aumenta em 50% os seus passos enquanto escondido"
+        },
+        {
+          "nome": "Passado: Armadilheiro",
+          "tipo": "Custo de Perícia",
+          "descricao": "Reduz o custo de Mechanics para 1",
+          "reducao": "50%"
+        }
+      ],
+      "caracteristicas": [
+        "Simples, apreciam conforto e calmaria",
+        "Ótimos agricultores",
+        "Passam despercebidos em multidões",
+        "Pensamento rápido e engenhosidade",
+        "Capacidade inata de conquistar amizades"
+      ],
+      "recursos": [
+        "Ervas e especiarias",
+        "Condimentos e compostos",
+        "Alfarroba (Pédoce) para doces",
+        "Biscoitos e alimentos especiais",
+        "Gengibre e componentes culinários"
+      ],
+      "tecnologias_unicas": [
+        "Biscoitos inovadores com gotas noturnas",
+        "Tostagem e moagem de compostos",
+        "Técnicas culinárias de artesanato"
+      ],
+      "bonus_producao": [
+        "Produção de ervas e especiarias",
+        "Criação de alimentos e doces especiais",
+        "Comércio de ingredientes únicos"
+      ],
+      "bonus_furtividade": [
+        "+50% em passos enquanto escondido",
+        "Capacidade natural de passar despercebido",
+        "Bônus em Mechanics (Armadilhas)"
+      ]
+    },
+    "povos_do_leste": {
+      "nome": "Povos do Leste",
+      "subtitulo": "Equilíbrio e Honra",
+      "tema": "Oriental / Dinastia Huang",
+      "origem": "Continente ao leste, Dinastia Huang milenar",
+      "religiao": "Kai - Culto ao Deus-Dragão Huangxu",
+      "racas_disponiveis": [
+        "Humano"
+      ],
+      "bonus": [
+        {
+          "nome": "Cavalaria de Escaramuça",
+          "descricao": "Pode combater montado, até mesmo com arcos"
+        },
+        {
+          "nome": "Classes Exclusivas",
+          "tipo": "Classes",
+          "descricao": "Monges e Samurais"
+        },
+        {
+          "nome": "Passado: Discípulo das Lâminas",
+          "tipo": "Custo de Perícia",
+          "descricao": "Reduz o custo de Dual Wield para 1",
+          "reducao": "50%"
+        }
+      ],
+      "caracteristicas": [
+        "Prezam pela sabedoria e conhecimento",
+        "Artes milenares de luta",
+        "Códigos de ética, tradição e honra",
+        "Alguns clãs refletem origem bárbaros",
+        "Lealdade absoluta ao Imperador"
+      ],
+      "recursos": [
+        "Comércio avançado",
+        "Grãos e alimentos",
+        "Conhecimento ancestral"
+      ],
+      "tecnologias_unicas": [
+        "Técnicas de combate com Katana",
+        "Arte do Kai (magia do dragão)",
+        "Monges Vermelhos / Punhos Ardentes",
+        "Artes marciais milenares"
+      ],
+      "bonus_guerra": [
+        "Combate em dual wield",
+        "Combate montado com arco",
+        "Técnicas de luta desarmada",
+        "Estratégia e conhecimento de batalha"
+      ],
+      "bonus_cultura": [
+        "Sabedoria e conhecimento arcano",
+        "Honra e lealdade",
+        "Artes de combate refinadas"
+      ]
+    }
+  },
+  "resumo_comparativo": {
+    "bonus_producao": {
+      "baduran": "Metal, minério, pólvora, armas",
+      "colhesiana": "Ervas, especiarias, alimentos especiais",
+      "aluriel": "Arte, magia, conhecimento",
+      "aiglanos": "Comércio, diplomacia, estrutura militar"
+    },
+    "bonus_guerra": {
+      "aiglanos": "Formação de escudo, coordenação",
+      "bjorske": "Cavalaria montada, arco a cavalo",
+      "haroloth": "Emboscada, assassinato de líderes",
+      "gulthrak": "Armas pesadas, combate brutal",
+      "povos_do_leste": "Dual wield, técnicas marciais"
+    },
+    "bonus_defesa": {
+      "baduran": "Imunidade a críticos e paralisias",
+      "haroloth": "Awareness e furtividade",
+      "gulthrak": "Resistência ao calor",
+      "colhesiana": "Furtividade aprimorada"
+    },
+    "bonus_magia": {
+      "aluriel": "+10 mana, magia arcana aprimorada",
+      "baduran": "Runas, resistência à magia",
+      "povos_do_leste": "Kai (magia do dragão)"
+    },
+    "classes_exclusivas": {
+      "baduran": "Construtor de Golems",
+      "aluriel": "Arqueiro Arcano",
+      "haroloth": "Dançarino das Sombras, Deslocador das Sombras",
+      "gulthrak": "Aklat'tur, Xamã",
+      "povos_do_leste": "Monges, Samurais"
+    }
+  }
+}
