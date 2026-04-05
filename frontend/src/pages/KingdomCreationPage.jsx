@@ -88,6 +88,30 @@ export default function KingdomCreationPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  // Verificar se já existe feudo ao carregar a página
+  React.useEffect(() => {
+    const checkExistingFeud = async () => {
+      try {
+        const response = await fetch(`${API_URL}/feud/me`, {
+          headers: {
+            'Authorization': `Bearer ${authService.getToken()}`,
+          },
+        });
+
+        if (response.ok) {
+          // Se tem feudo, redireciona pro dashboard
+          console.log('Feudo existente encontrado, redirecionando...');
+          navigate('/dashboard');
+        }
+      } catch (err) {
+        // Sem feudo, player pode criar um novo
+        console.log('Sem feudo, aguardando criação...');
+      }
+    };
+
+    checkExistingFeud();
+  }, [navigate]);
+
   const selectedCultureInfo = CULTURES.find((c) => c.id === selectedCulture);
 
   const resourceEmojis = {
@@ -148,6 +172,12 @@ export default function KingdomCreationPage() {
       console.log('Create feud response data:', responseData);
 
       if (!response.ok) {
+        // Se foi erro 409 (já existe feudo), redireciona pro dashboard
+        if (response.status === 409) {
+          console.log('Feudo já existe, redirecionando pro dashboard...');
+          setTimeout(() => navigate('/dashboard'), 1000);
+          return;
+        }
         throw new Error(responseData.message || 'Erro ao criar reino. Tente novamente.');
       }
 
