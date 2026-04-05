@@ -20,48 +20,64 @@ const CULTURES = [
     name: 'Baduran',
     description: 'Anões mestres da forja e da tecnologia, temperamentais mas profundamente leais, vivem nas profundezas das montanhas cultivando tradições milenares.',
     color: '#A67C52',
+    bonus: { pedra: 20, ferro: 20, minério_raro: 15 },
+    malus: { comida: -25 },
   },
   {
     id: 'drow',
     name: 'Drow',
     description: 'Elfos negros que governam através do medo e da intriga política nas profundezas, uma sociedade de castas sob o culto à deusa Idrith.',
     color: '#6B5B5B',
+    bonus: { cobre: 15, cristais: 10 },
+    malus: { madeira: -15 },
   },
   {
     id: 'aiglanos',
     name: 'Aiglanos',
     description: 'Povo astuto que prospera através da disciplina e da união, construindo um império onde a força das legiões e o mérito determinam o destino.',
     color: '#D4AF37',
+    bonus: { cobre: 20, pergaminhos: 15 },
+    malus: { madeira: -10, pedra: -10 },
   },
   {
     id: 'björske',
     name: 'Björske',
     description: 'Guerreiros nórdicos tradicionais devotos ao culto do Sol e da Lua, famosos por sua incomparável cavalaria e devoção à força e fertilidade.',
     color: '#8CB5D0',
+    bonus: { comida: 20, madeira: 15 },
+    malus: { pergaminhos: -15 },
   },
   {
     id: 'polkinea',
     name: 'Polkinea',
     description: 'Pequilhos simples e felizes que cultivam a terra e saboreiam a paz, dotados de coragem e capacidade única de conquistar amizades.',
     color: '#B8D87F',
+    bonus: { comida: 25, cobre: 10 },
+    malus: { pedra: -20 },
   },
   {
     id: 'gulthrak',
     name: 'Gulthrak',
     description: 'Orcs nômades do deserto, selvagens e brutais em combate mas sábios em sua luta pela sobrevivência, devotos ao ciclo de sangue, areia e água.',
     color: '#A0522D',
+    bonus: { minério_raro: 15, ferro: 15, pedra: 10 },
+    malus: { cobre: -25 },
   },
   {
     id: 'p_leste',
     name: 'P. Leste',
     description: 'Milenares povos sob dinastia unificada que honram disciplina, honra e lealdade ao Imperador, com tradições de monges guerreiros e samurais lendários.',
     color: '#E08B7D',
+    bonus: { pergaminhos: 20, cristais: 15 },
+    malus: { comida: -20 },
   },
   {
     id: 'aluriel',
     name: 'Aluriel',
     description: 'Antigos elfos contemplativos profundamente ligados à natureza e à magia, criadores de beleza e sabedoria imortais, abençoados pela deusa Alora.',
     color: '#A989BE',
+    bonus: { cristais: 25, pergaminhos: 10, madeira: 15 },
+    malus: { pedra: -20 },
   },
 ];
 
@@ -73,6 +89,17 @@ export default function KingdomCreationPage() {
   const [loading, setLoading] = useState(false);
 
   const selectedCultureInfo = CULTURES.find((c) => c.id === selectedCulture);
+
+  const resourceEmojis = {
+    madeira: '🌳',
+    pedra: '⛏️',
+    ferro: '⚔️',
+    comida: '🍖',
+    cobre: '🪙',
+    pergaminhos: '📜',
+    cristais: '💎',
+    minério_raro: '✨',
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -341,6 +368,8 @@ export default function KingdomCreationPage() {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 1.5,
+                maxHeight: '100%',
+                minHeight: 0,
               }}
             >
               <Typography
@@ -364,6 +393,37 @@ export default function KingdomCreationPage() {
               >
                 {selectedCultureInfo.description}
               </Typography>
+
+              {/* Bônus e Malus */}
+              <Box sx={{ borderTop: '1px solid #555', paddingTop: 1.5, marginTop: 1.5 }}>
+                {/* Bônus */}
+                {Object.keys(selectedCultureInfo.bonus).length > 0 && (
+                  <Box sx={{ marginBottom: 1.5 }}>
+                    <Typography sx={{ color: '#90EE90', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: 0.5 }}>
+                      📈 BÔNUS PERMANENTES
+                    </Typography>
+                    {Object.entries(selectedCultureInfo.bonus).map(([resource, value]) => (
+                      <Typography key={resource} sx={{ color: '#90EE90', fontSize: '0.8rem' }}>
+                        {resourceEmojis[resource]} {resource.toUpperCase().replace('_', ' ')}: <strong>+{value}%</strong>
+                      </Typography>
+                    ))}
+                  </Box>
+                )}
+
+                {/* Malus */}
+                {Object.keys(selectedCultureInfo.malus).length > 0 && (
+                  <Box>
+                    <Typography sx={{ color: '#FF6B6B', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: 0.5 }}>
+                      📉 PENALIDADES
+                    </Typography>
+                    {Object.entries(selectedCultureInfo.malus).map(([resource, value]) => (
+                      <Typography key={resource} sx={{ color: '#FF6B6B', fontSize: '0.8rem' }}>
+                        {resourceEmojis[resource]} {resource.toUpperCase().replace('_', ' ')}: <strong>{value}%</strong>
+                      </Typography>
+                    ))}
+                  </Box>
+                )}
+              </Box>
             </Paper>
           ) : (
             <Paper
