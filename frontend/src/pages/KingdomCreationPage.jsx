@@ -19,6 +19,8 @@ import {
 } from '@mui/material';
 import { authService } from '../services/authService';
 
+const API_URL = import.meta.env.DEV ? 'http://localhost:5000/api' : 'https://api.odisseiadamente.com.br/api';
+
 const CULTURES = [
   { id: 'baduran', name: 'Baduran', description: 'Anões - Mestres em construção e mineração' },
   { id: 'drow', name: 'Drow', description: 'Elfos Negros - Especialistas em intriga' },
@@ -69,7 +71,7 @@ export default function KingdomCreationPage() {
       }
 
       // Chamar API para criar feudo
-      const response = await fetch('/api/feud', {
+      const response = await fetch(`${API_URL}/feud`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
