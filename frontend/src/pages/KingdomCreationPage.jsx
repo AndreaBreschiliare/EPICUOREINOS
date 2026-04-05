@@ -19,14 +19,14 @@ import { authService } from '../services/authService';
 const API_URL = import.meta.env.DEV ? 'http://localhost:5000/api' : 'https://api.odisseiadamente.com.br/api';
 
 const CULTURES = [
-  { id: 'baduran', name: 'Baduran', description: 'Anões - Mestres em construção e mineração' },
-  { id: 'drow', name: 'Drow', description: 'Elfos Negros - Especialistas em intriga' },
-  { id: 'aiglanos', name: 'Aiglanos', description: 'Romano - Poder militar e organização' },
-  { id: 'björske', name: 'Björske', description: 'Rohan - Guerreiros nórdicos' },
-  { id: 'polkinea', name: 'Polkinea', description: 'Hobbit - Agricultores astuciosos' },
-  { id: 'gulthrak', name: 'Gulthrak', description: 'Orc - Força bruta e agressão' },
-  { id: 'p_leste', name: 'P. Leste', description: 'Oriental - Sabedoria e comércio' },
-  { id: 'aluriel', name: 'Aluriel', description: 'Élfico - Magia e elegância' },
+  { id: 'baduran', name: 'Baduran', description: 'Anões mestres da forja e da tecnologia, temperamentais mas profundamente leais, vivem nas profundezas das montanhas cultivando tradições milenares.' },
+  { id: 'drow', name: 'Drow', description: 'Elfos negros que governam través do medo e da intriga política nas profundezas, uma sociedade de castas sob o culto à deusa Idrith.' },
+  { id: 'aiglanos', name: 'Aiglanos', description: 'Povo astuto que prospera através da disciplina e da união, construindo um império onde a força das legiões e o mérito determinam o destino.' },
+  { id: 'björske', name: 'Björske', description: 'Guerreiros nórdicos tradicionais devotos ao culto do Sol e da Lua, famosos por sua incomparável cavalaria e devoção à força e fertilidade.' },
+  { id: 'polkinea', name: 'Polkinea', description: 'Pequilhos simples e felizes que cultivam a terra e saboreiam a paz, dotados de coragem e capacidade única de conquistar amizades.' },
+  { id: 'gulthrak', name: 'Gulthrak', description: 'Orcs nômades do deserto, selvagens e brutais em combate mas sábios em sua luta pela sobrevivência, devotos ao ciclo de sangue, areia e água.' },
+  { id: 'p_leste', name: 'P. Leste', description: 'Milenares povos sob dinastia unificada que honram disciplina, honra e lealdade ao Imperador, com tradições de monges guerreiros e samurais lendários.' },
+  { id: 'aluriel', name: 'Aluriel', description: 'Antigos elfos contemplativos profundamente ligados à natureza e à magia, criadores de beleza e sabedoria imortais, abençoados pela deusa Alora.' },
 ];
 
 export default function KingdomCreationPage() {
