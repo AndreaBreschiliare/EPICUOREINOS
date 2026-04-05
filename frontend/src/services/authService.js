@@ -122,7 +122,14 @@ export const authService = {
    * Salva token e usuário
    */
   saveAuth(user, token) {
+    console.log('💾 saveAuth called with:', { user, token: token ? token.substring(0, 20) + '...' : 'null' });
     localStorage.setItem('token', token);
-    localStorage.setItem('user', JSON.stringify(user));
+    const userJson = JSON.stringify(user);
+    console.log('📝 Saving user JSON:', userJson);
+    localStorage.setItem('user', userJson);
+    console.log('✅ localStorage after save:', {
+      token: localStorage.getItem('token') ? 'EXISTS' : 'MISSING',
+      user: JSON.parse(localStorage.getItem('user')),
+    });
   },
 };

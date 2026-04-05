@@ -50,12 +50,15 @@ export default function LoginPage() {
       }
 
       console.log('🔐 Login iniciado para:', email);
-      const { user, token } = await authService.login(email, password);
-      console.log('✅ Login response:', { user, token: token ? token.substring(0, 20) + '...' : 'null' });
+      const loginResult = await authService.login(email, password);
+      console.log('✅ Login response completo:', loginResult);
+      const { user, token } = loginResult;
+      console.log('🔎 Extraído do response:', { user, token: token ? token.substring(0, 20) + '...' : 'null' });
       
+      console.log('💾 Chamando saveAuth com user:', user);
       authService.saveAuth(user, token);
-      console.log('💾 Após saveAuth:');
-      console.log('   - Token no localStorage:', authService.getToken() ? 'SIM' : 'NÃO');
+      console.log('✅ Na volta de saveAuth:');
+      console.log('   - Token no localStorage:', authService.getToken() ? authService.getToken().substring(0, 20) + '...' : 'NÃO');
       console.log('   - User no localStorage:', authService.getUser());
 
       // Salvar ou remover credenciais com base no checkbox
