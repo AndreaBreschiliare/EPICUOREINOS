@@ -218,50 +218,22 @@ export default function KingdomCreationPage() {
           </Paper>
         </Grid>
 
-        {/* DIREITA - Informações + Formulário */}
+        {/* DIREITA - Nome + Descrição + Formulário */}
         <Grid item xs={12} sm={3} md={4.5}>
-          <Paper
-            sx={{
-              padding: 3,
-              background: 'rgba(50, 50, 50, 0.9)',
-              border: '2px solid #D4A574',
-              borderRadius: 2,
-              height: '100%',
-              overflowY: 'auto',
-              backdropFilter: 'blur(10px)',
-            }}
-          >
-            {selectedCultureInfo && (
-              <>
-                <Typography
-                  variant="h5"
-                  sx={{
-                    color: '#D4A574',
-                    fontWeight: 'bold',
-                    marginBottom: 1,
-                    textTransform: 'uppercase',
-                    fontSize: '1.3rem',
-                  }}
-                >
-                  {selectedCultureInfo.name}
-                </Typography>
-
-                <Typography
-                  sx={{
-                    color: '#aaa',
-                    marginBottom: 3,
-                    fontSize: '0.95rem',
-                    lineHeight: 1.6,
-                  }}
-                >
-                  {selectedCultureInfo.description}
-                </Typography>
-
-                <Box sx={{ borderTop: '1px solid #555', paddingTop: 2, marginBottom: 2 }} />
-              </>
-            )}
-
-            <Box component="form" onSubmit={handleSubmit}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, height: '100%' }}>
+            {/* NOME DO REINO - Topo */}
+            <Paper
+              id="kingdom-form"
+              component="form"
+              onSubmit={handleSubmit}
+              sx={{
+                padding: 2.5,
+                background: 'rgba(50, 50, 50, 0.9)',
+                border: '2px solid #D4A574',
+                borderRadius: 2,
+                backdropFilter: 'blur(10px)',
+              }}
+            >
               {error && (
                 <Alert severity="error" sx={{ marginBottom: 2 }}>
                   {error}
@@ -272,12 +244,14 @@ export default function KingdomCreationPage() {
                 variant="subtitle2"
                 sx={{
                   color: '#D4A574',
-                  marginBottom: 1,
+                  marginBottom: 1.5,
                   fontWeight: 'bold',
-                  fontSize: '0.9rem',
+                  fontSize: '0.85rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
                 }}
               >
-                NOME DO REINO
+                Nome do Reino
               </Typography>
 
               <TextField
@@ -287,9 +261,10 @@ export default function KingdomCreationPage() {
                 disabled={loading}
                 placeholder="Ex: Reino da Esperança"
                 sx={{
-                  marginBottom: 2,
+                  marginBottom: 0,
                   '& .MuiOutlinedInput-root': {
                     color: '#fff',
+                    backgroundColor: 'rgba(0,0,0,0.3)',
                     '& fieldset': {
                       borderColor: '#8B6F47',
                     },
@@ -304,54 +279,90 @@ export default function KingdomCreationPage() {
                     color: '#888',
                     opacity: 0.7,
                   },
-                  '& .MuiInputLabel-root': {
-                    color: '#8B6F47',
-                    '&.Mui-focused': {
-                      color: '#D4A574',
-                    },
-                  },
                 }}
                 inputProps={{
                   maxLength: 50,
                 }}
               />
+            </Paper>
 
-              <Button
-                fullWidth
-                type="submit"
-                variant="contained"
-                disabled={loading || !selectedCulture}
+            {/* DESCRIÇÃO DA CULTURA - Caixa Separada */}
+            {selectedCultureInfo && (
+              <Paper
                 sx={{
-                  padding: '12px',
-                  background: 'linear-gradient(135deg, #D4A574 0%, #8B6F47 100%)',
-                  color: '#000',
-                  fontWeight: 'bold',
-                  fontSize: '16px',
-                  marginTop: 2,
-                  '&:hover':
-                    !loading && selectedCulture
-                      ? {
-                          background:
-                            'linear-gradient(135deg, #E8C78A 0%, #9B7F57 100%)',
-                        }
-                      : {},
-                  '&:disabled': {
-                    background: '#555',
-                    color: '#999',
-                  },
+                  padding: 2.5,
+                  background: 'rgba(50, 50, 50, 0.9)',
+                  border: '2px solid #D4A574',
+                  borderRadius: 2,
+                  flex: 1,
+                  overflowY: 'auto',
+                  backdropFilter: 'blur(10px)',
                 }}
               >
-                {loading ? (
-                  <>
-                    <CircularProgress size={20} sx={{ marginRight: 1 }} />
-                    Fundando...
-                  </>
-                ) : (
-                  '🏰 FUNDAR REINO'
-                )}
-              </Button>
-            </Box>
-          </Paper>
+                <Typography
+                  sx={{
+                    color: '#D4A574',
+                    fontWeight: 'bold',
+                    marginBottom: 1.5,
+                    fontSize: '1rem',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em',
+                  }}
+                >
+                  {selectedCultureInfo.name}
+                </Typography>
+
+                <Typography
+                  sx={{
+                    color: '#ccc',
+                    fontSize: '0.9rem',
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {selectedCultureInfo.description}
+                </Typography>
+              </Paper>
+            )}
+
+            {/* BOTÃO FUNDAR REINO - Rodapé */}
+            <Button
+              fullWidth
+              type="submit"
+              form="kingdom-form"
+              variant="contained"
+              disabled={loading || !selectedCulture}
+              sx={{
+                padding: '14px',
+                background: 'linear-gradient(135deg, #D4A574 0%, #8B6F47 100%)',
+                color: '#000',
+                fontWeight: 'bold',
+                fontSize: '15px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                '&:hover':
+                  !loading && selectedCulture
+                    ? {
+                        background:
+                          'linear-gradient(135deg, #E8C78A 0%, #9B7F57 100%)',
+                        boxShadow: '0 6px 12px rgba(212, 165, 116, 0.3)',
+                      }
+                    : {},
+                '&:disabled': {
+                  background: '#555',
+                  color: '#999',
+                },
+              }}
+            >
+              {loading ? (
+                <>
+                  <CircularProgress size={18} sx={{ marginRight: 1 }} />
+                  Fundando...
+                </>
+              ) : (
+                '🏰 Fundar Reino'
+              )}
+            </Button>
+          </Box>
         </Grid>
       </Grid>
     </Box>
