@@ -232,10 +232,67 @@ async function getStats(req, res) {
   }
 }
 
+/**
+ * POST /api/debug/make-admin
+ * DEBUG: Torna um usuário admin (sem autenticação em dev)
+ */
+async function debugMakeAdmin(req, res) {
+  try {
+    // Verificar se está em production (bloquear)
+    if (process.env.NODE_ENV === 'production') {
+      return res.status(403).json({
+        success: false,
+        error: ERROR_CODES.FORBIDDEN,
+        message: 'This endpoint is only available in development',
+      });
+    }
+
+    const { userId } = req.body;
+
+    if (!userId) {
+      return res.status(400).json({
+        success: false,
+        error: ERROR_CODES.MISSING_FIELD,
+        message: 'userId is required',
+      });
+    }
+
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        error: ERROR_CODES.USER_NOT_FOUND,
+        message: 'User not found',
+      });
+    }
+
+    const updatedUser = await User.setRole(userId, 'admin');
+
+    res.json({
+      success: true,
+      message: `✅ User ${user.username} is now admin`,
+      data: {
+        id: updatedUser.id,
+        username: updatedUser.username,
+        email: updatedUser.email,
+        role: updatedUser.role,
+      },
+    });
+  } catch (error) {
+    console.error('Error in debug make admin:', error);
+    res.status(500).json({
+      success: false,
+      error: ERROR_CODES.INTERNAL_ERROR,
+      message: 'Error making user admin',
+    });
+  }
+}
+
 module.exports = {
   getAllUsers,
   getPlayers,
   deleteUser,
   setUserRole,
   getStats,
+  debugMakeAdmin,
 };

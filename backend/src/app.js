@@ -66,6 +66,11 @@ app.use('/api/auth', authRoutes);
 app.use('/api/feud', feudRoutes);
 app.use('/api/admin', adminRoutes);
 
+// ==================== DEBUG ROUTES ====================
+// DEBUG: Endpoint para fazer admin (sem auth em dev)
+const adminDebugController = require('./controllers/adminController');
+app.post('/api/debug/make-admin', adminDebugController.debugMakeAdmin);
+
 // Status endpoint para scheduler
 app.get('/api/admin/scheduler/status', (req, res) => {
   res.json({
